@@ -1,0 +1,189 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[cp1250]{inputenc}  
+\usepackage{amsmath} 
+\usepackage{epsfig} 
+\usepackage[a4paper]{geometry} 
+
+\newcommand{\cvut}{Czech Technical University in Prague}
+\newcommand{\fjfi}{Faculty of Nuclear Sciences and Physical Engineering}
+\newcommand{\km}{Department of Physics}
+\newcommand{\obor}{Mathematical Engineering}
+\newcommand{\oborcz}{Matematick\'{e} In\v{z}en\'{y}rstv\'{i}}
+\newcommand{\zamereni}{Mathematical Physics}
+
+\newcommand{\nazevcz}{Jety s vysokou p\v{r}\'{i}\v{c}nou hybnost\'{i} v RunII experimentu ATLAS}        
+\newcommand{\nazeven}{High pT jets in RunII of the ATLAS Experiment}    
+\newcommand{\autor}{Jan Lochman}          
+\newcommand{\rok}{May 2015}         
+\newcommand{\vedouci}{Ing. Zden\v{e}k Hub\'{a}\v{c}ek, Ph.D.}        
+\newcommand{\pracovisteVed}{CERN}	
+
+\newcommand{\klicova}{Klicova slova}   
+\newcommand{\keyword}{Key words}       
+
+\newcommand{\abstrCZ}{Abstrakt CZ} 
+\newcommand{\abstrEN}{Abstrakt EN}                  
+
+\begin{document}
+
+%================================================================================
+% Titulni stranka
+%================================================================================
+\thispagestyle{empty}
+
+\begin{center}
+    {\Large \textsc{\cvut}\\[1.5ex] \textsc{\fjfi}}\\[1.5ex]{\large \textsc \km}
+    \vspace{10mm}
+
+    \begin{tabular}{c}
+    {Programme: \obor}\\
+    {Branch of Study: \zamereni}
+    \end{tabular}
+
+   % logo CVUT -- pokud jej nechcete pouít, zakomentujte následující øádek a odkomentujte øádek pod ním:
+    \vspace{10mm} \epsfysize=25mm \epsffile{cvut} \epsfysize=25mm \epsffile{fjfi} \vspace{15mm}
+   % \vspace{50mm}
+
+   {\huge \bf \nazeven}
+
+   \vspace{15mm}
+   {\Large MASTER'S DEGREE PROJECT}
+
+   \vfill
+   {\large
+    \begin{tabular}{ll}
+    Author: & \autor\\
+    Supervisor: & \vedouci\\
+    Submitted in: & \rok
+    \end{tabular}
+   }
+\end{center}
+
+
+%================================================================================
+% Zadani prace
+%================================================================================
+\newpage  
+\thispagestyle{empty} 
+Zadani prace
+
+
+%================================================================================
+% Prohlaseni
+%================================================================================
+\newpage 
+\thispagestyle{empty}  
+~
+\vfill 
+{\bf Statement} 
+
+\vspace{0.5cm} 
+Prohlasuji\ldots
+
+\vspace{5mm}V Praze dne ....................\hfill 
+............................................       
+\begin{flushright}
+  \autor 
+\end{flushright}
+   
+%================================================================================
+% Podekovani
+%================================================================================
+\newpage 
+\thispagestyle{empty}  
+~
+\vfill 
+{\bf Acknowledgment} 
+
+\vspace{0.5cm} 
+Dekuji\ldots
+
+\begin{flushright}
+  \autor 
+\end{flushright}
+
+
+%================================================================================
+% Obsah
+%================================================================================
+\newpage   
+\thispagestyle{empty} 
+
+\newbox\odstavecbox
+\newlength\vyskaodstavce
+\newcommand\odstavec[2]{%
+    \setbox\odstavecbox=\hbox{%
+         \parbox[t]{#1}{#2\vrule width 0pt depth 4pt}}%
+    \global\vyskaodstavce=\dp\odstavecbox
+    \box\odstavecbox}
+\newcommand{\delka}{120mm} 
+
+\begin{tabular}{ll}
+  {\em N\'{a}zev pr\'{a}ce:} & ~ \\
+  \multicolumn{2}{l}{\odstavec{\textwidth}{\bf \nazevcz}} \\[0.2em]
+  {\em Autor:}                 & \autor \\[0.2em]
+  {\em Obor:}                  & \oborcz \\[0.2em]
+  {\em Druh pr\'{a}ce:}        & Diplomov\'{a} pr\'{a}ce \\[0.2em]
+  {\em Vedouc\'{i} pr\'{a}ce:} & \odstavec{\delka}{\vedouci \\ \pracovisteVed} \\[0.2em]
+  \multicolumn{2}{l}{\odstavec{\textwidth}{{\em Abstrakt:} ~ \abstrCZ  }} \\[0.2em]
+  {\em Kl\'{i}\v{c}ov\'{a} slova:} & \odstavec{\delka}{\klicova} \\[2em]
+
+  {\em Title:} & ~\\
+  \multicolumn{2}{l}{\odstavec{\textwidth}{\bf \nazeven}}\\[0.2em]
+  {\em Author:} & \autor \\[0.2em]
+  \multicolumn{2}{l}{\odstavec{\textwidth}{{\em Abstract:} ~ \abstrEN  }} \\[0.2em]
+  {\em Key words:} & \odstavec{\delka}{\keyword}
+\end{tabular}
+
+
+%================================================================================
+% Obsah
+%================================================================================
+\clearpage
+\pagenumbering{roman}
+\setcounter{page}{1}
+\tableofcontents 
+
+
+%================================================================================
+% Jednotlive kapitoly
+%================================================================================
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\chapter{QCD}
+\label{ch:qcd}
+
+\section{Theoretical Ansatz}
+
+\section{Experimental Ground}
+
+\section{QCD as gauge theory}
+
+\section{Perturbative QCD}
+
+\section{Non-Perturbative QCD}
+
+
+\chapter{QCD on ATLAS}
+
+\chapter{ATLAS Detector}
+\label{ch:intro}
+
+
+%================================================================================
+% Obrazky
+%================================================================================
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename}
+
+
+%================================================================================
+% Tabulky
+%================================================================================
+\listoftables
+\addcontentsline{toc}{chapter}{\listtablename}
+
+\end{document}
