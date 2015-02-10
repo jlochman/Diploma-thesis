@@ -5,6 +5,8 @@
 \usepackage{epsfig} 
 \usepackage[a4paper]{geometry} 
 \usepackage{cite}
+\usepackage{graphicx}
+\usepackage{url}
 
 \newcommand{\cvut}{Czech Technical University in Prague}
 \newcommand{\fjfi}{Faculty of Nuclear Sciences and Physical Engineering}
@@ -25,6 +27,14 @@
 
 \newcommand{\abstrCZ}{Abstrakt CZ} 
 \newcommand{\abstrEN}{Abstrakt EN}                  
+
+\newcommand{\MyQuote}[2]{
+  \textit{\quotation{#1}}
+  \begin{flushright}
+    #2
+  \end{flushright}
+  \vspace{10mm}
+}
 
 
 \begin{document}
@@ -165,10 +175,54 @@ Dekuji\ldots
 
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
-\cite{QCD_textbook}
 
 \chapter{QCD}
 \label{ch:qcd}
+
+\MyQuote{Is the purpose of theoretical physics to be no more than a cataloging of all the
+things that can happen when particles interact with each other and separate? Or
+is it to be an understanding at a deeper level in which there are things that
+are not directly observable (as the underlying quantized fields are) but in
+terms of which we shall have a more fundamental understanding?}
+{Julian Schwinger}
+
+The theoretical framework of particle physics is called Standard Model (SM). The
+SM describes the way how the fundamental components of matter interact with each
+other through strong, weak and electromagnetic interactions. Mathematically the
+SM is gauge quantum field theory with local internal symmetries of the direct
+product group $SU(3) \times SU(2) \times U(1)$. Gauge bosons are assigned to
+generators of this symmetry - there are 8 massless gluons from $SU(3)$
+intermediating strong interaction between quarks and 3 massive $W^\pm, Z$ bosons with 1 massless
+boson $\gamma$ for electroweak $SU(2) \times U(1)$ sector. Higgs mechanism has
+to be introduced in electroweak sector to assign $W^\pm, Z$ bosons mass and as
+consequence the new particle - Higgs boson - emerges in the SM theory. All
+bosons have integer spin.
+
+In addition to the bosons the SM introduces spin-$1/2$ fermions which are
+divided into three quark and three lepton
+families. Fermions are assumed to be point-like because there is no evidence for
+their internal structure to date. All fermions interact weakly, if they have
+electrical charge, they interact electromagnetically as well. Quarks are the
+only fundamental fermions which do interact strongly. System of fundamental
+particles of the SM is shown in figure \ref{fig:SMparticles}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{Chapter1/SM.png} 
+  \caption{The system of fundamental particles of the SM. Figure from
+    \cite{wiki:SMParticlesSource}}
+  \label{fig:SMparticles}
+\end{figure}
+
+Quarks bind together to form hadrons and there are hunderds (?source?) of known
+hadrons up to date. Theory describing the interaction between quarks is called
+Quantum Chromodynamics (QCD) which key features will be discussed in this
+chapter. The reasoning for quark existence and for the description their strong
+interaction as $SU(3)$ gauge theory will be presented. Running coupling constant
+will be discused to split QCD into perturbative and non-perturbative regions -
+two regions, where QCD has to use different mathematical approach for description of
+strong interaction. Most of ideas presented here is overtaken from the following
+textbook \cite{QCDTextbook}.
 
 \section{Theoretical Ansatz}
 
@@ -202,6 +256,10 @@ Dekuji\ldots
 \listoftables
 \addcontentsline{toc}{chapter}{\listtablename}
 
+
+%================================================================================
+% Bibliografie
+%================================================================================
 
 \clearpage
 \bibliographystyle{plain}
