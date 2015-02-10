@@ -2,11 +2,14 @@
 \usepackage[T1]{fontenc}
 \usepackage[cp1250]{inputenc}  
 \usepackage{amsmath} 
+\usepackage{amssymb} 
 \usepackage{epsfig} 
 \usepackage[a4paper]{geometry} 
 \usepackage{cite}
 \usepackage{graphicx}
 \usepackage{url}
+\usepackage{multirow}
+\usepackage{array}
 
 \newcommand{\cvut}{Czech Technical University in Prague}
 \newcommand{\fjfi}{Faculty of Nuclear Sciences and Physical Engineering}
@@ -35,6 +38,10 @@
   \end{flushright}
   \vspace{10mm}
 }
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 
 \begin{document}
@@ -206,7 +213,7 @@ electrical charge, they interact electromagnetically as well. Quarks are the
 only fundamental fermions which do interact strongly. System of fundamental
 particles of the SM is shown in figure \ref{fig:SMparticles}.
 
-\begin{figure}[t]
+\begin{figure}[!ht]
   \centering
   \includegraphics[width=\textwidth]{Chapter1/SM.png} 
   \caption{The system of fundamental particles of the SM. Figure from
@@ -214,17 +221,92 @@ particles of the SM is shown in figure \ref{fig:SMparticles}.
   \label{fig:SMparticles}
 \end{figure}
 
-Quarks bind together to form hadrons and there are hunderds (?source?) of known
+Quarks bind together to form hadrons and there are hundreds (?source?) of known
 hadrons up to date. Theory describing the interaction between quarks is called
 Quantum Chromodynamics (QCD) which key features will be discussed in this
 chapter. The reasoning for quark existence and for the description their strong
 interaction as $SU(3)$ gauge theory will be presented. Running coupling constant
-will be discused to split QCD into perturbative and non-perturbative regions -
+will be discussed to split QCD into perturbative and non-perturbative regions -
 two regions, where QCD has to use different mathematical approach for description of
 strong interaction. Most of ideas presented here is overtaken from the following
 textbook \cite{QCDTextbook}.
 
 \section{Theoretical Ansatz}
+
+In 1950s there have already been discovered tens of new hadrons thanks to new
+particle accelerators and a lot of effort was exerted to categorize them. To each
+particle there was except its mass assigned a series of quantum numbers
+including isospin $T$ with its third component $T_3$, hypercharge $Y$,
+electrical charge $Q$, strangeness $S$, baryon number $B$ and others. Soon it
+was recognized, that there are some symmetries between these quantum numbers,
+like Gell-Mann--Nishijima relation \cite{GellMannNishijima1,GellMannNishijima2}
+
+\begin{equation}
+  Q = T_3 + 1/2 Y \quad , \quad Y = B + S + \dots,
+  \label{ex:GellMannNishijima}
+\end{equation}
+where dots denotes charm, bottomness and topness. 
+
+\begin{table}
+  \centering
+  \begin{tabular}{|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|}
+    \multicolumn{1}{c|}{} & $S$ & $Y$ & $T$ & $T_3$ & $Q$  \\
+    \hline \hline
+    $p$ & \multirow{2}{*}{0} & \multirow{2}{*}{1} & \multirow{2}{*}{1/2} & 1/2  & 1 \\
+    $n$ &                    &                    &                      & -1/2 & 0 \\
+    \hline                                                              
+    $\Sigma^+$  & \multirow{4}{*}{-1} & \multirow{4}{*}{0} & \multirow{3}{*}{1} & 1  & 1  \\
+    $\Sigma^0$  &                     &                    &                    & 0  & 0  \\
+    $\Sigma^-$  &                     &                    &                    & -1 & -1 \\
+    $\Lambda$   &                     &                    & 0                  & 0  & 0  \\
+    \hline                                                              
+    $\Xi^0$ & \multirow{2}{*}{-2} & \multirow{2}{*}{-1} & \multirow{2}{*}{1/2} & 1/2 & 0  \\
+    $\Xi^-$ &                     &                     &                      &-1/2 & -1 \\
+    \hline
+  \end{tabular}
+  \caption{Quantum numbers of selected hadrons known in 1950s. $S$ strangeness,
+  $Y$ hypercharge, $T$ isospin, $T_3$ third component of isospin, $Q$ electrical
+charge.}
+  \label{tab:SelectedHadrons}
+\end{table}
+
+
+\begin{table}
+  \centering
+  \begin{tabular}{|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|}
+    \multicolumn{1}{c|}{} & $S$ & $Y$ & $T$ & $T_3$ & $Q$  \\
+    \hline \hline
+    $u$ & \multirow{2}{*}{0} & \multirow{2}{*}{1/3} & \multirow{2}{*}{1/2} & 1/2
+    & 2/3 \\
+    $d$ &                    &                      &                      &
+    -1/2 & \multirow{2}{*}{-1/3} \\
+    $s$ & -1                 & -2/3                 & 0                    & 0    &  \\
+    \hline                                                              
+  \end{tabular}
+  \caption{Quantum numbers of three quarks which existence was predicted by
+    Gell-Mann and Zweig in 1964.}
+  \label{tab:SelectedQuarks}
+\end{table}
+
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Chapter1/Quark-triplet.png} 
+  \caption{Eigenvalues of 3-dimensional representation of $\mathfrak{su}(3)$ Lie algebra. Figure
+    from \cite{LieAlgebrasForParticlePhysicists}.}
+  \label{fig:QuarkTriplet}
+\end{figure}
+
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Chapter1/Baryon-octet.png} 
+  \caption{Baryonic octet encapsulating baryons from table
+    \ref{tab:SelectedHadrons}. Figure from \cite{wiki:EightFoldWay}.}
+  \label{fig:BaryonicOctet}
+\end{figure}
+
+
 
 \section{Experimental Ground}
 
@@ -262,7 +344,7 @@ textbook \cite{QCDTextbook}.
 %================================================================================
 
 \clearpage
-\bibliographystyle{plain}
+\bibliographystyle{ieeetr}
 \bibliography{bibliography}
 \addcontentsline{toc}{chapter}{Bibliography}
 
