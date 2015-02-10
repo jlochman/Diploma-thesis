@@ -107,3 +107,6 @@ sympy-plots-for-*.tex/
 
 # xindy
 *.xdy
+
+# but include thesis1.pdf
+!thesis1.pdf

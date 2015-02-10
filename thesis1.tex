@@ -4,6 +4,7 @@
 \usepackage{amsmath} 
 \usepackage{epsfig} 
 \usepackage[a4paper]{geometry} 
+\usepackage{cite}
 
 \newcommand{\cvut}{Czech Technical University in Prague}
 \newcommand{\fjfi}{Faculty of Nuclear Sciences and Physical Engineering}
@@ -24,6 +25,7 @@
 
 \newcommand{\abstrCZ}{Abstrakt CZ} 
 \newcommand{\abstrEN}{Abstrakt EN}                  
+
 
 \begin{document}
 
@@ -59,6 +61,14 @@
     \end{tabular}
    }
 \end{center}
+
+
+%================================================================================
+% Prazdna stranka
+%================================================================================
+\newpage  
+\thispagestyle{empty} 
+~
 
 
 %================================================================================
@@ -153,6 +163,10 @@ Dekuji\ldots
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\cite{QCD_textbook}
+
 \chapter{QCD}
 \label{ch:qcd}
 
@@ -160,7 +174,7 @@ Dekuji\ldots
 
 \section{Experimental Ground}
 
-\section{QCD as gauge theory}
+\section{QCD as Gauge Theory}
 
 \section{Perturbative QCD}
 
@@ -176,6 +190,7 @@ Dekuji\ldots
 %================================================================================
 % Obrazky
 %================================================================================
+\clearpage
 \listoffigures
 \addcontentsline{toc}{chapter}{\listfigurename}
 
@@ -183,7 +198,14 @@ Dekuji\ldots
 %================================================================================
 % Tabulky
 %================================================================================
+\clearpage
 \listoftables
 \addcontentsline{toc}{chapter}{\listtablename}
+
+
+\clearpage
+\bibliographystyle{plain}
+\bibliography{bibliography}
+\addcontentsline{toc}{chapter}{Bibliography}
 
 \end{document}
