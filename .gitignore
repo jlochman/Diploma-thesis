@@ -108,5 +108,7 @@ sympy-plots-for-*.tex/
 # xindy
 *.xdy
 
+#ignore .DS_Store
+.DS_Store
 # but include thesis1.pdf
 !thesis1.pdf
