@@ -43,6 +43,8 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
+\newcommand{\GeV}{\,\text{GeV}}
+
 
 \begin{document}
 
@@ -203,7 +205,7 @@ intermediating strong interaction between quarks and 3 massive $W^\pm, Z$ bosons
 boson $\gamma$ for electroweak $SU(2) \times U(1)$ sector. Higgs mechanism has
 to be introduced in electroweak sector to assign $W^\pm, Z$ bosons mass and as
 consequence the new particle - Higgs boson - emerges in the SM theory. All
-bosons have integer spin.
+bosons have integer spin. 
 
 In addition to the bosons the SM introduces spin-$1/2$ fermions which are
 divided into three quark and three lepton
@@ -351,12 +353,12 @@ similarly for remaining 5 eigenstates. Defining
 \end{equation}
 one can easily assign hadrons from table
 \ref{tab:SelectedHadrons} to corresponding eigenvalues of adjoint
-representation in \ref{eq:RepresentLie8} according to its third component of
+representation in \eqref{eq:RepresentLie8} according to its third component of
 isospin $T_3$ and its hypercharge $Y$. This is depicted in figure
 \ref{fig:BaryonicOctet}. 
 
 When the same redefinition is done to the eigenstates
-of three-dimensional representation in \ref{eq:RepresentLie3}, one can assign to
+of three-dimensional representation in \eqref{eq:RepresentLie3}, one can assign to
 eigenstates the hypercharge $Y$ and strangeness $S$ as well. The concrete values for
 states $u$, $d$, $s$ are shown in table \ref{tab:SelectedQuarks}.
 
@@ -389,7 +391,7 @@ states $u$, $d$, $s$ are shown in table \ref{tab:SelectedQuarks}.
 It is possible to find another representations of Lie algebra, to which the
 observed hadrons can be assigned. The simplest way seems to be through highest
 weight defining representation. From eigenvalues of adjoint representation
-\ref{eq:RepresentLie8} one can find simple roots 
+\eqref{eq:RepresentLie8} one can find simple roots 
 $\alpha^1=\left( \frac{1}{2}, \frac{\sqrt{3}}{2} \right)$, 
 $\alpha^2=\left( \frac{1}{2}, - \frac{\sqrt{3}}{2} \right)$, 
 which are defining the highest weights 
@@ -434,6 +436,156 @@ observation of CP violation.
 
 
 \section{Experimental Ground}
+
+In the previous section it was shown the hadrons can be categorized using
+representations of $\mathfrak{su}(3)$ Lie algebra. This lead to the model, where
+baryons were composed of three quarks. In this section, some experimental
+evidences will be presented to support quark model. First the scattering
+reactions will be discussed. It will be shown, that the lepton scattering on
+nucleons can be explained by assumption, that nucleons are composed of spin-1/2
+point-like particles. Next discussion will address the fact, that there are
+three color charges - this will address the question, why the group $SU(3)$ is
+connected to the theory of strong interaction.
+
+\subsection{Scattering Reactions}
+
+One of the possibilities, how to find out, if there is some inner structure in
+nucleon $N$, are the scattering reactions
+
+\begin{align}
+  &e^- \, (E \gg 1\GeV) + N \rightarrow e^- + N,
+  \label{eq:ScatteringReactionsElectron} \\
+  &\nu_e \,\, (E \gg 1\GeV) + N \rightarrow \nu_e + N,
+  \label{eq:ScatteringReactionsNeutrino}
+\end{align}
+where the condition $E \gg 1 \GeV$ is explicitly written to ensure the wavelength
+of lepton being $< 0.2\,\text{fm}$. By the first scattering reaction, the information
+about electric charge distribution in nucleon can be extracted, whereas the
+second scattering reaction informs us about weak charge distribution. Further only
+\eqref{eq:ScatteringReactionsElectron} will be discussed. Feynmann diagram of this
+process is depicted with kinematics variables and vertex algebraic structures 
+in figure \ref{fig:Scattering}. 
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Chapter1/Scattering.png} 
+  \caption{Scattering reaction \eqref{eq:ScatteringReactionsElectron}. Figure from
+    \cite{QCDTextbook}}
+  \label{fig:Scattering}
+\end{figure}
+
+Because of Lorentz-invariance of QED, the matrix element of the nucleon vertex
+$\bar{u}(P',S')\Gamma_\mu u(P,S)$ has to be Lorentz-vector. This restricts
+the possible form of $\Gamma_\mu$ to the following algebraic structure
+
+\begin{equation}
+  \Gamma_\mu = A \gamma_\mu + B P_\mu' + C P_\mu + i D P'^\nu \sigma_{\mu\nu}
+    + i E P^\nu \sigma_{\mu\nu},
+  \label{eq:ScatteringAlgebraicMatrix}
+\end{equation}
+where $A$,\dots,$E$ depend only on Lorentz-invariant quantities. Next condition
+which has to be taken into account, is gauge invariance of matrix element, which
+can be written in the form
+
+\begin{equation}
+  q^\mu \bar{u}(P',S')\Gamma_\mu u(P,S).
+  \label{eq:ScatteringGaugeInvariance}
+\end{equation}
+
+The further computation of cross section is straightforward and the result can
+be easily generalized to nonelastic scattering by which the nucleon in final
+state decays. The result is usually written using inelasticity parameter
+$y=\frac{E-E'}{E}$, $0 \leq y \leq 1$ and $y=0$ is in the case of elastic
+scattering, Bjorken variable $ x = \frac{Q^2}{2 P \cdot q}$, $ 0 < x \leq 1$, $x
+= 1$ denoting elastic scattering and finally instead of negative value $q^2$ the
+$Q^2 = -q^2$ is used. Final result can be than written in the form
+
+\begin{equation}
+  \left. \frac{d^2\sigma}{dxdy} \right|_{eN} =
+  \frac{8 \pi M_N E \alpha^2}{Q^4} \left[ x y^2 F_1^{eN}(Q^2, x)
+  + (1-y) F_2^{eN}(Q^2,x) \right].
+  \label{eq:ScatteringRes1}
+\end{equation}
+The $eN$ sub(super)script stresses the fact, we are dealing with scattering
+\eqref{eq:ScatteringReactionsElectron}. $F_1^{eN}$ and $F_2^{eN}$ are the so
+called structure functions, which are not determinable by the theory just
+presented - they have to be measured experimentally.
+
+Structure constants were first measured by $eP$ scattering at SLAC in 1968
+(?citacce?) and shown the following results
+\begin{enumerate}
+  \item for $Q^2 \geq 1\GeV$, there is no significant dependence of structure
+    functions on $Q^2$ and
+  \item for $Q^2 \geq 1\GeV$, $F_2 \approx 2xF_1$.
+\end{enumerate}
+These results can be also seen from figure (?figure?) and can be explained by
+assumption nucleon being composed of point-like spin-1/2 constituents, for which
+R. P. Feynmann used term partons. To $i$th parton, it is possible to assign
+momentum $P_{i,\xi}$
+
+\begin{equation}
+  P_{i,\mu} = \xi_i P_\mu + \Delta P_{i,\mu} 
+    \quad , \quad \max_\mu (\Delta P_\mu) \ll \max_\mu P_\mu,
+  \label{PartonsMomentumDistriburtionAssumption}
+\end{equation}
+where $\xi_i \in \left< 0, 1 \right>$ and $\Delta P_{i,\mu}$ comes from the
+interaction between partons and it is assumed, the momentum coming from this
+interaction is much smaller than the total nucleon momentum $P_\mu$. In
+addition, probabilities $f_i(\xi_i)$ that $i$th parton will carry $\xi_i$
+fraction of total momentum fulfilling
+
+\begin{equation}
+  \int d\xi_i f_i(\xi_i) = 1
+  \label{PartonDensityFunctionsNormalization}
+\end{equation}
+must be defined. Then for scattering reaction
+\eqref{eq:ScatteringReactionsElectron} it can be derived the total cross section
+formula
+
+\begin{equation}
+  \left. \frac{d^2\sigma}{dxdy} \right|_{eN} =
+  \frac{4 \pi M_N E \alpha^2}{Q^4} \left[ y^2 + 2 ( 1 - y ) \right]
+  \sum_i f_i(x) q_i^2 x.
+  \label{eg:ScatteringRes2}
+\end{equation}
+where in for $i$th parton its electrical charge $q_i$ was introduced. The last
+expression and \eqref{eq:ScatteringRes1} can be compared as polynomials in $y$
+resulting in
+
+\begin{equation}
+  F_1^{eN}(x) = \frac{1}{2} \sum_i f_i(x)q_i^2
+  \quad , \quad
+  F_2^{eN}(x) = \sum_i f_i(x) q_i^2 x.
+  \label{eq:StructureFunctionAndPDF}
+\end{equation}
+It can be easily checked, that $F_2^{eN}(x) = 2 x F_1^{eN}(x)$. Functions
+$f_i(x)$ just introduced are called Parton Density Functions (PDF) and their
+important role in QCD will be discussed in (?somewhere?) in more details.
+
+Important conclusion from analyzing of scattering reactions is, that the
+experimental results can be explained by assumption nucleons being consisted of
+spin-1/2 point-like partons, now called quarks. 
+
+\subsection{Number of Colors}
+
+Despite the strong confidence in parton model, theory which would describe the
+interaction between partons was still missing. There was no direct evidence on
+how the theory would look like in (?year?). The theory of electroweak
+unification successfully suggested, that the gauge theories are the right
+theories for description of world at subatomic level, but to construct gauge
+theory of strong interaction the number of colors first had to be known.
+
+Number of colors $N_C$ is the number of different kinds of quarks of the same
+flavor with respect to the new interaction. In this part, three arguments will
+be presented to demonstrate, that $N_C = 3$.
+
+The first argument is the analysis of the reaction of electron-positron
+anihilation into the pair of fermion and anti-fermion
+
+\begin{equation}
+  e^+e^- \rightarrow f\bar{f}.
+  \label{ElectronPositronAnihilation}
+\end{equation}
 
 \section{QCD as Gauge Theory}
 
