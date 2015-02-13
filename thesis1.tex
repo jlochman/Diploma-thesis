@@ -10,6 +10,7 @@
 \usepackage{url}
 \usepackage{multirow}
 \usepackage{array}
+\usepackage{mathrsfs}
 
 \newcommand{\cvut}{Czech Technical University in Prague}
 \newcommand{\fjfi}{Faculty of Nuclear Sciences and Physical Engineering}
@@ -44,6 +45,7 @@
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 \newcommand{\GeV}{\,\text{GeV}}
+\newcommand{\Euler}{\mathrm{e}}
 
 
 \begin{document}
@@ -234,6 +236,7 @@ strong interaction. Most of ideas presented here is overtaken from the following
 textbook \cite{QCDTextbook}.
 
 \section{Theoretical Ansatz}
+\label{Sec:TheoreticalAnsatz}
 
 In 1950s there have already been discovered tens of new hadrons thanks to new
 particle accelerators and a lot of effort was exerted to categorize them. To each
@@ -442,8 +445,8 @@ representations of $\mathfrak{su}(3)$ Lie algebra. This lead to the model, where
 baryons were composed of three quarks. In this section, some experimental
 evidences will be presented to support quark model. First the scattering
 reactions will be discussed. It will be shown, that the lepton scattering on
-nucleons can be explained by assumption, that nucleons are composed of spin-1/2
-point-like particles. Next discussion will address the fact, that there are
+nucleons can be explained by assumption, that nucleons are composed of 
+point-likes pin-1/2 particles. Next discussion will address the fact, that there are
 three color charges - this will address the question, why the group $SU(3)$ is
 connected to the theory of strong interaction.
 
@@ -579,15 +582,151 @@ Number of colors $N_C$ is the number of different kinds of quarks of the same
 flavor with respect to the new interaction. In this part, three arguments will
 be presented to demonstrate, that $N_C = 3$.
 
-The first argument is the analysis of the reaction of electron-positron
-anihilation into the pair of fermion and anti-fermion
+The first argument is the analysis of the electron-positron anihilation into the
+pair of fermion and anti-fermion
 
 \begin{equation}
   e^+e^- \rightarrow f\bar{f}.
   \label{ElectronPositronAnihilation}
 \end{equation}
 
+Feynmann diagram of this reaction is shown in figure \ref{fig:RRatio}, where
+constants sitting in two vertices are denoted.  $\alpha$ stands for fine
+structure constants and $Q_f$ for charge of fermion $f$ in units of positron
+charge. Total cross section has to be proportional to
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Chapter1/RRatio.png} 
+  \caption{$e^+e^- \rightarrow f\bar{f}$ annihilation with vertex constants.
+     $\alpha$ stands for fine structure constant, $Q_f$ for charge of fermion $f$
+     in units of positron charge.}
+  \label{fig:RRatio}
+\end{figure}
+
+\begin{equation}
+  \sigma (e^- e^+ \rightarrow f \bar{f} ) \sim Q_f^2 \alpha^2.
+  \label{eq:NumberOfColorsBasicCrossSection}
+\end{equation}
+In the case fermion $f$ being quark, there is new degeneracy in final state
+coming from different colors of quarks in final state - the total cross section
+has to be multiplied by factor $N_C$. Experimentally, the so called $R$-factor
+is measured
+
+\begin{equation}
+  R = \frac{\sigma(e^+ e^- \rightarrow \text{hadrons})}{\sigma(e^+ e^-
+  \rightarrow \mu^+ \mu^-)} = \left( \sum_q Q_q^2 \right) N_C,
+  \label{eq:NumberOfColorsRatio}
+\end{equation}
+where sum on the left hand side is over all possible quark states. When the
+quark model proposed by Gell-Mann a Zweig is used, then
+
+\begin{equation}
+  R = \left[ \left( \frac{2}{3} \right)^2 +
+    \left( \frac{-1}{3} \right)^2 +
+  \left( \frac{-1}{3} \right)^2 \right] N_C = \frac{2}{3}N_C.
+  \label{eq:NumberOfColorsSubstitued}
+\end{equation}
+Experimental results for $R$-ratio have shown (?citace?, ?concrete value?), that
+$N_C = 3$.
+
+The second argument is the measurement of decay width of $\pi_0$ meson. Decay is
+depicted in figure \ref{fig:PiDecay}. For decay width $\Gamma$ it can be derived 
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Chapter1/PiMesonDecay.png} 
+  \caption{$\pi^0 \rightarrow 2 \gamma$ decay with closed fermion loop.}
+  \label{fig:PiDecay}
+\end{figure}
+
+\begin{equation}
+  \Gamma = 7.63 \left( \frac{N_C}{3} \right)^2 \, \text{eV},
+  \label{ex:PiMesonDecayWidth}
+\end{equation}
+which, compared to the experimental value (?citace?, ?concrete value?) leads
+again to $N_C=3$.
+
+The third argument is purely theoretical and states, that the SM is internally
+consistent only if there are three colors (?citace?). This indicates that there
+is some linking between electroweak and strong sector of SM and motivates the
+search for Grand Unified Theories.
+
 \section{QCD as Gauge Theory}
+
+Putting arguments of previous section all together, there are strong
+experimental evidences, that nucleons consist of point-like spin-1/2 particles
+called quarks and that quarks bring into the theory new degeneracy factor $N_C =
+3$, which can be understood as three different strong charges called colors.
+
+Nowadays the quark-quark strong interaction is understood as an $SU(3)$ gauge theory in
+a degree of freedom called color. Gell-Mann matrices \eqref{eq:GellMannMatrices}
+can be chosen as generators of $SU(3)$. These matrices act on quark color
+triplets wave functions
+
+\begin{equation}
+  \psi(x) = \begin{pmatrix}  
+    \psi_r(x) \\ \psi_g(x) \\ \psi_b(x) \\ 
+            \end{pmatrix}.
+  \label{eq:QuarkWaveFunction}
+\end{equation}
+Following the Yang-Mills theory (?citace?), to each generator
+$\frac{\lambda^a}{2}$ gluon field $A_\mu^a(x)$ and gluon file strength tensor
+
+\begin{equation}
+  F_{\mu\nu}^a = \left( \partial_\mu A_\nu^a - \partial_\nu A_\mu^a + g f^{abc}
+  A_\mu^b A_\nu^c \right)
+  \label{eq:GluonFieldStrengthTensor}
+\end{equation}
+is assigned where $g$ denotes the coupling constant of strong interaction and
+$f^{abc}$ are structure constant defined in section \ref{Sec:TheoreticalAnsatz}.
+QCD Lagrangian
+
+\begin{equation}
+  \mathscr{L}_{\text{QCD}} = \bar{\psi} \left( -i \partial_\mu + g \frac{\lambda}{2}
+  A_\mu^a(x) \right) \gamma^\mu \psi - \frac{1}{4}F_{\mu\nu}^aF_a^{\mu\nu}
+  \label{eq:QCDLagrangian}
+\end{equation}
+is invariant under local transformation
+
+\begin{align}
+  &\psi(x) \, \, \, \rightarrow \psi'(x) = \Euler^{ig\Theta(x)} \psi(x),
+    \label{eq:QCDGaugeTranform} \\
+  &A_\mu(x) \rightarrow \Euler^{ig\Theta(x)} \left( A_\mu(x) +
+    \frac{i}{g}\partial_\mu \right) \Euler^{-ig\Theta(x)}, 
+\end{align}
+where
+
+\begin{equation}
+  \Theta(x) = \frac{1}{2} \lambda^a \Theta^a(x) 
+  \quad , \quad
+  A_\mu(x) = \frac{1}{2} \lambda^a A_\mu^a(x).
+  \label{eq:QCDAdditionalFunctions}
+\end{equation}
+
+There is no mass term in Lagrangian \eqref{eq:QCDLagrangian} because mass term
+$m\bar{\psi}\psi$ vary under gauge transformation
+\ref{eq:QCDGaugeTranform}. Origin of mass term lies in Higgs mechanism
+(?citace?) which will not be discussed here. 
+
+QCD Lagrangian \ref{eq:QCDLagrangian} together with gauge transformations
+\ref{eq:QCDGaugeTranform} are sufficient for determination of Feynman rules -
+key ingredient in perturbative QCD which will be discussed in next section.
+
+By derivation of gluon propagator, one has to add to the QCD Lagrangain the so
+called gauge-fixing term
+
+\begin{equation}
+  \mathscr{L}_{\text{QCD}}^{\text{gauge-fixing}} = - \frac{1}{2\xi} \left( \partial_\mu A_a^\mu
+  \right)^2,
+  \label{eq:QCDGaugeFixingTerm}
+\end{equation}
+which confines the possible gauges to one class parametrized by real parameter
+$\xi$. In non-Abelian gauge theories this term must be supplemented by the so
+called ghost term which brings into the theory new unphysical scalar particle
+obeying fermionic statistics. More details on so called Faddev-Popov ghost filed
+can be found in (?source?).
+
 
 \section{Perturbative QCD}
 
