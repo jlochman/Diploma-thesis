@@ -45,6 +45,7 @@
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 \newcommand{\GeV}{\,\text{GeV}}
+\newcommand{\MeV}{\,\text{MeV}}
 \newcommand{\Euler}{\mathrm{e}}
 
 
@@ -472,7 +473,7 @@ in figure \ref{fig:Scattering}.
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.5\textwidth]{Chapter1/Scattering.png} 
-  \caption{Scattering reaction \eqref{eq:ScatteringReactionsElectron}. Figure from
+  \caption{Scattering reaction $e^-N \rightarrow e^-N$. Figure from
     \cite{QCDTextbook}}
   \label{fig:Scattering}
 \end{figure}
@@ -706,11 +707,11 @@ where
 
 There is no mass term in Lagrangian \eqref{eq:QCDLagrangian} because mass term
 $m\bar{\psi}\psi$ vary under gauge transformation
-\ref{eq:QCDGaugeTranform}. Origin of mass term lies in Higgs mechanism
+\eqref{eq:QCDGaugeTranform}. Origin of mass term lies in Higgs mechanism
 (?citace?) which will not be discussed here. 
 
-QCD Lagrangian \ref{eq:QCDLagrangian} together with gauge transformations
-\ref{eq:QCDGaugeTranform} are sufficient for determination of Feynman rules -
+QCD Lagrangian \eqref{eq:QCDLagrangian} together with gauge transformations
+\eqref{eq:QCDGaugeTranform} are sufficient for determination of Feynman rules -
 key ingredient in perturbative QCD which will be discussed in next section.
 
 By derivation of gluon propagator, one has to add to the QCD Lagrangain the so
@@ -730,8 +731,131 @@ can be found in (?source?).
 
 \section{Perturbative QCD}
 
+Quantum Electrodynamics (QED) and QCD are both quantum filed gauge theories, but
+they differ in one key feature - the former is Abelian whereas the latter is
+not. The non-Abelian character of QCD leads to new phenomenons which have the origin in QCD
+Lagrangian \eqref{eq:QCDLagrangian} which directly leads to triple and quartic
+gluonic interactions. In this section one remarkable consequence will be
+discussed - the running coupling constant.
+
+Assume scattering process  
+
+\begin{equation}
+  q \bar{q} \rightarrow q \bar{q},
+  \label{eq:QuarkScattering}
+\end{equation}
+which is depicted in the lowest order of perturbation theory by the Feynman
+graph \ref{fig:QuarkQuarkScattering}. Except contribution of this graph to the
+scattering amplitude (which is the only contribution $\sim g^2$) there are 12
+other Feynman diagrams with contributions $\sim g^4$. These are depicted in
+figure \ref{fig:QuarkQuarkScatteringCorrection}. 
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Chapter1/QuarkQuarkScattering.png} 
+  \caption{Leading order Feynmann diagrams in scattering reaction $q \bar{q}
+    \rightarrow q \bar{q}$ with denoted transfered momentum $k$.}
+  \label{fig:QuarkQuarkScattering}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{Chapter1/QuarkQuarkCorrection.png} 
+  \caption{Next to the leading order Feynmann diagrams in scattering reactions
+    $q \bar{q} \rightarrow q \bar{q}$. Dashed line represents scalar ghost
+  particle.}
+  \label{fig:QuarkQuarkScatteringCorrection}
+\end{figure}
+
+The contributions from new Feynman diagrams are calculated in \cite{QCDTextbook}
+in detail. There is shown, that all this contributions together are
+logarithmically divergent. This divergence can be removed, when from the scattering
+amplitude for arbitrary momentum transfer $k^2$ scattering amplitude for fixed
+momentum transfer $k^2 = -M^2$ is subtracted. This is how the renormalized
+coupling constant $g_R$ is obtained and here is its final expression 
+
+\begin{equation}
+  g_R = g_0 - \frac{g_0^3}{16\pi^2} \left( \frac{11}{2} - \frac{1}{3}N_F \right)
+  \ln \left( \frac{-k^2}{M^2} \right) + \mathscr{O}(g_0^5).
+  \label{eq:RenormalizedCoupling}
+\end{equation}
+$g_0$ stands for the coupling constant measured at the renormalization scale
+$k^2 = -M^2$ and $N_F$ is the number of different quark flavors with mass $m^2
+\ll \left| k^2 \right|$. Dependence of $g_R$ on transfered momentum $k^2$ is
+evident, but there are another two intertwined dependences - on normalization
+scale $M$ and on coupling constant at renormalization scale $g_0 =
+\left. g_R \right|_{k^2=-M^2}$. For next purpose, it is convenient use the dependence schema
+
+\begin{equation}
+  g_R = g_R(-k^2,g_0(M))
+  \label{eq:RunningCouplingConstantDependenceSchema}
+\end{equation}
+which allows us to use advantages of $\beta$-function and using equation
+\ref{eq:RenormalizedCoupling} leads to following differential equation for $g_0$
+
+\begin{align}
+  \beta(g_0) \equiv M \left( \frac{\partial g_R}{\partial M} \right)_{-k^2=M^2}
+  &= M \left( \frac{dg_0}{dM} \right)_{-k^2=M^2}
+  \label{eq:BetaFunction1} \\
+  &= -b_0 g_0^3 + \mathscr{O}(g_0^5)
+  , \quad b_0 = \frac{1}{16\pi^2}\left(11-\frac{2N_F}{3}\right),
+  \label{eq:BetaFunction2}
+\end{align}
+which can be solved directly to obtain coupling constant $g_0$ for arbitrary
+scale $-k^2$
+
+\begin{equation}
+  \int_{g_0(M^2)}^{g_0(-k^2)} \frac{dg_0}{g_0^3} =
+  -b_0 \int_{M^2}^{-k^2}\frac{dM}{M}
+  \label{eq:RunningCouplingConstantIntegralEquation}
+\end{equation}
+with solution
+
+\begin{equation}
+  \alpha_S(-k^2) = \frac{\alpha_S(M^2)}{1 + \frac{\alpha_S(M^2)}{4\pi} \left(
+  11-\frac{2N_F}{3} \right) \ln \left( \frac{-k^2}{M^2} \right) }
+  , \quad g_0^2(-k^2) = 4 \pi \alpha_S( -k^2 ),
+  \label{eq:RunningCouplingConstant}
+\end{equation}
+which is the final expression for running coupling constant up to one-loop
+order. This dependence corresponds to experimental data which are depicted in
+figure \ref{fig:RunningCouplingConstant}. Coupling constant decreases with
+increasing momentum transfer allowing the use of the perturbation theory.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Chapter1/RunningCouplingConstant.jpg}
+  \caption{Experimental measurements of running coupling constant.
+    $Q=\sqrt{\left|k^2\right|}$ in comparison to
+    \eqref{eq:RunningCouplingConstant}. (?source?) (?maybe better picture?)}
+  \label{fig:RunningCouplingConstant}
+\end{figure}
+
+But when the momentum transfer decreases, there is special value
+$-k^2=\Lambda^2$ for which the last expression diverges
+
+\begin{equation}
+  -1 = \frac{\alpha_S(M^2)}{4\pi} \left( 11 - \frac{2N_F}{3} \right)
+  \ln \left( \frac{\Lambda^2}{M^2} \right).
+  \label{eq:RunningLambda}
+\end{equation}
+Experimental value is $\Lambda=\dots$ (?source?) and demonstrates, that
+perturbative QCD cannot be used at low energy transfers. In fact, the running
+coupling constant $\alpha_S(-k^2)$ reaches value $\sim 1$ on momenta
+transfers $\sqrt{\left| k^2 \right|} \sim 500\MeV$.
+
+To understand e.g. structure of proton with rest mass $< 1\GeV$ it is clear
+non-perturbative QCD has to be used. The ideas of non-perturbative QCD will be
+introduced in next section. (?maybe?)
+
+
+
+
+
 \section{Non-Perturbative QCD}
 
+
+\section{Basic principles of QCD}
 
 \chapter{QCD on ATLAS}
 
