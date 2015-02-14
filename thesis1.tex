@@ -52,7 +52,7 @@
 \begin{document}
 
 %================================================================================
-% Titulni stranka
+% Title page
 %================================================================================
 \thispagestyle{empty}
 
@@ -65,9 +65,8 @@
     {Branch of Study: \zamereni}
     \end{tabular}
 
-   % logo CVUT -- pokud jej nechcete pouít, zakomentujte následující øádek a odkomentujte øádek pod ním:
     \vspace{10mm} \epsfysize=25mm \epsffile{cvut} \epsfysize=25mm \epsffile{fjfi} \vspace{15mm}
-   % \vspace{50mm}
+    %\vspace{50mm}
 
    {\huge \bf \nazeven}
 
@@ -86,7 +85,7 @@
 
 
 %================================================================================
-% Prazdna stranka
+% Empty page
 %================================================================================
 \newpage  
 \thispagestyle{empty} 
@@ -94,7 +93,7 @@
 
 
 %================================================================================
-% Zadani prace
+% Official assignment
 %================================================================================
 \newpage  
 \thispagestyle{empty} 
@@ -102,7 +101,7 @@ Zadani prace
 
 
 %================================================================================
-% Prohlaseni
+% Statement
 %================================================================================
 \newpage 
 \thispagestyle{empty}  
@@ -120,7 +119,7 @@ Prohlasuji\ldots
 \end{flushright}
    
 %================================================================================
-% Podekovani
+% Acknowledgment
 %================================================================================
 \newpage 
 \thispagestyle{empty}  
@@ -137,7 +136,7 @@ Dekuji\ldots
 
 
 %================================================================================
-% Obsah
+% Abstract and others
 %================================================================================
 \newpage   
 \thispagestyle{empty} 
@@ -170,7 +169,7 @@ Dekuji\ldots
 
 
 %================================================================================
-% Obsah
+% Content
 %================================================================================
 \clearpage
 \pagenumbering{roman}
@@ -179,7 +178,7 @@ Dekuji\ldots
 
 
 %================================================================================
-% Jednotlive kapitoly
+% Chapters
 %================================================================================
 \clearpage
 \pagenumbering{arabic}
@@ -204,11 +203,11 @@ other through strong, weak and electromagnetic interactions. Mathematically the
 SM is gauge quantum field theory with local internal symmetries of the direct
 product group $SU(3) \times SU(2) \times U(1)$. Gauge bosons are assigned to
 generators of this symmetry - there are 8 massless gluons from $SU(3)$
-intermediating strong interaction between quarks and 3 massive $W^\pm, Z$ bosons with 1 massless
-boson $\gamma$ for electroweak $SU(2) \times U(1)$ sector. Higgs mechanism has
-to be introduced in electroweak sector to assign $W^\pm, Z$ bosons mass and as
-consequence the new particle - Higgs boson - emerges in the SM theory. All
-bosons have integer spin. 
+intermediating strong interaction between colored quarks and 3 massive $W^\pm,
+Z$ bosons with 1 massless boson $\gamma$ for electroweak $SU(2) \times U(1)$
+sector. Higgs mechanism has to be introduced in electroweak sector to assign
+$W^\pm, Z$ bosons mass and as consequence the new particle - Higgs boson -
+emerges in the SM theory. All bosons have integer spin. 
 
 In addition to the bosons the SM introduces spin-$1/2$ fermions which are
 divided into three quark and three lepton
@@ -216,7 +215,7 @@ families. Fermions are assumed to be point-like because there is no evidence for
 their internal structure to date. All fermions interact weakly, if they have
 electrical charge, they interact electromagnetically as well. Quarks are the
 only fundamental fermions which do interact strongly. System of fundamental
-particles of the SM is shown in figure \ref{fig:SMparticles}.
+particles of the SM is shown in figure \ref{fig:SMparticles}. 
 
 \begin{figure}[!ht]
   \centering
@@ -227,14 +226,18 @@ particles of the SM is shown in figure \ref{fig:SMparticles}.
 \end{figure}
 
 Quarks bind together to form hadrons and there are hundreds (?source?) of known
-hadrons up to date. Theory describing the interaction between quarks is called
+hadrons up to date. Hadrons are divided into baryons (3 quarks) and mesons
+(quark and anti-quark). Theory describing the interaction between quarks is called
 Quantum Chromodynamics (QCD) which key features will be discussed in this
 chapter. The reasoning for quark existence and for the description their strong
 interaction as $SU(3)$ gauge theory will be presented. Running coupling constant
 will be discussed to split QCD into perturbative and non-perturbative regions -
 two regions, where QCD has to use different mathematical approach for description of
 strong interaction. Most of ideas presented here is overtaken from the following
-textbook \cite{QCDTextbook}.
+textbook \cite{QCDTextbook}. Electroweak sector of the SM is described in
+\cite{horejsi2002fundamentals}. For more concise information about the SM the
+following textbooks can serve
+\cite{griffiths2008introduction,cottingham2007introduction}.
 
 \section{Theoretical Ansatz}
 \label{Sec:TheoreticalAnsatz}
@@ -251,13 +254,13 @@ like Gell-Mann--Nishijima relation \cite{GellMannNishijima1,GellMannNishijima2}
   Q = T_3 + 1/2 Y \quad , \quad Y = B + S + \dots,
   \label{ex:GellMannNishijima}
 \end{equation}
-where dots denotes charm, bottomness and topness. Some of the hadrons known by
+where dots denote charm, bottomness and topness. Some of the baryons known by
 then are shown in table \ref{tab:SelectedHadrons}. In 1960s the known particles
 were successfully categorized with the so called Eightfold Way, which was
-published independently by Murray Gell-Mann (?citace?) and George Zweig
-(?citace?) in 1964. The Eightfold Way successfully predicted the existence of new particle
-$\Omega^{--}$ including its mass. Basic ideas of Eightfold way will be discussed
-in this section.
+published independently by Murray Gell-Mann \cite{Gell-Mann:101798} and George
+Zweig \cite{Zweig:570209} in 1964. The Eightfold Way successfully predicted the
+existence of new particle $\Omega^{-}$ including its mass. Basic ideas of
+Eightfold way will be discussed in this section.
 
 \begin{table}
   \centering
@@ -284,9 +287,9 @@ charge.}
 
 The key feature of Eightfold Way is to understand hadrons as the part of
 different representations of infinitesimal generators of $SU(3)$ flavor symmetry
-group. Lie algebra of $SU(3)$ is real eight-dimensional Lie algebra
-$\mathfrak{su}(3)$ which fundamental representation is usually derived from
-Gell-Mann matrices
+group. These infinitesimal generators of $SU(3)$ form the real eight-dimensional
+Lie algebra $\mathfrak{su}(3)$ which fundamental representation is usually
+derived from Gell-Mann matrices
 
 \begin{align}
   &\lambda_1 = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
@@ -406,21 +409,23 @@ procedure is described in \cite{LieAlgebrasForParticlePhysicists} in detail.
 
 Representations defined by highest weight $\mu^1$ or $\mu^2$ respectively are
 called fundamental. Fundamental representation defined by $\mu^1$ is usually
-denoted $\mathbf{3}$ and its weight diagram is shown at figure
-\ref{fig:QuarkTriplet}, corresponding to three different quark states. The
-second fundamental representation corresponds to three anti-quark states and is
-usually denoted $\bar{\mathbf{3}}$. Representation depicted in figure
-\ref{fig:BaryonicOctet} is defined by the highest weight $\mu^1 + \mu^2$.
+denoted $\mathbf{3}$ and was encountered already by expressions
+\eqref{eq:RepresentLie3} with weight diagram at figure \ref{fig:QuarkTriplet},
+corresponding to three different quark states. The second fundamental
+representation corresponds to three anti-quark states and is usually denoted
+$\bar{\mathbf{3}}$. Representation depicted in figure \ref{fig:BaryonicOctet} is
+defined by the highest weight $\mu^1 + \mu^2$.
 
 Special interest is in representations with dimensions $10$, $8$ and $1$. These
-multiplets are present in decompositions $\mathbf{3} \otimes \mathbf{3} \otimes
+are present in decompositions $\mathbf{3} \otimes \mathbf{3} \otimes
 \mathbf{3} = \mathbf{10} \oplus \mathbf{8} \oplus \mathbf{8} \oplus \mathbf{1}$,
 which correspond to the baryons composed of three quarks, and $\mathbf{3}
 \otimes \bar{\mathbf{3}} = \mathbf{8} \oplus \mathbf{1}$ corresponding to
 mesons from quark and anti-quark.
 
 Important feature of quark model just presented is its capability to predict
-hadron masses. This is done using Gell-Mann--Okubo mass formula (?citace?)
+hadron masses. This is done using Gell-Mann--Okubo mass formula
+\cite{Gell-Mann:1250016,Okubo01051962}
 
 \begin{equation}
   M = a_0 + a_1 S + a_2 \left( T(T+1) - \frac{1}{4}S^2 \right),
@@ -429,11 +434,10 @@ hadron masses. This is done using Gell-Mann--Okubo mass formula (?citace?)
 where $a_0$, $a_1$ and $a_2$ are free parameters which are common for all
 hadrons in one multiplet. 
 
-In less than a year after publication of Gell-Mann--Zweig quark model, Sheldon
-Lee Glashow and James Bjorken proposed (?citace?) an extension which predicted
-existence of fourth flavor of quark - charm quark.
-
-In 1973 the Makoto Kobayashi and Toshihide Moskawa proposed (?citace?) that the
+In 1970 Sheldon Lee Glashow, John Iliopoulos and Luciano Maiani proposed
+\cite{Quarks4} an extension which predicted existence of fourth flavor of quark
+- charm quark.
+In 1973 the Makoto Kobayashi and Toshihide Moskawa proposed \cite{Quarks6} that the
 existence of 6 different quark flavors could explain the experimental
 observation of CP violation.
 
@@ -443,13 +447,14 @@ observation of CP violation.
 
 In the previous section it was shown the hadrons can be categorized using
 representations of $\mathfrak{su}(3)$ Lie algebra. This lead to the model, where
-baryons were composed of three quarks. In this section, some experimental
-evidences will be presented to support quark model. First the scattering
-reactions will be discussed. It will be shown, that the lepton scattering on
-nucleons can be explained by assumption, that nucleons are composed of 
-point-likes pin-1/2 particles. Next discussion will address the fact, that there are
-three color charges - this will address the question, why the group $SU(3)$ is
-connected to the theory of strong interaction.
+baryons were composed of three quarks whereas the mesons of quark and
+anti-quark. In this section, some experimental evidences will be presented to
+support quark model. First the scattering reactions will be discussed. It will
+be shown, that the lepton scattering on nucleons can be explained by assumption,
+that nucleons are composed of point-likes pin-1/2 particles. Next discussion
+will address the fact, that there are three color charges - this will address
+the question, why the group $SU(3)$ is connected to the theory of strong
+interaction.
 
 \subsection{Scattering Reactions}
 
@@ -497,7 +502,7 @@ can be written in the form
 \end{equation}
 
 The further computation of cross section is straightforward and the result can
-be easily generalized to nonelastic scattering by which the nucleon in final
+be easily generalized to non-elastic scattering by which the nucleon in final
 state decays. The result is usually written using inelasticity parameter
 $y=\frac{E-E'}{E}$, $0 \leq y \leq 1$ and $y=0$ is in the case of elastic
 scattering, Bjorken variable $ x = \frac{Q^2}{2 P \cdot q}$, $ 0 < x \leq 1$, $x
@@ -516,16 +521,15 @@ called structure functions, which are not determinable by the theory just
 presented - they have to be measured experimentally.
 
 Structure constants were first measured by $eP$ scattering at SLAC in 1968
-(?citacce?) and shown the following results
+\cite{ePScattering} and shown the following results
 \begin{enumerate}
   \item for $Q^2 \geq 1\GeV$, there is no significant dependence of structure
     functions on $Q^2$ and
   \item for $Q^2 \geq 1\GeV$, $F_2 \approx 2xF_1$.
 \end{enumerate}
-These results can be also seen from figure (?figure?) and can be explained by
-assumption nucleon being composed of point-like spin-1/2 constituents, for which
-R. P. Feynmann used term partons. To $i$th parton, it is possible to assign
-momentum $P_{i,\xi}$
+These results can be explained by assumption nucleon being composed of
+point-like spin-1/2 constituents, for which R. P. Feynmann used term partons. To
+$i$th parton, it is possible to assign momentum $P_{i,\xi}$
 
 \begin{equation}
   P_{i,\mu} = \xi_i P_\mu + \Delta P_{i,\mu} 
@@ -563,7 +567,7 @@ resulting in
   \label{eq:StructureFunctionAndPDF}
 \end{equation}
 It can be easily checked, that $F_2^{eN}(x) = 2 x F_1^{eN}(x)$. Functions
-$f_i(x)$ just introduced are called Parton Density Functions (PDF) and their
+$f_i(x)$ just introduced are called Parton Density Functions (PDFs) and their
 important role in QCD will be discussed in (?somewhere?) in more details.
 
 Important conclusion from analyzing of scattering reactions is, that the
@@ -574,7 +578,7 @@ spin-1/2 point-like partons, now called quarks.
 
 Despite the strong confidence in parton model, theory which would describe the
 interaction between partons was still missing. There was no direct evidence on
-how the theory would look like in (?year?). The theory of electroweak
+how the theory would look like at the beginning of 1970s. The theory of electroweak
 unification successfully suggested, that the gauge theories are the right
 theories for description of world at subatomic level, but to construct gauge
 theory of strong interaction the number of colors first had to be known.
@@ -671,7 +675,7 @@ triplets wave functions
             \end{pmatrix}.
   \label{eq:QuarkWaveFunction}
 \end{equation}
-Following the Yang-Mills theory (?citace?), to each generator
+Following the Yang-Mills theory \cite{YangMill}, to each generator
 $\frac{\lambda^a}{2}$ gluon field $A_\mu^a(x)$ and gluon file strength tensor
 
 \begin{equation}
@@ -695,6 +699,7 @@ is invariant under local transformation
     \label{eq:QCDGaugeTranform} \\
   &A_\mu(x) \rightarrow \Euler^{ig\Theta(x)} \left( A_\mu(x) +
     \frac{i}{g}\partial_\mu \right) \Euler^{-ig\Theta(x)}, 
+  \nonumber
 \end{align}
 where
 
@@ -708,7 +713,8 @@ where
 There is no mass term in Lagrangian \eqref{eq:QCDLagrangian} because mass term
 $m\bar{\psi}\psi$ vary under gauge transformation
 \eqref{eq:QCDGaugeTranform}. Origin of mass term lies in Higgs mechanism
-(?citace?) which will not be discussed here. 
+\cite{HiggsMechanism} which is explained in \cite{horejsi2002fundamentals} in
+details.
 
 QCD Lagrangian \eqref{eq:QCDLagrangian} together with gauge transformations
 \eqref{eq:QCDGaugeTranform} are sufficient for determination of Feynman rules -
@@ -726,7 +732,7 @@ which confines the possible gauges to one class parametrized by real parameter
 $\xi$. In non-Abelian gauge theories this term must be supplemented by the so
 called ghost term which brings into the theory new unphysical scalar particle
 obeying fermionic statistics. More details on so called Faddev-Popov ghost filed
-can be found in (?source?).
+can be found in \cite{FaddeevPopovGhosts}.
 
 
 \section{Perturbative QCD}
@@ -745,10 +751,10 @@ Assume scattering process
   \label{eq:QuarkScattering}
 \end{equation}
 which is depicted in the lowest order of perturbation theory by the Feynman
-graph \ref{fig:QuarkQuarkScattering}. Except contribution of this graph to the
-scattering amplitude (which is the only contribution $\sim g^2$) there are 12
-other Feynman diagrams with contributions $\sim g^4$. These are depicted in
-figure \ref{fig:QuarkQuarkScatteringCorrection}. 
+graph in figure \ref{fig:QuarkQuarkScattering}. Except contribution of this
+graph to the scattering amplitude (which is the only contribution $\sim g^2$)
+there are 12 other Feynman diagrams with contributions $\sim g^4$. These are
+depicted in figure \ref{fig:QuarkQuarkScatteringCorrection}. 
 
 \begin{figure}[t]
   \centering
@@ -790,8 +796,9 @@ scale $M$ and on coupling constant at renormalization scale $g_0 =
   g_R = g_R(-k^2,g_0(M))
   \label{eq:RunningCouplingConstantDependenceSchema}
 \end{equation}
-which allows us to use advantages of $\beta$-function and using equation
-\ref{eq:RenormalizedCoupling} leads to following differential equation for $g_0$
+which allows us to use advantages of $\beta$-function and when the equation
+\eqref{eq:RenormalizedCoupling} is used, then the differential
+equation for $g_0(M)$ can be obtained
 
 \begin{align}
   \beta(g_0) \equiv M \left( \frac{\partial g_R}{\partial M} \right)_{-k^2=M^2}
@@ -820,18 +827,19 @@ with solution
 which is the final expression for running coupling constant up to one-loop
 order. This dependence corresponds to experimental data which are depicted in
 figure \ref{fig:RunningCouplingConstant}. Coupling constant decreases with
-increasing momentum transfer allowing the use of the perturbation theory.
+increasing momentum transfer allowing the use of the perturbation theory. This
+is known as Asymptotic Freedom \cite{AssymptoticFreedom}.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.5\textwidth]{Chapter1/RunningCouplingConstant.jpg}
   \caption{Experimental measurements of running coupling constant.
     $Q=\sqrt{\left|k^2\right|}$ in comparison to
-    \eqref{eq:RunningCouplingConstant}. (?source?) (?maybe better picture?)}
+    \eqref{eq:RunningCouplingConstant}. (?source?) (?better picture?)}
   \label{fig:RunningCouplingConstant}
 \end{figure}
 
-But when the momentum transfer decreases, there is special value
+On the other hand, when the momentum transfer decreases, there is special value
 $-k^2=\Lambda^2$ for which the last expression diverges
 
 \begin{equation}
@@ -839,7 +847,7 @@ $-k^2=\Lambda^2$ for which the last expression diverges
   \ln \left( \frac{\Lambda^2}{M^2} \right).
   \label{eq:RunningLambda}
 \end{equation}
-Experimental value is $\Lambda=\dots$ (?source?) and demonstrates, that
+Experimental value is $\Lambda=213^{+38}_{-35}\MeV$ \cite{wiki:QCDHistory} and demonstrates, that
 perturbative QCD cannot be used at low energy transfers. In fact, the running
 coupling constant $\alpha_S(-k^2)$ reaches value $\sim 1$ on momenta
 transfers $\sqrt{\left| k^2 \right|} \sim 500\MeV$.
@@ -848,14 +856,8 @@ To understand e.g. structure of proton with rest mass $< 1\GeV$ it is clear
 non-perturbative QCD has to be used. The ideas of non-perturbative QCD will be
 introduced in next section. (?maybe?)
 
-
-
-
-
 \section{Non-Perturbative QCD}
-
-
-\section{Basic principles of QCD}
+Color confinement is cool.
 
 \chapter{QCD on ATLAS}
 
