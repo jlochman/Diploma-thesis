@@ -544,7 +544,7 @@ fraction of total momentum fulfilling
 
 \begin{equation}
   \int d\xi_i f_i(\xi_i) = 1
-  \label{PartonDensityFunctionsNormalization}
+  \label{eq:PartonDensityFunctionsNormalization}
 \end{equation}
 must be defined. Then for scattering reaction
 \eqref{eq:ScatteringReactionsElectron} it can be derived the total cross section
@@ -850,14 +850,51 @@ $-k^2=\Lambda^2$ for which the last expression diverges
 Experimental value is $\Lambda=213^{+38}_{-35}\MeV$ \cite{wiki:QCDHistory} and demonstrates, that
 perturbative QCD cannot be used at low energy transfers. In fact, the running
 coupling constant $\alpha_S(-k^2)$ reaches value $\sim 1$ on momenta
-transfers $\sqrt{\left| k^2 \right|} \sim 500\MeV$.
+transfers $\sqrt{\left| k^2 \right|} \sim 500\MeV$. 
+
+The behaviour of coupling constant at low energy transfers is not explainable in
+the language of perturpative QCD just presented. It is non-perturbative effect
+known as the principle of color confinment, which states, that quarks when
+seperate, the force between them increases. This creates the gluon force filed
+between them leading to creation of quark anti-quark pair. This continues until
+there is no color charge left. This principle forbids us from observing free
+quarks.
 
 To understand e.g. structure of proton with rest mass $< 1\GeV$ it is clear
 non-perturbative QCD has to be used. The ideas of non-perturbative QCD will be
-introduced in next section. (?maybe?)
+introduced in next section. 
 
 \section{Non-Perturbative QCD}
-Color confinement is cool.
+
+The most well established non-perturbative approach to QCD is the lattice QCD
+(LQCD). In this section basic features of the LQCD will be presented.  More
+informations on this extended topic can be found in (?citace?).
+
+LQCD is QCD formulated on a hypercubic equally spaced lattice in space and time
+with lattice parameter $a$ denoting the distance between neighboring sites.
+Quark fields are placed on sites whereas the gluon fields sit on the links
+between neighboring sites. From QCD it inherits the gauge invariance which has
+to be formulated on lattice structure.  For $a \rightarrow 0$ action of LQCD
+coincides with that of QCD. LQCD contains 6 parameters - strong coupling
+constant and masses of 5 quarks (the top quark with lifetime $ \sim
+10^{-24}\,\text{s}$ is not assumed by the theory).
+
+Unlike perturbative expansion used in continuous QCD, numerical evaluation of
+the path integral defining LQCD allows non-perturbative calculations.  Practical
+LQCD calculations are limited by the availability of computational resources and
+the efficiency of algorithms. LQCD suffers with both statistical and systematic
+errors, the former arising from the use of Monte-Carlo integration, the latter,
+e.g. from the use of non-zero values of $a$.
+
+Present LQCD calculations are made on supercomputers like the (?some
+supercomputer?) (?citace?) with (?parameters?)
+
+The Importance of LQCD lies in its ability to predict mass spectrum of observed
+mesons and baryons and in investigation of topological structure of QCD vacuum.
+LQCD can be used to obtain PDFs \eqref{eq:PartonDensityFunctionsNormalization}
+helping us to understand the structure of hadrons. The principle of color
+confinement is explainable in the language of LQCD.
+
 
 \chapter{QCD on ATLAS}
 
