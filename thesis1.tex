@@ -7,6 +7,8 @@
 \usepackage[a4paper]{geometry} 
 \usepackage{cite}
 \usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{url}
 \usepackage{multirow}
 \usepackage{array}
@@ -44,9 +46,12 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
+\newcommand{\TeV}{\,\text{TeV}}
 \newcommand{\GeV}{\,\text{GeV}}
 \newcommand{\MeV}{\,\text{MeV}}
+\newcommand{\pt}{p_T}
 \newcommand{\Euler}{\mathrm{e}}
+\newcommand{\rts}{\sqrt{s}}
 
 
 \begin{document}
@@ -98,6 +103,14 @@
 \newpage  
 \thispagestyle{empty} 
 Zadani prace
+
+
+%================================================================================
+% Empty page
+%================================================================================
+\newpage  
+\thispagestyle{empty} 
+~
 
 
 %================================================================================
@@ -202,20 +215,19 @@ SM describes the way how the fundamental components of matter interact with each
 other through strong, weak and electromagnetic interactions. Mathematically the
 SM is gauge quantum field theory with local internal symmetries of the direct
 product group $SU(3) \times SU(2) \times U(1)$. Gauge bosons are assigned to
-generators of this symmetry - there are 8 massless gluons from $SU(3)$
-intermediating strong interaction between colored quarks and 3 massive $W^\pm,
-Z$ bosons with 1 massless boson $\gamma$ for electroweak $SU(2) \times U(1)$
-sector. Higgs mechanism has to be introduced in electroweak sector to assign
-$W^\pm, Z$ bosons mass and as consequence the new particle - Higgs boson -
-emerges in the SM theory. All bosons have integer spin. 
+generators of this symmetry - there are 8 massless gluons from $SU(3)$ and 3
+massive $W^\pm, Z$ bosons with 1 massless boson $\gamma$ from electroweak $SU(2)
+\times U(1)$ sector. Higgs mechanism has to be introduced in electroweak sector
+to assign $W^\pm, Z$ bosons mass and as consequence the new particle - Higgs
+boson - emerges in the SM theory. All bosons have integer spin. 
 
-In addition to the bosons the SM introduces spin-$1/2$ fermions which are
-divided into three quark and three lepton
-families. Fermions are assumed to be point-like because there is no evidence for
-their internal structure to date. All fermions interact weakly, if they have
-electrical charge, they interact electromagnetically as well. Quarks are the
-only fundamental fermions which do interact strongly. System of fundamental
-particles of the SM is shown in figure \ref{fig:SMparticles}. 
+In addition to the bosons the SM introduces spin$1/2$ fermions which are
+divided into three quark and three lepton families. Fermions are assumed to be
+point-like because there is no evidence for their internal structure to date.
+All fermions interact weakly, if they have electrical charge, they interact
+electromagnetically as well. Quarks are the only fundamental fermions which do
+interact strongly. System of fundamental particles of the SM is shown in figure
+\ref{fig:SMparticles}. 
 
 \begin{figure}[!ht]
   \centering
@@ -248,19 +260,21 @@ particle there was assigned a series of quantum numbers
 including isospin $T$ with its third component $T_3$, hypercharge $Y$,
 electrical charge $Q$, strangeness $S$, baryon number $B$ and others. Soon it
 was recognized, that there are some symmetries between these quantum numbers,
-like Gell-Mann--Nishijima relation \cite{GellMannNishijima1,GellMannNishijima2}
+like famous Gell-Mann--Nishijima relation
+\cite{GellMannNishijima1,GellMannNishijima2}
 
 \begin{equation}
   Q = T_3 + 1/2 Y \quad , \quad Y = B + S + \dots,
   \label{ex:GellMannNishijima}
 \end{equation}
-where dots denote charm, bottomness and topness. Some of the baryons known by
-then are shown in table \ref{tab:SelectedHadrons}. In 1960s the known particles
-were successfully categorized with the so called Eightfold Way, which was
-published independently by Murray Gell-Mann \cite{Gell-Mann:101798} and George
-Zweig \cite{Zweig:570209} in 1964. The Eightfold Way successfully predicted the
-existence of new particle $\Omega^{-}$ including its mass. Basic ideas of
-Eightfold way will be discussed in this section.
+where dots denote charm, bottomness and topness and were introduced after work
+of Gell-Mann and Nishijima. Some of the baryons known by then are shown in table
+\ref{tab:SelectedHadrons}. In 1960s the known particles were successfully
+categorized with the so called Eightfold Way, which was published independently
+by Murray Gell-Mann \cite{Gell-Mann:101798} and George Zweig \cite{Zweig:570209}
+in 1964. The Eightfold Way successfully predicted the existence of new particle
+$\Omega^{-}$ including its mass. Basic ideas of Eightfold way will be discussed
+in this section.
 
 \begin{table}
   \centering
@@ -416,7 +430,7 @@ representation corresponds to three anti-quark states and is usually denoted
 $\bar{\mathbf{3}}$. Representation depicted in figure \ref{fig:BaryonicOctet} is
 defined by the highest weight $\mu^1 + \mu^2$.
 
-Special interest is in representations with dimensions $10$, $8$ and $1$. These
+Special interest is in representations with dimensions $10$ and $8$. These
 are present in decompositions $\mathbf{3} \otimes \mathbf{3} \otimes
 \mathbf{3} = \mathbf{10} \oplus \mathbf{8} \oplus \mathbf{8} \oplus \mathbf{1}$,
 which correspond to the baryons composed of three quarks, and $\mathbf{3}
@@ -451,8 +465,8 @@ baryons were composed of three quarks whereas the mesons of quark and
 anti-quark. In this section, some experimental evidences will be presented to
 support quark model. First the scattering reactions will be discussed. It will
 be shown, that the lepton scattering on nucleons can be explained by assumption,
-that nucleons are composed of point-likes pin-1/2 particles. Next discussion
-will address the fact, that there are three color charges - this will address
+that nucleons are composed of point-like spin-1/2 particles. Next discussion
+will address the fact, that there are three color charges - this will encounter
 the question, why the group $SU(3)$ is connected to the theory of strong
 interaction.
 
@@ -504,7 +518,7 @@ can be written in the form
 The further computation of cross section is straightforward and the result can
 be easily generalized to non-elastic scattering by which the nucleon in final
 state decays. The result is usually written using inelasticity parameter
-$y=\frac{E-E'}{E}$, $0 \leq y \leq 1$ and $y=0$ is in the case of elastic
+$y=\frac{E-E'}{E}$, $0 \leq y \leq 1$, $y=0$ corresponding to the elastic
 scattering, Bjorken variable $ x = \frac{Q^2}{2 P \cdot q}$, $ 0 < x \leq 1$, $x
 = 1$ denoting elastic scattering and finally instead of negative value $q^2$ the
 $Q^2 = -q^2$ is used. Final result can be than written in the form
@@ -528,8 +542,9 @@ Structure constants were first measured by $eP$ scattering at SLAC in 1968
   \item for $Q^2 \geq 1\GeV$, $F_2 \approx 2xF_1$.
 \end{enumerate}
 These results can be explained by assumption nucleon being composed of
-point-like spin-1/2 constituents, for which R. P. Feynmann used term partons. To
-$i$th parton, it is possible to assign momentum $P_{i,\xi}$
+point-like spin-1/2 constituents, for which R. P. Feynmann used term partons. In
+the following basic ideas of parton model will be presented. To $i$th parton, it
+is possible to assign momentum $P_{i,\xi}$
 
 \begin{equation}
   P_{i,\mu} = \xi_i P_\mu + \Delta P_{i,\mu} 
@@ -556,7 +571,7 @@ formula
   \sum_i f_i(x) q_i^2 x.
   \label{eg:ScatteringRes2}
 \end{equation}
-where in for $i$th parton its electrical charge $q_i$ was introduced. The last
+where for $i$th parton its electrical charge $q_i$ was introduced. The last
 expression and \eqref{eq:ScatteringRes1} can be compared as polynomials in $y$
 resulting in
 
@@ -567,11 +582,11 @@ resulting in
   \label{eq:StructureFunctionAndPDF}
 \end{equation}
 It can be easily checked, that $F_2^{eN}(x) = 2 x F_1^{eN}(x)$. Functions
-$f_i(x)$ just introduced are called Parton Density Functions (PDFs) and their
+$f_i(x)$ just introduced are called Parton Distribution Functions (PDFs) and their
 important role in QCD will be discussed in (?somewhere?) in more details.
 
 Important conclusion from analyzing of scattering reactions is, that the
-experimental results can be explained by assumption nucleons being consisted of
+experimental results can be explained by assumption nucleons being composed of
 spin-1/2 point-like partons, now called quarks. 
 
 \subsection{Number of Colors}
@@ -596,7 +611,7 @@ pair of fermion and anti-fermion
 \end{equation}
 
 Feynmann diagram of this reaction is shown in figure \ref{fig:RRatio}, where
-constants sitting in two vertices are denoted.  $\alpha$ stands for fine
+constants sitting in two vertices are empahised.  $\alpha$ stands for fine
 structure constants and $Q_f$ for charge of fermion $f$ in units of positron
 charge. Total cross section has to be proportional to
 
@@ -624,7 +639,8 @@ is measured
   \label{eq:NumberOfColorsRatio}
 \end{equation}
 where sum on the left hand side is over all possible quark states. When the
-quark model proposed by Gell-Mann a Zweig is used, then
+quark model proposed by Gell-Mann a Zweig is used, then for the quark charges in table
+\ref{tab:SelectedQuarks}
 
 \begin{equation}
   R = \left[ \left( \frac{2}{3} \right)^2 +
@@ -738,9 +754,9 @@ can be found in \cite{FaddeevPopovGhosts}.
 \section{Perturbative QCD}
 
 Quantum Electrodynamics (QED) and QCD are both quantum filed gauge theories, but
-they differ in one key feature - the former is Abelian whereas the latter is
+they differ in one killing feature - the former is Abelian whereas the latter is
 not. The non-Abelian character of QCD leads to new phenomenons which have the origin in QCD
-Lagrangian \eqref{eq:QCDLagrangian} which directly leads to triple and quartic
+Lagrangian \eqref{eq:QCDLagrangian} directly leading to triple and quartic
 gluonic interactions. In this section one remarkable consequence will be
 discussed - the running coupling constant.
 
@@ -790,13 +806,14 @@ $k^2 = -M^2$ and $N_F$ is the number of different quark flavors with mass $m^2
 \ll \left| k^2 \right|$. Dependence of $g_R$ on transfered momentum $k^2$ is
 evident, but there are another two intertwined dependences - on normalization
 scale $M$ and on coupling constant at renormalization scale $g_0 =
-\left. g_R \right|_{k^2=-M^2}$. For next purpose, it is convenient use the dependence schema
+\left. g_R \right|_{k^2=-M^2}$. For next purpose, it is convenient to use the
+dependence schema
 
 \begin{equation}
   g_R = g_R(-k^2,g_0(M))
   \label{eq:RunningCouplingConstantDependenceSchema}
 \end{equation}
-which allows us to use advantages of $\beta$-function and when the equation
+which allows the use of advantages of $\beta$-function and when the equation
 \eqref{eq:RenormalizedCoupling} is used, then the differential
 equation for $g_0(M)$ can be obtained
 
@@ -855,10 +872,9 @@ transfers $\sqrt{\left| k^2 \right|} \sim 500\MeV$.
 The behaviour of coupling constant at low energy transfers is not explainable in
 the language of perturpative QCD just presented. It is non-perturbative effect
 known as the principle of color confinment, which states, that quarks when
-seperate, the force between them increases. This creates the gluon force filed
-between them leading to creation of quark anti-quark pair. This continues until
-there is no color charge left. This principle forbids us from observing free
-quarks.
+seperate, the gluon force field between them becomes stronger and its energy is
+consumed by the creation of quark anti-quark pair. This continues until there is
+no free color charge left. This principle forbids us from observing free quarks.
 
 To understand e.g. structure of proton with rest mass $< 1\GeV$ it is clear
 non-perturbative QCD has to be used. The ideas of non-perturbative QCD will be
@@ -868,7 +884,7 @@ introduced in next section.
 
 The most well established non-perturbative approach to QCD is the lattice QCD
 (LQCD). In this section basic features of the LQCD will be presented.  More
-informations on this extended topic can be found in (?citace?).
+informations on this extended topic can be found in \cite{QCDTextbook,LQCDIntro}.
 
 LQCD is QCD formulated on a hypercubic equally spaced lattice in space and time
 with lattice parameter $a$ denoting the distance between neighboring sites.
@@ -886,20 +902,248 @@ the efficiency of algorithms. LQCD suffers with both statistical and systematic
 errors, the former arising from the use of Monte-Carlo integration, the latter,
 e.g. from the use of non-zero values of $a$.
 
-Present LQCD calculations are made on supercomputers like the (?some
-supercomputer?) (?citace?) with (?parameters?)
+Present LQCD calculations are made on supercomputers like the QCDCQ
+supercomputer \cite{SuperComputer} with peak speed of 500 TFlops using lattice
+spacing $a \sim 0.05 - 0.15 \, \text{fm}$ in lattice volume $V \sim (2 - 6
+\,\text{fm} )^3$.
 
 The Importance of LQCD lies in its ability to predict mass spectrum of observed
-mesons and baryons and in investigation of topological structure of QCD vacuum.
-LQCD can be used to obtain PDFs \eqref{eq:PartonDensityFunctionsNormalization}
-helping us to understand the structure of hadrons. The principle of color
-confinement is explainable in the language of LQCD.
+mesons and baryons, including quark masses itself, and in investigation of
+topological structure of QCD vacuum.  LQCD can be used to obtain PDFs
+\eqref{eq:PartonDensityFunctionsNormalization} helping us to understand the
+structure of hadrons. Phenomenology of LQCD explains also the principle of color
+confinment. 
 
 
-\chapter{QCD on ATLAS}
+\chapter{QCD and The ATLAS Detector}
 
-\chapter{ATLAS Detector}
-\label{ch:intro}
+%====================================
+\section{Jet algorithms in ATLAS}
+\label{sec:JetAlgorithmATLAS}
+%====================================
+
+Jet algorithm is a generic "recipe" which takes a set of particles (with defined
+four-momenta) and returns jets created from them. That recipe usually involves a
+set of parameters which together with the recipe fully specify the jet
+definition. 
+
+Principals of two jet algorithms are described here - fixed cone algorithm and
+$k_t$ algorithm. First of these algorithms is more illustrative, the second one
+is used in ATLAS. Detailed description as well as other jet algorithms can be
+found in \cite{ATLASmain}. After definitions of jet algorithms it is shortly
+described, how the objects (not necessary particles) with defined four-momenta
+are constructed from the signal observed on the ATLAS detector. 
+
+%=============
+\subsection{Fixed cone algorithm}
+%=============
+
+The first step of this algorithm is to order all input objects (reconstructed
+detector objects with four-momentum representation) in decreasing order in
+transverse momentum $\pt$. If the object with the highest $\pt$ is above the
+seed threshold, all objects within a cone in pseudorapidity $\eta$ and azimuth
+$\phi$ with $\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2} < R_{cone}$, where
+$R_{cone}$ is the fixed cone radius, are combined together. A new direction is
+calculated from the four-momenta inside the initial cone and a new cone is
+centered around it. Objects are then recollected in this new cone and again the
+direction is updated. This process continues until the direction of the cone
+does not change anymore after recombination, at which point the cone is
+considered stable and is called a jet. At this point, the next seed is taken
+from the input list and a new cone jet is formed with the same iterative
+procedure. This continues until no more seeds are available. 
+
+The jets found this way can share some constituents. This algorithm is not
+infrared safe. It means, that the presence of additional soft particles between
+two particles belonging to the same jet can affect the recombination of these
+two particles into a jet. In the same sense, the absence of additional soft
+particles between these two can disturb the correct reconstruction of the jet.
+This is ilustrated in Figure~\ref{fig:IRsafety}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Chapter2/IRsafety}
+  \caption{Fixed cone algorithm is not infrared safe - soft particle between two
+  hard particles can determine, if hard particles end in different jets or will
+  be part of the same one.} \label{fig:IRsafety}
+\end{figure}
+
+Parameters used by fixed cone algorithm are a seed threshold of $\pt > 1 \GeV$,
+and a narrow ($R_{cone} = 0.4$) or a wide cone jet ($R_{cone} = 0.7$) option.
+
+%=============
+\subsection{$k_t$ algorithms}
+%=============
+
+In this class of algorithms all pairs $(i,j)$ of input objects are analyzed with
+respect to their relative transverse momentum squared, defined by 
+
+\begin{equation}
+	d_{ij} = \min{\left( p_{T,i}^{2p} , p_{T,j}^{2p} \right)} \frac{\Delta R_{ij}^2}{R^2}
+\end{equation}
+and the squared $\pt$ of object $i$ relative to the beam axis
+
+\begin{equation}
+	d_i = p_{T,i}^{2p}.
+\end{equation}
+Here $\Delta R_{ij}^2 = (y_i - y_j)^2 + (\phi_i - \phi_j)^2$ and $p_{T,i}$,
+$y_i$ and $\phi_i$ are respectively the transverse momentum, rapidity and
+azimuth of particle $i$. In addition to the radius parameter $R$, parameter $p$
+was added to split $k_t$~algorithms into three categories.  
+\begin{itemize}
+	\setlength{\itemsep}{0pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt}
+	\item $p = 1$ $k_t$ algorithm,
+	\item $p = 0$ Cambridge/Aachen algorithm,
+	\item $p = -1$ anti-$k_t$ jet-clustering algorithm.
+\end{itemize}
+The differences between these algorithms are detailed described in~\cite{ANTIKT}.  
+
+These algorithms first find the minimum $d_{min}$ of all $d_{ij}$ and $d_i$. If
+$d_{min}$ is in $d_{ij}$'s, the corresponding objects $i$ and $j$ are combined
+into a new object $k$ using four-momentum recombination. Both objects $i$ and
+$j$ are removed from the list, and the new object $k$ is added to it.
+
+If $d_{min}$ is in $d_i$'s, the object $i$ is considered to be a jet by itself
+and removed from the list.
+
+This means that all original input objects end up to be either part of a jet or
+to be jets by themselves. Contrary to the cone algorithm described earlier, no
+objects are shared between jets and the procedure is infrared safe.
+
+ATLAS uses anti-$k_t$ algorithm with $R=0.4$ for narrow and $R=0.6$ for wide
+jets.
+
+%=============
+\subsection{Calorimeter jets}
+%=============
+
+The most important detectors for jet reconstruction are the ATLAS calorimeters.
+The ATLAS calorimeter system has about 200,000 individual cells of various sizes
+and with different readout technologies and cell geometries. For jet finding it
+is necessary to first combine these cell signals into larger signal object with
+physically meaningful four-momenta. The two concepts available are calorimeter
+signal towers and topological cell clusters.
+
+In the case of calorimeter signal towers, the cells are projected onto a fixed
+grid in pseudorapidity $\eta$ and azimuth $\phi$. The tower bin size is $\Delta
+\eta \times \Delta \phi = 0.1 \times 0.1$ in the whole acceptance region of the
+calorimeters, i.e. in $|\eta| < 5$ and $- \pi < \phi < \pi$ with $100 \times 64
+= 6,400$ towers in total.
+
+The alternative representation of the calorimenter signals for jet
+reconstruction are topological cell clusters, which are basically an attempt to
+reconstruct three-dimensional "energy blobs" representing the showers developing
+for each particle entering the calorimeter. The clustering starts with seed
+cells with a signal-to-noise ratio, or signal significance $\Gamma = E_{cell} /
+\sigma_{noise,cell}$, above a certain threshold $S$, i.e. $|\Gamma| > S = 4$.
+All directly neighbouring cells of these seed cells, in all three dimensions,
+are collected into the cluster. Neighbours of neighbours are considered for
+those added cells which have $\Gamma$ above a certain secondary threshold $N$
+($|\Gamma| > N = 2$). Finally, a ring of guard cells with signal significances
+above a basic threshold $|\Gamma| > P = 0$ is added to the cluster. After the
+initial clusters are formed, they are analyzed for local signal maximums by a
+splitting algorithm, and split between those maximums.
+
+
+\section{The Large Hadron Collider and ATLAS Detector}
+
+%====================================
+\subsection{The Large Hadron Collider}
+%====================================
+
+The Large Hadron Collider (LHC) \cite{LHC, LHCPastPresentFuture} is a charged
+particle accelerator located on the border of France and Switzerland, near
+Geneva. Built using the areas of the Large Electron-Positron collider, the main
+accelarator ring, of a 27 km circumference, is located around 100 m below the
+surface. There are four main experiments located around the ring: a large ion
+collider experiment (ALICE), a toroidal LHC apparatus (ATLAS), compact muon
+solenoid (CMS) and large hadron collider beauty (LHCb).
+
+LHC started to operate on November 23, 2009 and soon thereafter (March 30, 2010)
+the proton-proton collisions achieved the center-of-mass energy $\sqrt{s} = 7
+\TeV$, which is halve of the design energy of the machine. On April 5, 2012, the
+machine started its successful $\sqrt{s} = 8 \TeV$ run.
+
+Next to the proton-proton collisions first heavy-ion Pb-Pb collisions took place
+in 2010 at a center of mass energy per pair of colliding nucleons $\sqrt{s} =
+2.76 \TeV$. Proton-Pb collisions at $\sqrt{s} = 5.02 \TeV$ occurring on LHC
+during 3 weeks of 2013, successfully demonstrated LHC capability to provide
+asymmetric collisions.  
+
+The accelerator complex is currently being upgraded, and so are the LHC
+experiments. The machine will be back in 2015 with proton-proton collisions at
+$\sqrt{s} \sim 13 \TeV$. Switching the beam crossing time from the current $50
+\, \mbox{ns}$ to a $25 \, \mbox{ns}$ is still under consideration.
+
+%====================================
+\subsection{The ATLAS Detector}
+%====================================
+
+The ATLAS detector \cite{ATLAS} is a general-purpose detector surrounding one of
+the interaction points of the LHC and with $\sim 100$ million of individual
+electronic channels it is the most complicated instrument ever created having
+one simple task: Record charged particle collisions up to the center-of-mass
+energy per pair of colliding nucleons $\rts = 14 \TeV$. A detector overview is
+shown in Figure~\ref{fig:ATLASfull}, where the main sub-detector systems can be
+seen: the inner detector, used to reconstruct charged-particle tracks, the
+electromagnetic calorimeters, the hadronic calorimeters, and the muon
+spectrometer. 
+
+\begin{figure}[t]
+  \centering
+  \begin{subfigure}[b]{0.9\textwidth}
+    \includegraphics[width=\textwidth]{Chapter2/ATLAS.png}
+    \caption{ATLAS detector}
+    \label{fig:ATLASfull}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{0.9\textwidth}
+    \includegraphics[width=\textwidth]{Chapter2/ATLASinner.jpeg}
+    \caption{Inner detector and calorimeter systems}
+    \label{fig:ATLASinner}
+  \end{subfigure}
+  \caption{(a) an overview of the ATLAS detector 
+           (b) detail on the inner detector and the calorimeters - the dominant
+           sub-detector systems used in this paper. Figures from
+           \cite{CERNbook}.}
+  \label{fig:ATLAS}
+\end{figure}
+
+ATLAS uses a right-handed coordinate system with its origin at the interaction
+point in the center of the detector and the $z$ axis along the beam pipe. The
+$x$ axis points from the interaction point to the center of the LHC ring, and
+the $y$ axis points upward. Cylindrical coordinates $(r, \phi)$ are used in the
+transverse plane, $\phi$ being the azimuthal angle around the beam pipe. Instead
+of polar angle $\theta$ pseudorapidity $\eta$ is used throughout this paper. For
+event selection the rapidity $y$ plays an important role. In following
+definitions of pseudorapidity $\eta$ and rapidity $y$, $E$ stands for the total
+energy and $p$ for size of total momentum: 
+\begin{eqnarray}
+  \eta &= & - \frac{1}{2} \ln \left( \frac{p+p_z}{p-p_z} \right) = - \ln \left[
+  \tan \left( \frac{\theta}{2} \right) \right], \\ y &= &- \frac{1}{2} \ln
+  \left( \frac{E+p_z}{E-p_z} \right).	
+\end{eqnarray}
+The transverse momentum $\pt$ presents the component of momentum perpendicular
+to the beam line.  
+
+The main detector system relevant to this analysis is the ATLAS calorimeter,
+which is emphasized in Figure~\ref{fig:ATLASinner}. The calorimeter is divided
+into sub-detectors, providing overall coverage up to $|\eta| < 4.9$. The
+electromagnetic calorimeter, covering region $|\eta| < 3.2$, is a
+high-granularity sampling detector in which the active medium is liquid argon
+(LAr) interspaced with layers of lead absorber. The hadronic calorimeters are
+divided into three sections: a tile scintillator/steel calorimeter is used in
+both the barrel ($|\eta| < 1.0$) and extended barrel cylinders ($0.8 < |\eta| <
+1.7$) while the hadronic endcap ($1.5 < |\eta| < 3.2$) consists of LAr/copper
+calorimeter modules. The forward calorimeter measures both electromagnetic and
+hadronic energy in the range $3.2 < |\eta| < 4.9$ using LAr/copper and
+LAr/tungsten modules. 
+
+Energy resolution of ATLAS calorimeter \cite{JetEnergyResolution} is $\sim
+15\,\%$ for jets with energies in the range $20 \GeV < E < 50 \GeV$ and
+decreases to $\sim 5\,\%$ for jets with energies $E > 1 \TeV$. Jet energy
+resolution is generally better in lower pseudorapidity regions. 
 
 
 %================================================================================
