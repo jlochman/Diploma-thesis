@@ -1,22 +1,23 @@
-\chapter{Experimental Setup}
+\chapter{Experimental Framework}
 
-\MyQuote{To confine our attention to terrestrial matters would be to limit the
-human spirit.}{Stephen Hawking}
+\MyQuote{What we observe is not nature itself, but nature exposed to our method of
+questioning.}{Werner Heisenberg}
 
 In the previous chapter, the key features of QCD - today's theory of strong
-interaction, were introduced. The predictions of QCD are tested at particle
+interaction - were introduced. The predictions of QCD are tested at particle
 accelerators persistently and there is the whole army of theoretical physicists
-waiting for discovery of new phenomenon in which explanation QCD will fail.
+awaiting new discovery unexplainable in the terms of QCD.
 Unfortunately for them, there is no such measurement which would not be in
-agreement with QCD predictions up to date. 
+agreement with QCD predictions up to date but the Large Hadron Collider can
+change this very soon.
 
 In this chapter, the QCD will be raised from the theoretical description of the
-previous chapter, to the practical implementation on Large Hadron Collider
-(LHC). The LHC will be described with emphasize on the ATALS detector, which
-data was used in this thesis. The all important concept of particle physics of
-hadron colliders - jet - will be introduced in this chapter.
+previous chapter, to the practical implementation on Large Hadron Collider,
+which will be described with emphasize on the ATALS detector. The all important
+concept of particle physics of hadron colliders - jet - will be introduced in
+this chapter.
 
-\section{The Large Hadron Collider and ATLAS Detector}
+\section{The Large Hadron Collider and The ATLAS Detector}
 
 \subsection{The Large Hadron Collider}
 
@@ -27,7 +28,19 @@ accelerator ring, of a 27 km circumference, is located around 100 m below the
 surface. There are four main experiments located around the ring: A Large Ion
 Collider Experiment (ALICE), A Toroidal LHC ApparatuS (ATLAS), Compact Muon
 Solenoid (CMS) and Large Hadron Collider beauty (LHCb). The complete accelerator
-and detector system is shown at Figure (?figure?).
+and detector system is shown at Figure \ref{fig:LHC}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Chapter2/LHC.jpg}
+  \caption{This diagram shows the locations of the four main experiments (ALICE,
+    ATLAS, CMS and LHCb) that take place at the LHC. Located between 50 m and
+    150 m underground, huge caverns have been excavated to house the giant
+    detectors. The Super Proton Synchotron (SPS), the final link in the
+    pre-acceleration chain, and its connection tunnels to the LHC are also
+    shown.  Figure from \cite{CERN:ATLASexperimentPictureswiki}  }
+  \label{fig:LHC}
+\end{figure}
 
 LHC started to operate on November 23, 2009 and soon thereafter (March 30, 2010)
 the proton-proton collisions achieved the center-of-mass energy $\sqrt{s} = 7
@@ -37,7 +50,7 @@ machine started its successful $\sqrt{s} = 8 \TeV$ run.
 Next to the proton-proton collisions first heavy-ion Pb-Pb collisions took place
 in 2010 at a center of mass energy per pair of colliding nucleons $\sqrt{s} =
 2.76 \TeV$. Proton-Pb collisions at $\sqrt{s} = 5.02 \TeV$ occurring on LHC
-during 3 weeks of 2013, successfully demonstrated LHC capability to provide
+during 3 weeks of 2013 successfully demonstrated LHC capability to provide
 asymmetric collisions.  
 
 ??? The accelerator complex is currently being upgraded, and so are the LHC
@@ -57,22 +70,22 @@ seen: the inner detector, used to reconstruct charged-particle tracks, the
 electromagnetic calorimeters, the hadronic calorimeters, and the muon
 spectrometer. 
 
-\begin{figure}[t]
+\begin{figure}[H]
   \centering
-  \begin{subfigure}[b]{0.8\textwidth}
+  \begin{subfigure}[b]{0.85\textwidth}
     \includegraphics[width=\textwidth]{Chapter2/ATLAS.png}
     \caption{ATLAS detector}
     \label{fig:ATLASfull}
   \end{subfigure}
   ~
-  \begin{subfigure}[b]{0.8\textwidth}
+  \begin{subfigure}[b]{0.85\textwidth}
     \includegraphics[width=\textwidth]{Chapter2/ATLASinner.jpeg}
     \caption{Inner detector and calorimeter systems}
     \label{fig:ATLASinner}
   \end{subfigure}
   \caption{(a) an overview of the ATLAS detector 
            (b) detail on the inner detector and the calorimeters - the dominant
-           sub-detector systems used in this paper. Figures from
+           sub-detector systems used in this thesis. Figures from
            \cite{CERNbook}.}
   \label{fig:ATLAS}
 \end{figure}

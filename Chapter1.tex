@@ -8,14 +8,14 @@ are not directly observable (as the underlying quantized fields are) but in
 terms of which we shall have a more fundamental understanding?}
 {Julian Schwinger}
 
-The theoretical framework of particle physics is called Standard Model (SM). The
+The theoretical framework of particle physics is called the Standard Model (SM). The
 SM describes the way how the fundamental components of matter interact with each
 other through strong, weak and electromagnetic interactions. Mathematically the
 SM is gauge quantum field theory with local internal symmetries of the direct
 product group $SU(3) \times SU(2) \times U(1)$. Gauge bosons are assigned to
 generators of this symmetry - there are 8 massless gluons from $SU(3)$ and 3
 massive $W^\pm, Z$ bosons with 1 massless boson $\gamma$ from electroweak $SU(2)
-\times U(1)$ sector. Higgs mechanism has to be introduced in electroweak sector
+\times U(1)$ sector. Higgs mechanism has to be introduced in the electroweak sector
 to assign $W^\pm, Z$ bosons mass and as consequence the new particle - Higgs
 boson - emerges in the SM theory. All bosons have integer spin. 
 
@@ -24,7 +24,7 @@ divided into three quark and three lepton families. Fermions are assumed to be
 point-like because there is no evidence for their internal structure to date.
 All fermions interact weakly, if they have electrical charge, they interact
 electromagnetically as well. Quarks are the only fundamental fermions which do
-interact strongly. System of fundamental particles of the SM is shown in figure
+interact strongly. System of fundamental particles of the SM is shown in Figure
 \ref{fig:SMparticles}. 
 
 \begin{figure}[!ht]
@@ -37,12 +37,12 @@ interact strongly. System of fundamental particles of the SM is shown in figure
 
 Quarks bind together to form hadrons and there are hundreds (?source?) of known
 hadrons up to date. Hadrons are divided into baryons (3 quarks) and mesons
-(quark and anti-quark). Theory describing the interaction between quarks is called
+(quark and anti-quark pairs). Theory describing the interaction between quarks is called
 Quantum Chromodynamics (QCD) which key features will be discussed in this
 chapter. The reasoning for quark existence and for the description their strong
 interaction as $SU(3)$ gauge theory will be presented. Running coupling constant
 will be discussed to split QCD into perturbative and non-perturbative regions -
-two regions, where QCD has to use different mathematical approach for description of
+two regions, where QCD has to use different mathematical approach for the description of
 strong interaction. Most of ideas presented here is overtaken from the following
 textbook \cite{QCDTextbook}. Electroweak sector of the SM is described in
 \cite{horejsi2002fundamentals}. For more concise information about the SM the
@@ -52,7 +52,7 @@ following textbooks can serve
 \section{Theoretical Ansatz}
 \label{Sec:TheoreticalAnsatz}
 
-In 1950s there have already been discovered tens of new hadrons thanks to new
+In 1950s, there have already been discovered tens of new hadrons thanks to new
 particle accelerators and a lot of effort was exerted to categorize them. To each
 particle there was assigned a series of quantum numbers
 including isospin $T$ with its third component $T_3$, hypercharge $Y$,
@@ -67,7 +67,7 @@ like famous Gell-Mann--Nishijima relation
 \end{equation}
 where dots denote charm, bottomness and topness and were introduced after work
 of Gell-Mann and Nishijima. Some of the baryons known by then are shown in table
-\ref{tab:SelectedHadrons}. In 1960s the known particles were successfully
+\ref{tab:SelectedHadrons}. In 1960s, the known hadrons were successfully
 categorized with the so called Eightfold Way, which was published independently
 by Murray Gell-Mann \cite{Gell-Mann:101798} and George Zweig \cite{Zweig:570209}
 in 1964. The Eightfold Way successfully predicted the existence of new particle
@@ -77,7 +77,8 @@ in this section.
 \begin{table}
   \centering
   \begin{tabular}{|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|}
-    \multicolumn{1}{c|}{} & $S$ & $Y$ & $T$ & $T_3$ & $Q$  \\
+    \hline
+     & $S$ & $Y$ & $T$ & $T_3$ & $Q$  \\
     \hline \hline
     $p$ & \multirow{2}{*}{0} & \multirow{2}{*}{1} & \multirow{2}{*}{1/2} & 1/2  & 1 \\
     $n$ &                    &                    &                      & -1/2 & 0 \\
@@ -140,18 +141,18 @@ representation of $\mathfrak{su}(3)$ can be chosen
 \end{equation}
 where the eigenvalues to generators of the Cartan subalgebra was assigned $H_1 u
 = \frac{1}{2} u$, $H_2 u = \frac{\sqrt{3}}{6} u$ and similarly for $d$ and $s$
-eigenstates. These eigenvalues are shown in figure \ref{fig:QuarkTriplet}. Other
+eigenstates. These eigenvalues are shown in Figure \ref{fig:QuarkTriplet}. Other
 important representation of $\mathfrak{su}(3)$ is eight-dimensional adjoint
 representation. This representation has the following eigenstates and
 corresponding eigenvalues
 
-\begin{figure}[t]
+\begin{SCfigure}
   \centering
   \includegraphics[width=0.5\textwidth]{Chapter1/Quark-triplet.png} 
   \caption{Eigenvalues of 3-dimensional representation of $\mathfrak{su}(3)$ Lie algebra. Figure
     from \cite{LieAlgebrasForParticlePhysicists}.}
   \label{fig:QuarkTriplet}
-\end{figure}
+\end{SCfigure}
 
 \begin{align}
   \frac{1}{\sqrt{2}} \left( g_1 \pm i g_2  \right)
@@ -173,7 +174,7 @@ similarly for remaining 5 eigenstates. Defining
 one can easily assign hadrons from table
 \ref{tab:SelectedHadrons} to corresponding eigenvalues of adjoint
 representation in \eqref{eq:RepresentLie8} according to its third component of
-isospin $T_3$ and its hypercharge $Y$. This is depicted in figure
+isospin $T_3$ and its hypercharge $Y$. This is depicted in Figure
 \ref{fig:BaryonicOctet}. 
 
 When the same redefinition is done to the eigenstates
@@ -184,7 +185,8 @@ states $u$, $d$, $s$ are shown in table \ref{tab:SelectedQuarks}.
 \begin{table}
   \centering
   \begin{tabular}{|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|C{1cm}|}
-    \multicolumn{1}{c|}{} & $S$ & $Y$ & $T$ & $T_3$ & $Q$  \\
+    \hline
+     & $S$ & $Y$ & $T$ & $T_3$ & $Q$  \\
     \hline \hline
     $u$ & \multirow{2}{*}{0} & \multirow{2}{*}{1/3} & \multirow{2}{*}{1/2} & 1/2
     & 2/3 \\
@@ -198,14 +200,14 @@ states $u$, $d$, $s$ are shown in table \ref{tab:SelectedQuarks}.
   \label{tab:SelectedQuarks}
 \end{table}
 
-\begin{figure}[t]
+\begin{SCfigure}[][t]
   \centering
-  \includegraphics[width=0.5\textwidth]{Chapter1/Baryon-octet.png} 
+  \includegraphics[width=0.6\textwidth]{Chapter1/Baryon-octet.png} 
   \caption{Baryonic octuplet encapsulating baryons from table
     \ref{tab:SelectedHadrons}. For baryons in this diagram, the relation $Y = S
     + 1$ holds. Figure from \cite{wiki:EightFoldWay}.}
   \label{fig:BaryonicOctet}
-\end{figure}
+\end{SCfigure}
 
 It is possible to find another representations of Lie algebra, to which the
 observed hadrons can be assigned. The simplest way seems to be through highest
@@ -222,10 +224,10 @@ procedure is described in \cite{LieAlgebrasForParticlePhysicists} in detail.
 Representations defined by highest weight $\mu^1$ or $\mu^2$ respectively are
 called fundamental. Fundamental representation defined by $\mu^1$ is usually
 denoted $\mathbf{3}$ and was encountered already by expressions
-\eqref{eq:RepresentLie3} with weight diagram at figure \ref{fig:QuarkTriplet},
+\eqref{eq:RepresentLie3} with weight diagram at Figure \ref{fig:QuarkTriplet},
 corresponding to three different quark states. The second fundamental
 representation corresponds to three anti-quark states and is usually denoted
-$\bar{\mathbf{3}}$. Representation depicted in figure \ref{fig:BaryonicOctet} is
+$\bar{\mathbf{3}}$. Representation depicted in Figure \ref{fig:BaryonicOctet} is
 defined by the highest weight $\mu^1 + \mu^2$.
 
 Special interest is in representations with dimensions $10$ and $8$. These
@@ -252,7 +254,6 @@ In 1970 Sheldon Lee Glashow, John Iliopoulos and Luciano Maiani proposed
 In 1973 the Makoto Kobayashi and Toshihide Moskawa proposed \cite{Quarks6} that the
 existence of 6 different quark flavors could explain the experimental
 observation of CP violation.
-
 
 
 \section{Experimental Ground}
@@ -285,18 +286,18 @@ about electric charge distribution in nucleon can be extracted, whereas the
 second scattering reaction informs us about weak charge distribution. Further only
 \eqref{eq:ScatteringReactionsElectron} will be discussed. Feynmann diagram of this
 process is depicted with kinematics variables and vertex algebraic structures 
-in figure \ref{fig:Scattering}. 
+in Figure \ref{fig:Scattering}. 
 
-\begin{figure}[t]
+\begin{SCfigure}
   \centering
-  \includegraphics[width=0.5\textwidth]{Chapter1/Scattering.png} 
-  \caption{Scattering reaction $e^-N \rightarrow e^-N$. Figure from
-    \cite{QCDTextbook}}
+  \includegraphics[width=0.6\textwidth]{Chapter1/Scattering.png} 
+  \caption{Scattering reaction $e^-N \rightarrow e^-N$ with kinematics variables
+    and algebraic structures of vertices. Figure from \cite{QCDTextbook}.}
   \label{fig:Scattering}
-\end{figure}
+\end{SCfigure}
 
 Because of Lorentz-invariance of QED, the matrix element of the nucleon vertex
-$\bar{u}(P',S')\Gamma_\mu u(P,S)$ has to be Lorentz-vector. This restricts
+$\bar{u}(P',S')\Gamma_\mu u(P,S)$ has to be a Lorentz-vector. This restricts
 the possible form of $\Gamma_\mu$ to the following algebraic structure
 
 \begin{equation}
@@ -360,8 +361,8 @@ fraction of total momentum fulfilling
   \label{eq:PartonDensityFunctionsNormalization}
 \end{equation}
 must be defined. Then for scattering reaction
-\eqref{eq:ScatteringReactionsElectron} it can be derived the total cross section
-formula
+\eqref{eq:ScatteringReactionsElectron} the total cross section
+formula can be derived
 
 \begin{equation}
   \left. \frac{d^2\sigma}{dxdy} \right|_{eN} =
@@ -389,11 +390,11 @@ spin-1/2 point-like partons, now called quarks.
 
 \subsection{Number of Colors}
 
-Despite the strong confidence in parton model, theory which would describe the
+Despite the strong confidence in the parton model, a theory which would describe the
 interaction between partons was still missing. There was no direct evidence on
 how the theory would look like at the beginning of 1970s. The theory of electroweak
 unification successfully suggested, that the gauge theories are the right
-theories for description of world at subatomic level, but to construct gauge
+theories for the description of our world at the subatomic level, but to construct gauge
 theory of strong interaction the number of colors first had to be known.
 
 Number of colors $N_C$ is the number of different kinds of quarks of the same
@@ -408,18 +409,31 @@ pair of fermion and anti-fermion
   \label{ElectronPositronAnihilation}
 \end{equation}
 
-Feynmann diagram of this reaction is shown in figure \ref{fig:RRatio}, where
+Feynmann diagram of this reaction is shown in Figure \ref{fig:RRatio}, where
 constants sitting in two vertices are empahised.  $\alpha$ stands for fine
 structure constants and $Q_f$ for charge of fermion $f$ in units of positron
 charge. Total cross section has to be proportional to
 
-\begin{figure}[t]
+\begin{figure}[h!]
   \centering
-  \includegraphics[width=0.5\textwidth]{Chapter1/RRatio.png} 
-  \caption{$e^+e^- \rightarrow f\bar{f}$ annihilation with vertex constants.
-     $\alpha$ stands for fine structure constant, $Q_f$ for charge of fermion $f$
-     in units of positron charge.}
-  \label{fig:RRatio}
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{Chapter1/RRatio.png} 
+    \caption{$e^+e^- \rightarrow f\bar{f}$}
+    \label{fig:RRatio}
+  \end{subfigure}
+  \quad
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{Chapter1/PiMesonDecay.png}
+    \caption{$\pi^0 \rightarrow 2 \gamma$}
+    \label{fig:PiDecay}
+  \end{subfigure}
+  \caption{(a) $e^-e^+$ annihilation itno the pair of fermion anti-fermion.
+    Constants siting in both vertices are dented with $\alpha$ being the fine
+    structure constant and $Q_f$ the charge of fermion $f$ in units of positron
+    charge.
+           (b) $\pi^0$ meson decay into pair of photons with closed fermion
+         loop.}
+  \label{fig:FeynmannGraphsNC3}
 \end{figure}
 
 \begin{equation}
@@ -450,14 +464,7 @@ Experimental results for $R$-ratio have shown (?citace?, ?concrete value?), that
 $N_C = 3$.
 
 The second argument is the measurement of decay width of $\pi_0$ meson. Decay is
-depicted in figure \ref{fig:PiDecay}. For decay width $\Gamma$ it can be derived 
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=0.5\textwidth]{Chapter1/PiMesonDecay.png} 
-  \caption{$\pi^0 \rightarrow 2 \gamma$ decay with closed fermion loop.}
-  \label{fig:PiDecay}
-\end{figure}
+depicted in Figure \ref{fig:PiDecay}. For decay width $\Gamma$ it can be derived 
 
 \begin{equation}
   \Gamma = 7.63 \left( \frac{N_C}{3} \right)^2 \, \text{eV},
@@ -471,10 +478,10 @@ consistent only if there are three colors (?citace?). This indicates that there
 is some linking between electroweak and strong sector of SM and motivates the
 search for Grand Unified Theories.
 
-\section{QCD as Gauge Theory}
+\section{QCD as a Gauge Theory}
 
-Putting arguments of previous section all together, there are strong
-experimental evidences, that nucleons consist of point-like spin-1/2 particles
+Putting arguments of previous section all together, there is strong
+experimental evidence, that nucleons consist of point-like spin-1/2 particles
 called quarks and that quarks bring into the theory new degeneracy factor $N_C =
 3$, which can be understood as three different strong charges called colors.
 
@@ -565,18 +572,18 @@ Assume scattering process
   \label{eq:QuarkScattering}
 \end{equation}
 which is depicted in the lowest order of perturbation theory by the Feynman
-graph in figure \ref{fig:QuarkQuarkScattering}. Except contribution of this
+graph in Figure \ref{fig:QuarkQuarkScattering}. Except contribution of this
 graph to the scattering amplitude (which is the only contribution $\sim g^2$)
 there are 12 other Feynman diagrams with contributions $\sim g^4$. These are
-depicted in figure \ref{fig:QuarkQuarkScatteringCorrection}. 
+depicted in Figure \ref{fig:QuarkQuarkScatteringCorrection}. 
 
-\begin{figure}[t]
+\begin{SCfigure}
   \centering
   \includegraphics[width=0.5\textwidth]{Chapter1/QuarkQuarkScattering.png} 
   \caption{Leading order Feynmann diagrams in scattering reaction $q \bar{q}
     \rightarrow q \bar{q}$ with denoted transfered momentum $k$.}
   \label{fig:QuarkQuarkScattering}
-\end{figure}
+\end{SCfigure}
 
 \begin{figure}[t]
   \centering
@@ -641,18 +648,18 @@ with solution
 \end{equation}
 which is the final expression for running coupling constant up to one-loop
 order. This dependence corresponds to experimental data which are depicted in
-figure \ref{fig:RunningCouplingConstant}. Coupling constant decreases with
+Figure \ref{fig:RunningCouplingConstant}. Coupling constant decreases with
 increasing momentum transfer allowing the use of the perturbation theory. This
 is known as Asymptotic Freedom \cite{AssymptoticFreedom}.
 
-\begin{figure}[t]
+\begin{SCfigure}
   \centering
   \includegraphics[width=0.5\textwidth]{Chapter1/RunningCouplingConstant.jpg}
   \caption{Experimental measurements of running coupling constant.
     $Q=\sqrt{\left|k^2\right|}$ in comparison to
     \eqref{eq:RunningCouplingConstant}. (?source?) (?better picture?)}
   \label{fig:RunningCouplingConstant}
-\end{figure}
+\end{SCfigure}
 
 On the other hand, when the momentum transfer decreases, there is special value
 $-k^2=\Lambda^2$ for which the last expression diverges
