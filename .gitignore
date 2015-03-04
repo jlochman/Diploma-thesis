@@ -112,3 +112,5 @@ sympy-plots-for-*.tex/
 .DS_Store
 # but include thesis1.pdf
 !thesis1.pdf
+# ignore vim swap files
+*.swp
