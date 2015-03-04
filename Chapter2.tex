@@ -174,17 +174,27 @@ analysis of QCD processes.
 
 \section{Jet Algorithms}
 
-Jet algorithm is a generic "recipe" which takes a set of particles (with defined
+Jet algorithm is a generic "recipe" which takes a set of particles (or other
+objects with defined
 four-momenta) and returns jets created from them. That recipe usually involves a
 set of parameters which together with the recipe fully specify the jet
-definition. 
+definition. Following the remarks at the end of the previous section, jet
+algorithms should fulfill following conditions 
+\begin{enumerate}
+  \item Infrared safety - the presence of additional soft particles between two
+    particles belonging to the same jet should not affect the recombination of
+    these particles into a jet.
+  \item Collinear safety - jet reconstruction should not depend on fact, if
+    transverse momentum is carried by one particle, or if a particle is split
+    into two collinear particles.
+\end{enumerate}
 
 Principals of two jet algorithms are described here - fixed cone algorithm and
 $k_t$ algorithm. First of these algorithms is more illustrative, the second one
 is used in ATLAS. Detailed description as well as other jet algorithms can be
 found in \cite{ATLASmain}. After definitions of jet algorithms it is shortly
 described, how the objects (not necessary particles) with defined four-momenta
-are constructed from the signal observed on the ATLAS detector. 
+are constructed from the signal observed on the ATLAS detector.
 
 \subsection{Fixed cone algorithm}
 
@@ -202,19 +212,27 @@ considered stable and is called a jet. At this point, the next seed is taken
 from the input list and a new cone jet is formed with the same iterative
 procedure. This continues until no more seeds are available. 
 
-The jets found this way can share some constituents. This algorithm is not
-infrared safe. It means, that the presence of additional soft particles between
-two particles belonging to the same jet can affect the recombination of these
-two particles into a jet. In the same sense, the absence of additional soft
-particles between these two can disturb the correct reconstruction of the jet.
-This is ilustrated in Figure~\ref{fig:IRsafety}.
+The jets found this way can share some constituents. This algorithm is both not
+infrared safe (Figure \ref{fig:IRsafety}) and not collinear safe (Figure
+\ref{fig:ColSafety}).
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\textwidth]{Chapter2/IRsafety}
-  \caption{Fixed cone algorithm is not infrared safe - soft particle between two
-  hard particles can determine, if hard particles end in different jets or will
-  be part of the same one.} \label{fig:IRsafety}
+  \begin{subfigure}[b]{0.65\textwidth}
+    \includegraphics[width=\textwidth]{Chapter2/IRsafety.png}
+    \caption{Infrared unsafety}
+    \label{fig:IRsafety}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{0.6\textwidth}
+    \includegraphics[width=\textwidth]{Chapter2/ColSafety.png}
+    \caption{Collinear unsafety}
+    \label{fig:ColSafety}
+  \end{subfigure}
+  \caption{Illustration of (a) infrared unsafety and (b) collinear unsafety
+    of fixed cone jet algorithm.
+    Figures from \cite{JetTheoreticalPictures}.}
+  \label{fig:JetIRCOLsafety}
 \end{figure}
 
 Parameters used by fixed cone algorithm are a seed threshold of $\pt > 1 \GeV$,
@@ -238,31 +256,42 @@ $y_i$ and $\phi_i$ are respectively the transverse momentum, rapidity and
 azimuth of particle $i$. In addition to the radius parameter $R$, parameter $p$
 was added to split $k_t$~algorithms into three categories.  
 \begin{itemize}
-	\setlength{\itemsep}{0pt}
-	\setlength{\parskip}{0pt}
-	\setlength{\parsep}{0pt}
 	\item $p = 1$ $k_t$ algorithm,
 	\item $p = 0$ Cambridge/Aachen algorithm,
 	\item $p = -1$ anti-$k_t$ jet-clustering algorithm.
 \end{itemize}
-The differences between these algorithms are detailed described in~\cite{ANTIKT}.  
+The differences between these algorithms are detailed described
+in~\cite{ANTIKT}. Recombination of calorimeter signal towers (see Section
+\ref{sse:CalorimeterJets}) in jets is for $k_t$ and anti-$k_t$ algorithms shown
+at Figure 
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{Chapter2/JetRecombination.png}
+  \caption{Illustration of $k_t$ and anti-$k_t$ jet algorithms with $R=1$ for
+    calorimeter signal towers in azimuth $\Phi$ and pseudorapidity $y$. Towers of
+    the same color were recombined to one jet. Figure from
+    \cite{JetTheoreticalPictures}} 
+  \label{fig:JetRecombination}
+\end{figure}
 
 These algorithms first find the minimum $d_{min}$ of all $d_{ij}$ and $d_i$. If
 $d_{min}$ is in $d_{ij}$'s, the corresponding objects $i$ and $j$ are combined
 into a new object $k$ using four-momentum recombination. Both objects $i$ and
-$j$ are removed from the list, and the new object $k$ is added to it.
-
-If $d_{min}$ is in $d_i$'s, the object $i$ is considered to be a jet by itself
-and removed from the list.
+$j$ are removed from the list, and the new object $k$ is added to it. If
+$d_{min}$ is in $d_i$'s, the object $i$ is considered to be a jet by itself and
+removed from the list.
 
 This means that all original input objects end up to be either part of a jet or
 to be jets by themselves. Contrary to the cone algorithm described earlier, no
-objects are shared between jets and the procedure is infrared safe.
+objects are shared between jets and the procedure is both infrared and collinear
+safe.
 
 ATLAS uses anti-$k_t$ algorithm with $R=0.4$ for narrow and $R=0.6$ for wide
 jets.
 
 \subsection{Calorimeter jets}
+\label{sse:CalorimeterJets}
 
 The most important detectors for jet reconstruction are the ATLAS calorimeters.
 The ATLAS calorimeter system has about 200,000 individual cells of various sizes
@@ -274,8 +303,8 @@ signal towers and topological cell clusters.
 In the case of calorimeter signal towers, the cells are projected onto a fixed
 grid in pseudorapidity $\eta$ and azimuth $\phi$. The tower bin size is $\Delta
 \eta \times \Delta \phi = 0.1 \times 0.1$ in the whole acceptance region of the
-calorimeters, i.e. in $|\eta| < 5$ and $- \pi < \phi < \pi$ with $100 \times 64
-= 6,400$ towers in total.
+calorimeters, i.e. in $|\eta| < 5$ and $- \pi < \phi < \pi$ with approximately 
+$100 \times 64 = 6,400$ towers in total.
 
 The alternative representation of the calorimenter signals for jet
 reconstruction are topological cell clusters, which are basically an attempt to
@@ -290,9 +319,3 @@ those added cells which have $\Gamma$ above a certain secondary threshold $N$
 above a basic threshold $|\Gamma| > P = 0$ is added to the cluster. After the
 initial clusters are formed, they are analyzed for local signal maximums by a
 splitting algorithm, and split between those maximums.
-
-
-
-\section{Jet Reconstruction}
-
-How the jets are reconstructed including description of their calibration.
