@@ -1,11 +1,47 @@
 \chapter{Data Analysis}
 
 
-\begin{landscape} \begin{table}
+
+
+
+\begin{table}
+  \centering
+  \begin{tabular}{|c|rcr|c|c|c|}
+    \hline 
+     JZXW & \multicolumn{3}{|c|}{$\pt$ range (GeV)} & Cross-section (fb) & Filter Efficiency & \# envents  \\ 
+    \hline
+    \hline
+		 JZ0W &     0 & - &    20 & 7.8420e+13 & 9.7193e-01 & 3498000 \\ 
+    \hline
+		 JZ1W &    20 & - &    80 & 7.8420e+13 & 2.7903e-04 & 2998000 \\
+    \hline
+		 JZ2W &    80 & - &   200 & 5.7312e+10 & 5.2261e-03 & 500000  \\
+    \hline
+		 JZ3W &   200 & - &   500 & 1.4478e+09 & 1.8068e-03 & 499500  \\
+    \hline
+		 JZ4W &   500 & - &  1000 & 2.3093e+07 & 1.3276e-03 & 477000  \\
+    \hline
+		 JZ5W &  1000 & - &  1500 & 2.3793e+05 & 5.0449e-03 & 499000  \\
+    \hline
+		 JZ6W &  1500 & - &  2000 & 5.4279e+03 & 1.3886e-02 & 493500  \\
+    \hline
+		 JZ7W &  2000 & + &       & 9.4172e+02 & 6.7141e-02 & 497000  \\
+    \hline 
+  \end{tabular}
+  \caption{The cross-sections, filter efficiency and number of events for the JZXW samples which differ in the leading truth jet $\pt$.}
+  \label{tab:JZXW}
+\end{table}
+
+
+
+
+
+\begin{landscape} 
+\begin{table}
   \centering
   \begin{tabular}{|c|c|>{\bfseries}c|c|c|c|c|c|c|c|c|}
     \hline
-     \multicolumn{2}{|c|}{}         & ALL      & JZ0W     & JZ1W     & JZ2W     & JZ3W     & JZ4W     & JZ5W     & JZ6W     & JZ7W     \\
+     \multicolumn{2}{|c|}{\# jets}  & ALL      & JZ0W     & JZ1W     & JZ2W     & JZ3W     & JZ4W     & JZ5W     & JZ6W     & JZ7W     \\
     \hline                                                              
     \hline                                                              
      \multicolumn{2}{|c|}{Signal}   & 1.10e+08 & 3.22e+07 & 3.59e+07 & 6.67e+06 & 7.07e+06 & 6.28e+06 & 7.29e+06 & 7.13e+06 & 7.11e+06 \\
@@ -57,30 +93,5 @@
   \end{tabular}
   \caption{Cut and matching efficiency.}
   \label{tab:CutAndMatchingEfficiency}
-\end{table} \end{landscape}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\end{table} 
+\end{landscape}
