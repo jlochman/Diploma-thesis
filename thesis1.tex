@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{report}
+\documentclass[a4paper,11pt,twoside,openright]{report}
 \usepackage[T1]{fontenc}
 \usepackage[cp1250]{inputenc}  
 \usepackage{amsmath} 
@@ -55,7 +55,7 @@
 \newcommand{\TeV}{\,\text{TeV}}
 \newcommand{\GeV}{\,\text{GeV}}
 \newcommand{\MeV}{\,\text{MeV}}
-\newcommand{\pt}{p_T}
+\newcommand{\pt}{p_{T}}
 \newcommand{\Euler}{\mathrm{e}}
 \newcommand{\rts}{\sqrt{s}}
 
@@ -136,6 +136,10 @@ Prohlasuji\ldots
 \begin{flushright}
   \autor 
 \end{flushright}
+
+\newpage 
+\thispagestyle{empty}  
+~
    
 %================================================================================
 % Acknowledgment
@@ -153,6 +157,9 @@ Dekuji\ldots
   \autor 
 \end{flushright}
 
+\newpage 
+\thispagestyle{empty}  
+~
 
 %================================================================================
 % Abstract and others
@@ -187,6 +194,10 @@ Dekuji\ldots
 \end{tabular}
 
 
+\newpage 
+\thispagestyle{empty}  
+~
+
 %================================================================================
 % Content
 %================================================================================
@@ -206,10 +217,12 @@ Dekuji\ldots
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-
 \input{Chapter1.tex}
 \input{Chapter2.tex}
 \input{Chapter3.tex}
+
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
 
 
 %================================================================================

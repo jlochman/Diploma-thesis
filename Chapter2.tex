@@ -53,13 +53,14 @@ in 2010 at a center of mass energy per pair of colliding nucleons $\sqrt{s} =
 during 3 weeks of 2013 successfully demonstrated LHC capability to provide
 asymmetric collisions.  
 
-The first running period of the LHC, Run I, was very successful and resulted in
+The first running period of the LHC, RunI, was very successful and resulted in
 important discoveries including Higgs boson on July 4, 2012
 \cite{HiggsDiscovery}.  The accelerator complex has been upgraded including its
 experiments for two years and it is expected, the Run II will start in summer
-2015 \cite{LHCFuture}. In Run II the center-of-mass energy of proton-proton
+2015 \cite{LHCFuture, LHCFutureLuminosigy}. In Run II the center-of-mass energy of proton-proton
 collisions will be raised up to $\sqrt{s} = 13 \TeV$ and beam crossing time will
-be reduced from the current $50\,\text{ns}$ to $25\,\text{ns}$.
+be reduced from the current $50\,\text{ns}$ to $25\,\text{ns}$. Integrated
+luminosity in RunII will cross $100\,\text{fb}^{-1}$.
 
 \subsection{The ATLAS Detector}
 
@@ -306,16 +307,99 @@ grid in pseudorapidity $\eta$ and azimuth $\phi$. The tower bin size is $\Delta
 calorimeters, i.e. in $|\eta| < 5$ and $- \pi < \phi < \pi$ with approximately 
 $100 \times 64 = 6,400$ towers in total.
 
-The alternative representation of the calorimenter signals for jet
+The alternative representation of the calorimeter signals for jet
 reconstruction are topological cell clusters, which are basically an attempt to
 reconstruct three-dimensional "energy blobs" representing the showers developing
 for each particle entering the calorimeter. The clustering starts with seed
 cells with a signal-to-noise ratio, or signal significance $\Gamma = E_{cell} /
 \sigma_{noise,cell}$, above a certain threshold $S$, i.e. $|\Gamma| > S = 4$.
-All directly neighbouring cells of these seed cells, in all three dimensions,
-are collected into the cluster. Neighbours of neighbours are considered for
+All directly neighboring cells of these seed cells, in all three dimensions,
+are collected into the cluster. Neighbors of neighbors are considered for
 those added cells which have $\Gamma$ above a certain secondary threshold $N$
 ($|\Gamma| > N = 2$). Finally, a ring of guard cells with signal significances
 above a basic threshold $|\Gamma| > P = 0$ is added to the cluster. After the
 initial clusters are formed, they are analyzed for local signal maximums by a
 splitting algorithm, and split between those maximums.
+
+\section{Jet corrections}
+
+Before jets can proceed to the data analysis, corrections have to be done to
+minimize detector effects including calorimeter non-compensation, noise, losses
+in dead material and cracks, longitudinal leakage and particle deflection in the
+magnetic field. Indispensable tool for jet corrections are Monte Carlo event
+generators - \textsc{Pythia} (?citace?) generating high-energy-physics events and 
+\textsc{Geant4} (?citace?) or \textsc{AtlfastII} (?citace?) detector simulations
+for simulating the detector response on \textsc{Pythia} generated events.
+
+Using these tools it is possible to simulate jet reconstruction on three
+different stages of collisions indicated in Figure \ref{fig:JetPhases}. First
+there are parton jets which are reconstructed from the quarks, gluons and other
+elementary particles created just after the collision. Stable particles (with
+lifetime $c\tau \sim 10^{-15}\,\text{m}$) created by hadronization are recombined into
+the particle jets. When collision reaches the detector, the detector simulation
+is used and the recorded signal is reconstructed into signal jets.
+
+\begin{SCfigure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{Chapter2/JetPhases.jpg}
+  \caption{Possible levels of jet reconstructions. Figure from \cite{DZero:JetEnergyScale} }
+  \label{fig:JetPhases}
+\end{SCfigure}
+
+First the signal jets are corrected to the parton jets leading to modification
+of kinematic properties of signal jets in the process called calibration.
+Because the calibration is persistently evolving, each jet analysis uses as the
+input the uncalibrated signal jets which are then easily calibrated using
+standard library \textsc{ApplyJetCalibration} (?citace?).
+
+There are some detector effects which are not removable by the calibration. These
+effects include the limited detector resolution (detector cells have finite
+dimensions) and the limited acceptance (not all events are recorded). The former
+leads to the smearing of jet kinematic properties wheres the later to
+lowering of observed cross section against the value theoretically
+predicted. Both of these effects are negatively influencing the observables
+and can be partially removed by the unfolding procedure, which unlike
+the jet calibration, is analysis dependent. 
+
+\subsection{Unfolding}
+
+In this analysis, the distribution $f(\pt)$ of inclusive jet $\pt$ is measured
+for $\pt \in \langle a, b \rangle$. Thanks to the detector imperfections,
+instead of physical variable $\pt$ new variable $x$ and its distribution
+$g(x)$ are measured. New distribution can be expressed as
+
+\begin{equation}
+  g(x) = \int_a^b A(x, \pt) f(\pt) dx,
+  \label{eq:UnfoldingBasicDefinition}
+\end{equation}
+with the function $A(x, \pt)$ describing the detector response as can be seen
+when the detector is exposed to a particle beam with well known $\pt = \pt'$
+meaning $f(\pt) = \delta(\pt - \pt')$, leading to $g(x) = A(x, \pt')$. The
+reconstruction of $f(\pt)$ from measured $g(x)$ is called unfolding.
+
+For practical purposes the equation \eqref{eq:UnfoldingBasicDefinition} should
+be discretized so instead of continuous distribution $g(x)$ the discretized
+values $g_i = \int_{N(i)} g(x)dx$ of discretized observable $f_i =
+\int_{N(i)} f(\pt)d\pt$ are measured, where the integral goes over measurable $N(i)
+\subset \langle a, b \rangle$. For simplicity assume $x \in \langle
+a, b \rangle$ is discretized in the same way as the physical $\pt$. Equation 
+\eqref{eq:UnfoldingBasicDefinition} then reads
+
+\begin{equation}
+  g = Af,
+  \label{eq:UnfoldingDiscretized}
+\end{equation}
+with $g$ and $f$ being vectors of $g_i$'s and $f_i$'s respectively and $A$ matrix
+derived from $A(x, \pt)$. If the limited acceptance would be the only detector
+problem, then $A$ would be diagonal matrix with some elements $ < 1$. When the
+limited resolution comes to play, the diagonal entries starts to smear out of
+the diagonal and the matrix $A$ starts to complicate.
+
+The unfolding result which offers the solution of
+\eqref{eq:UnfoldingDiscretized} by inversion of matrix $A$ is mostly
+disappointing as is illustrated e.g. in (?citace?). For result improvement,
+different unfolding methods were developed including iterative Bayesian
+(?citace?), Singular Value Decomposition (?citace?), or iterative, dynamically
+stabilized (IDS) method (?citace?), which is the method used in this thesis. 
+
+

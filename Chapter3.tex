@@ -1,8 +1,38 @@
 \chapter{Data Analysis}
 
+\MyQuote{In physics, you don't have to go around making trouble for yourself - nature
+does it for you.}{Frank Wilczek}
 
+QCD jets are the most common hard objects observed at hadron colliders, with
+their cross section exceeding any other physics process by orders of magnitude.
+Measurement of inclusive jet cross section thus provide the first test for both
+QCD predictions and the detector performance. LHC Run II should open new
+kinematic region with expectation of observation of jets with $\pt$ in $\TeV$
+region.
 
+This chapter describes the details of the inclusive jet cross section analysis.
 
+\section{Data Characteristics}
+
+Data used in this thesis are Monte Carlo generated events of $pp$ collisions at
+the center-of-mass energy $\sqrt{s} = 13\TeV$ by \textsc{Pythia8}
+(?citace?) event generator using CT10 PDFs (?citace?) and ATLAS underlying event
+tune AU2 (?citace?). \textsc{Pythia8} performs LO QCD calculations. The response of
+the ATLAS detector on these events was calculated with ?\textsc{Geant4}?
+(?citace?) software toolkit.
+
+Particles were recombined using anti-$k_t$ jet algorithm with parameter $R=0.4$.
+There are parton jets reconstructed from the \textsc{Pythia8} output, which
+further in this thesis are denoted truth jets, and next to them, there are the
+signal jets reconstructed from the output of \textsc{Geant4} detector
+simulation as the topological cell clusters. 
+
+Generated events are divided into JZXW samples according to
+the leading truth jet $\pt$. These samples differ in event weight which is for
+the whole event calculated as the product of cross section, filter efficiency,
+inverse number of events and additional weight factor which is for each event
+stored in \texttt{EventInfoAux} container. Values used in this thesis are given
+in Table \ref{tab:JZXW}.  
 
 \begin{table}
   \centering
@@ -31,6 +61,81 @@
   \caption{The cross-sections, filter efficiency and number of events for the JZXW samples which differ in the leading truth jet $\pt$.}
   \label{tab:JZXW}
 \end{table}
+
+Analysis uses jets with transverse momentum $\pt > 15\GeV$ and rapidity $|y| <
+4$ and is done in $\pt$ and $|y|$ bins with the following edges
+
+\small
+\begin{align}
+  \pt = \, &15:20:25:35:45:55:70:85:100:116:134:152:172:194:216:240:264:290: \nonumber \\
+        &318:346:376:408:442:478:516:556:598:642:688:736:786:838:894:952: \nonumber \\
+        &1012:1076:1162:1310:1530:1992:2300:2800:3400:4100:5000:6000:7200 \GeV \nonumber \\
+  |y| = \, &0.0:0.5:1.0:1.5:2.0:2.5:3.0:3.5:4.0
+  \label{eq:Binning}
+\end{align}
+\normalsize
+
+\section{Event Selection}
+
+Signal jets were calibrated using \textsc{ApplyJetCalibration} library version
+3.28 and configuration parameters were loaded from the
+\texttt{JES\_Full2012dataset\_May2014.config} with calibration sequence
+\texttt{JetArea\_Residual\_EtaJES}. In next signal jets denotes the signal
+calibrated jets.
+
+In this section the jet selection criteria and matching of truth with signal
+jets are described. The former is needed to cut those jets off, which were
+misinterpreted by the detector, by the later the inputs for the unfolding
+procedure are obtained. Description of the unfolding procedure will follow in
+the next section.
+
+\subsection{Jet Cuts}
+
+\begin{itemize}
+  \item \textbf{$\mathbf{\pt}$ Cut}
+
+    something something something
+  \item \textbf{$\mathbf{y}$ Cut}
+    
+    something something something
+  \item \textbf{Zero jet (0jet) Cut}
+
+    something something something
+  \item \textbf{Leading Ration (LR) Cut}
+
+    something something something
+\end{itemize}
+
+Discuss results of cutting. 
+\ref{fig:Cutting}
+\ref{tab:Cutting}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Chapter3/SignalCutting.eps}
+  \includegraphics[width=0.7\textwidth]{Chapter3/TruthCutting.eps}
+  \caption{Cutting}
+  \label{fig:Cutting}
+\end{figure}
+
+\subsection{Jet Matching}
+
+Describe matching procedure.  
+Discuss results of matching.
+\ref{fig:Matching}
+\ref{tab:Cutting}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Chapter3/SignalMatching.eps}
+  \includegraphics[width=0.7\textwidth]{Chapter3/TruthMatching.eps}
+  \caption{Matching}
+  \label{fig:Matching}
+\end{figure}
+
+\section{Unfolding}
+
+\section{Comparison with Prediction}
 
 
 
