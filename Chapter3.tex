@@ -108,12 +108,12 @@ the next section.
 
 Discuss results of cutting. 
 \ref{fig:Cutting}
-\ref{tab:Cutting}
+\ref{tab:CutAndMatchingEfficiency}
 
 \begin{figure}[p]
   \centering
-  \includegraphics[width=0.7\textwidth]{Chapter3/SignalCutting.eps}
-  \includegraphics[width=0.7\textwidth]{Chapter3/TruthCutting.eps}
+  \includegraphics[width=\textwidth]{Chapter3/SignalCutting.eps}
+  \includegraphics[width=\textwidth]{Chapter3/TruthCutting.eps}
   \caption{Cutting}
   \label{fig:Cutting}
 \end{figure}
@@ -122,24 +122,109 @@ Discuss results of cutting.
 
 Describe matching procedure.  
 Discuss results of matching.
+matchedSignal, unmatchedSignal, matchedTruth, unmatchedTruth.
 \ref{fig:Matching}
-\ref{tab:Cutting}
+\ref{tab:CutAndMatchingEfficiency}
 
 \begin{figure}[p]
   \centering
-  \includegraphics[width=0.7\textwidth]{Chapter3/SignalMatching.eps}
-  \includegraphics[width=0.7\textwidth]{Chapter3/TruthMatching.eps}
+  \includegraphics[width=\textwidth]{Chapter3/SignalMatching.eps}
+  \includegraphics[width=\textwidth]{Chapter3/TruthMatching.eps}
   \caption{Matching}
   \label{fig:Matching}
 \end{figure}
 
 \section{Unfolding}
 
+The main ingredient for the unfolding procedure is the transfer matrix Aij,
+which is derived from Monte Carlo and contains the number of jets that have been
+reconstructed in bin i with a matched truth jet that was generated in bin j. A
+reconstructed and true jet are considered matched if their centers lie within
+DeltaR <0.3 of each other, and the matching is unique. The transfer matrix does not
+include unmatched jets, so an equivalent fraction of jets in data needs to be
+removed from the unfolding procedure: a multiplicative inefficiency equal to the
+fraction of unmatched jets is applied to data before the start of the unfolding
+procedure, and the equivalent number of jets is restored after the unfolding.
+
+How the unfolding matrix is filled.
+MatchingEfficiency for signal and truth jets.
+IDSUnfolding 
+
+The unfolding procedure for the inclusive jet measurement is iterated once.
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{{Chapter3/Unfold_matrix_firstBin}.eps}
+  \caption{Unfolding matrix detail}
+  \label{fig:UnfoldingMatrixDetail}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{{Chapter3/Unfold_matrix_all}.eps}
+  \caption{Unfolding matrix all}
+  \label{fig:UnfoldingMatrixAll}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)0-0.5}.eps}
+  \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)0.5-1}.eps}
+  \caption{Unfolding1}
+  \label{fig:Unfolding1}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)1-1.5}.eps}
+  \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)1.5-2}.eps}
+  \caption{Unfolding2}
+  \label{fig:Unfolding2}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)2-2.5}.eps}
+  \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)2.5-3}.eps}
+  \caption{Unfolding3}
+  \label{fig:Unfolding3}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)3-3.5}.eps}
+  \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)3.5-4}.eps}
+  \caption{Unfolding4}
+  \label{fig:Unfolding4}
+\end{figure}
+
 \section{Comparison with Prediction}
 
 
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\textwidth]{{Chapter3/Unfolded_VS_Prediciton_abs(y)0-0.5}.eps}
+  \includegraphics[width=\textwidth]{{Chapter3/Unfolded_VS_Prediciton_abs(y)0.5-1}.eps}
+  \caption{Comparision unfolding with prediction 1}
+  \label{fig:CompareUnfoldPred1}
+\end{figure}
 
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\textwidth]{{Chapter3/Unfolded_VS_Prediciton_abs(y)1-1.5}.eps}
+  \includegraphics[width=\textwidth]{{Chapter3/Unfolded_VS_Prediciton_abs(y)1.5-2}.eps}
+  \caption{Comparision unfolding with prediction 2}
+  \label{fig:CompareUnfoldPred2}
+\end{figure}
 
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\textwidth]{{Chapter3/Unfolded_VS_Prediciton_abs(y)2-2.5}.eps}
+  \includegraphics[width=\textwidth]{{Chapter3/Unfolded_VS_Prediciton_abs(y)2.5-3}.eps}
+  \caption{Comparision unfolding with prediction 3}
+  \label{fig:CompareUnfoldPred3}
+\end{figure}
 
 \begin{landscape} 
 \begin{table}
