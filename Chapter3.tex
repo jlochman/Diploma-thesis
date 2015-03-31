@@ -75,84 +75,176 @@ Analysis uses jets with transverse momentum $\pt > 15\GeV$ and rapidity $|y| <
 \end{align}
 \normalsize
 
-\section{Event Selection}
-
 Signal jets were calibrated using \textsc{ApplyJetCalibration} library version
 3.28 and configuration parameters were loaded from the
 \texttt{JES\_Full2012dataset\_May2014.config} with calibration sequence
 \texttt{JetArea\_Residual\_EtaJES}. In next signal jets denotes the signal
 calibrated jets.
 
+\section{Event Selection}
+
 In this section the jet selection criteria and matching of truth with signal
 jets are described. The former is needed to cut those jets off, which were
 misinterpreted by the detector, by the later the inputs for the unfolding
 procedure are obtained. Description of the unfolding procedure will follow in
-the next section.
+the next section. In the following only the basic description is given. More
+details including graphical display and numerical results are given in Appendix
+\ref{App:CutAndMatchingResults}.
 
 \subsection{Jet Cuts}
 
 \begin{itemize}
   \item \textbf{$\mathbf{\pt}$ Cut}
 
-    something something something
+    By this cut both signal and truth jets with $\pt < 15 \GeV$ were removed from
+    the list.
+
   \item \textbf{$\mathbf{y}$ Cut}
     
-    something something something
+    By this cut both signal and truth jets with $|y| > 4$ were removed from the
+    list.
+
   \item \textbf{Zero jet (0jet) Cut}
 
-    something something something
+    If there was no signal or truth jet left in the event after previous cuts,
+    the whole event was skipped.
+    
   \item \textbf{Leading Ration (LR) Cut}
 
-    something something something
+    In this cut the signal and truth jets with the highest $\pt$ were used. If
+    there were only one signal jet left, the ratio $LR = \pt^{signal,leading} /
+    \pt^{truth,leading}$ was calculated. If there were two signal jets, instead
+    of $\pt^{signal,leading}$ the average $\pt$ of two leading signal jets was
+    calculated. If $LR > 1$, $LR$ was replaced by its inverse value. If $LR <
+    0.6$ the whole event was skipped.
+
 \end{itemize}
 
-Discuss results of cutting. 
-Figure \ref{fig:Cutting}
-Table \ref{tab:CutAndMatchingEfficiency}
+Numbers of signal and truth jets removed in each step are shown in Table
+\ref{tab:CutAndMatchingEfficiency}, where also the cut efficiencies for individual
+JZXW samples are shown. The impact of each cut on jet $\pt$ spectrum of signal
+and truth jets is displayed in Figure \ref{fig:Cutting}. 
+
+It can be seen that the most important cut is the 0jet cut which removes
+approximately $80\,\%$ of signal jets in JZ0W sample whereas the truth jets
+remain intact. According to Table \ref{tab:JZXW} for event from the JZ0W sample
+the leading truth jet $\pt < 20 \GeV$ which has no longer to hold for signal
+jets which were in some cases reconstructed with $\pt \sim 100 \GeV$. Because of
+Monte Carlo event weight of events from JZ0W sample is dominant over event
+weights of other JZXW samples by several orders, the misreconstructed signal
+jets from JZ0W sample were parasitizing on the observed $\pt$ spectrum of signal
+jets.
 
 \subsection{Jet Matching}
 
-Describe matching procedure.  
-Discuss results of matching.
-matchedSignal, unmatchedSignal, matchedTruth, unmatchedTruth.
-Figure \ref{fig:Matching}
-Table \ref{tab:CutAndMatchingEfficiency}
+To find, how the truth jets are reconstructed by the detector, the jet matching
+has to be done, i.e. for each truth jet it is needed to find signal jet whom
+could the original truth jet become. 
 
+For each pair $(i,j)$ of signal and truth jet, the quantity $dR_{ij} =
+\sqrt{d\phi_{ij}^2 + dy_{ij}^2}$ was calculated with $d\phi_{ij} =
+\phi_i^{signal} - \phi_j^{truth}$ and $dy_{ij} = y_i^{signal} - y_j^{truth}$.
+The minimum was found between all of $dR_{ij}$'s. If this minimum led under the
+defined cutoff $\min(dR_{ij}) = dR_{pq} < dR^{cutoff} = 0.2$, the jets $(p,q)$
+were matched and further not assumed in matching procedure. This continued until
+condition $\min(dR_{ij}) < dR^{cutoff}$ was not satisfied or all of the jets
+were matched.
+
+Numbers of signal and truth jets, both matched and unmatched are shown in Table
+\ref{tab:CutAndMatchingEfficiency} where also the matching efficiencies for
+individual JZXW samples are shown. In Figure \ref{fig:Matching} there are
+compared $\pt$ spectra of matched and unmatched signal and truth jets with $\pt$
+spectra of all signal and truth jets respectively, whereas in Figure
+\ref{fig:MatchedUnmatched} the comparison between $\pt$ spectra of signal and
+truth jets are shown for matched and unmatched jets..
+
+It can be seen that for JZ(1-7)W samples, there is much more unmatched signal
+jets, than is the unmatched truth jets. Looking back at the statistics of the
+$\pt$ cut, the reason is, that more than a half of truth jets has $\pt < 15
+\GeV$ in every JZXW sample, which does not hold for the signal jets. There is
+much more signal jets in statistics than is the truth jets. 
+
+From the top of the figure \ref{fig:MatchedUnmatched} showing the contribution
+of matched jets to $\pt$ spectra, it can be seen, that starting with
+$\pt>25\GeV$, $\pt$ spectra of signal jets overwhelms those of truth jets.
+Taking into account the fact, that $\pt$ spectra of matched signal and matched
+truth jets are obtained from the same number of jets, this can seem to be a
+little bit confusing. The reason is, that some signal jets overflow the $\pt$
+range defined by the JZXW sample and that each event is filled with weight
+defined by the JZXW sample, which with increasing $\pt$ falls down.
 
 \section{Unfolding}
 
-The main ingredient for the unfolding procedure is the transfer matrix Aij,
-which is derived from Monte Carlo and contains the number of jets that have been
-reconstructed in bin i with a matched truth jet that was generated in bin j. A
-reconstructed and true jet are considered matched if their centers lie within
-DeltaR <0.3 of each other, and the matching is unique. The transfer matrix does not
-include unmatched jets, so an equivalent fraction of jets in data needs to be
-removed from the unfolding procedure: a multiplicative inefficiency equal to the
-fraction of unmatched jets is applied to data before the start of the unfolding
-procedure, and the equivalent number of jets is restored after the unfolding.
-
-How the unfolding matrix is filled.
-MatchingEfficiency for signal and truth jets.
-IDSUnfolding 
-
-The unfolding procedure for the inclusive jet measurement is iterated once.
-
+Summarizing the results of the previous section, all events saved in Monte Carlo
+simulated data firstly underwent the series of four cutoffs to obtain the set of
+jets denoted signal and truth jets. Both signal and truth jets were split into
+two categories depending on successful matching - there is correspondence $1:1$
+between matched signal and matched truth jets. Signal jets, which were not
+matched, formed the unmatched signal jets, and similarly set of unmatched truth
+jets was created. All these 6 sets of jets is needed by the unfolding procedure
+which description follows in this section.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.7\textwidth]{{Chapter3/Unfold_matrix_firstBin}.eps}
+  \includegraphics[width=\textwidth]{{Chapter3/SignalVSTruth}.eps}
+  \caption{signal vs truth}
+  \label{fig:SignalVSTruth}
+\end{figure}
+
+Figure \ref{fig:SignalVSTruth} shows the $\pt$ spectra of signal (which could
+correspond to the observed spectrum) and truth jets (the theoretically predicted
+spectrum). It can be seen, that observed $\pt$ spectrum, represented by the
+signal jets, differs from the $\pt$ spectrum theoretically expected which is
+represented by the $\pt$ spectrum of truth jets. Unfolding should transform the
+observed $\pt$ spectrum to the spectrum theoretically expected. If this
+transformation would be done on real data, it should preserve additional
+structures, which are presented in data, but not included by the theory.
+
+The main ingredient for the unfolding procedure is the transfer matrix $A_{ij}$
+which cells are proportional to number of signal jets in bin $i$ with a matched
+truth jet that was generated in bin $j$. Example of unfolding matrix is shown in
+Figure \ref{fig:UnfoldingMatrixDetail} where only matched signal and truth jets
+with rapidity $|y|<0.5$ were used. 
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\textwidth]{{Chapter3/Unfold_matrix_firstBin}.eps}
   \caption{Unfolding matrix detail}
   \label{fig:UnfoldingMatrixDetail}
 \end{figure}
 
-\begin{figure}[h]
+In this thesis the double binning \ref{eq:Binning} is used which complicates
+the situation because the signal jet can simply migrate of the
+transfer matrix from Figure \ref{fig:UnfoldingMatrixDetail}, when its rapidity
+$|y|>0.5$ and when it was matched with truth jet with $|y|<0.5$. To these cases
+could be treat, the transfer matrix was redefined in a way which can be easily seen
+from Figure \ref{fig:UnfoldingMatrixAll} where the marked square represents the
+previous unfolding matrix from Figure \ref{fig:UnfoldingMatrixDetail}.
+
+\begin{figure}[!t]
   \centering
   \includegraphics[width=\textwidth]{{Chapter3/Unfold_matrix_all}.eps}
   \caption{Unfolding matrix all}
   \label{fig:UnfoldingMatrixAll}
 \end{figure}
 
-\begin{figure}[p]
+The main diagonal of the unfolding matrix contains the dominant elements
+corresponding the correct reconstruction of the truth jet. 
+
+Next to the transfer matrix, numbers of matched and unmatched signal and truth
+jets are needed for each $(y,\pt)$ bin by unfolding procedure. These serve for
+calculation of matching efficiency which is the key ingredient for final
+reweighting of reconstructed $\pt$ spectrum. The Iterative Dynamical Stabilized
+(IDS) method of unfolding was used in this thesis and the unfolding procedure
+was iterated once.
+
+Comparison of unfolded $\pt$ spectrum for $|y|<0.5$ rapidity bin is compared
+with $\pt$ spectra of signal and truth jets in Figure \ref{fig:Unfolding0},
+results for other rapidity bins are shown in Appendix
+\ref{App:UnfoldingResults}. It can be seen, that the unfolded spectrum match the
+truth spectrum up to the systematic error less than $5\,\%$.
+
+\begin{figure}[!t]
   \centering
   \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)0-0.5}.eps}
   \caption{Unfolding0}
@@ -162,7 +254,9 @@ The unfolding procedure for the inclusive jet measurement is iterated once.
 
 \section{Comparison with Prediction}
 
-\begin{figure}[p]
+
+
+\begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{{Chapter3/Unfolded_VS_Prediciton_abs(y)0-0.5}.eps}
   \caption{Comparision unfolding with prediction 0}
