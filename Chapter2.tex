@@ -341,13 +341,13 @@ is used and the recorded signal is reconstructed into signal jets.
 
 \begin{SCfigure}
   \centering
-  \includegraphics[width=0.6\textwidth]{Chapter2/JetPhases.jpg}
-  \caption{Possible levels of jet reconstructions. Figure from \cite{DZero:JetEnergyScale} }
+  \includegraphics[width=0.7\textwidth]{Chapter2/JetPhases.jpg}
+  \caption{Three levels of jet reconstruction. Figure from \cite{DZero:JetEnergyScale} }
   \label{fig:JetPhases}
 \end{SCfigure}
 
 First the signal jets are corrected to the parton jets leading to modification
-of kinematic properties of signal jets in the process called calibration.
+of kinematic properties of individual signal jet in the process called calibration.
 Because the calibration is persistently evolving, each jet analysis uses as the
 input the uncalibrated signal jets which are then easily calibrated using
 standard library \textsc{ApplyJetCalibration} (?citace?).
@@ -398,8 +398,9 @@ the diagonal and the matrix $A$ starts to complicate.
 The unfolding result which offers the solution of
 \eqref{eq:UnfoldingDiscretized} by inversion of matrix $A$ is mostly
 disappointing as is illustrated e.g. in (?citace?). For result improvement,
-different unfolding methods were developed including iterative Bayesian
-(?citace?), Singular Value Decomposition (?citace?), or iterative, dynamically
-stabilized (IDS) method (?citace?), which is the method used in this thesis. 
+different unfolding methods were developed including Iterative Bayesian
+Unfolding (?citace?), Singular Value Decomposition (?citace?), or Iterative,
+Dynamically Stabilized (IDS) method (?citace?), which is the method used in this
+thesis. 
 
 

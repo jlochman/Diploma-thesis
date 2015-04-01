@@ -7,7 +7,10 @@
   \centering
   \includegraphics[width=\textwidth]{Chapter3/SignalCutting.eps}
   \includegraphics[width=\textwidth]{Chapter3/TruthCutting.eps}
-  \caption{Cutting}
+  \caption{Impact of 4 cuts defined in Section \ref{SubSec:JetCuts} on
+  differential cross section in $\pt$ of signal jets (top) and truth jets
+  (bottom). Black dots represent the original uncutted spectrum, green area then
+  these jets, which survived all four cutoffs.}
   \label{fig:Cutting}
 \end{figure}
 
@@ -15,7 +18,11 @@
   \centering
   \includegraphics[width=\textwidth]{Chapter3/SignalMatching.eps}
   \includegraphics[width=\textwidth]{Chapter3/TruthMatching.eps}
-  \caption{Matching}
+  \caption{Results of matching procedure described in Section
+  \ref{SubSec:JetMatching} demonstrated on differential cross section in $\pt$ of
+  signal (top) and truth (bottom) jets. Black dots represent the original
+  uncutted spectrum. The contribution of matched and unmatched jets to
+  green area representing all jets which survived cutoffs is shown.}
   \label{fig:Matching}
 \end{figure}
 
@@ -23,7 +30,11 @@
   \centering
   \includegraphics[width=\textwidth]{Chapter3/SignalVSTruthMatched.eps}
   \includegraphics[width=\textwidth]{Chapter3/SignalVSTruthUnmatched.eps}
-  \caption{Match results}
+  \caption{Comparison of $\pt$ spectra of matched (top) and unmatched (bottom)
+  signal and truth jets. The $\pt$ spectra are the same as those at Figure
+  \ref{fig:Matching}. Only difference is, that there are compared spectra of
+  signal and truth jets.  The bottom part both of these graphs shows the
+  relative difference between signal and truth spectrum. }
   \label{fig:MatchedUnmatched}
 \end{figure}
 
@@ -82,7 +93,14 @@
                                     &                           & 4.4 \%   & 0.2 \%   & 4.3 \%   & 4.7 \%   & 4.8 \%   & 4.8 \%   & 4.7 \%   & 4.6 \%   & 4.6 \%   \\
     \hline
   \end{tabular}
-  \caption{Cut and matching efficiency.}
+  \caption{Statistics for matching and cutting procedures described in Sections
+  \ref{SubSec:JetCuts} and \ref{SubSec:JetMatching} displayed for all jets and for
+  individual JZXW samples defined in Table \ref{tab:JZXW}. At the top, there is
+  number of initial signal and truth jets respectively. For each cut, there is
+  shown the number of jets, which were killed by it, and their relative number
+  according to the original number of signal or truth jets respectively.
+  Last two lines show the statistics of matching procedure including number of
+  jets which were (un)matched.}
   \label{tab:CutAndMatchingEfficiency}
 \end{table} 
 \end{landscape}
@@ -93,40 +111,63 @@
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)0.5-1}.eps}
-  \caption{Unfolding1}
+  \caption{Comparison of spectra of signal jets and unfolded spectra of signal
+  jets with the spectrum of truth jets for $0.5 \leq |y| < 1$ rapidity bin. Each bin was
+  divided by its width so the $y$-axis has meaning of double differential cross
+  section in $\pt$ and $y$. The graph at bottom shows the relative difference
+  between signal or unfolded spectrum and the truth spectrum.}
   \label{fig:Unfolding1}
 \end{figure}
 
 \begin{figure}[p]
   \centering
-  \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)1-1.5}.eps}
-  \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)1.5-2}.eps}
-  \caption{Unfolding2}
+  \includegraphics[width=0.95\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)1-1.5}.eps}
+  \includegraphics[width=0.95\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)1.5-2}.eps}
+  \caption{Comparison of spectra of signal jets and unfolded spectra of signal
+  jets with the spectrum of truth jets for $1 \leq |y| < 1.5$ (top) and $1.5
+  \leq |y| < 2$ (bottom) rapidity bin. Each bin was divided by its width so the
+  $y$-axis has meaning of double differential cross section in $\pt$ and $y$. The
+  graph at bottom shows the relative difference between signal or unfolded
+  spectrum and the truth spectrum.} 
   \label{fig:Unfolding2}
 \end{figure}
 
 \begin{figure}[p]
   \centering
-  \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)2-2.5}.eps}
-  \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)2.5-3}.eps}
-  \caption{Unfolding3}
+  \includegraphics[width=0.95\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)2-2.5}.eps}
+  \includegraphics[width=0.95\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)2.5-3}.eps}
+  \caption{Comparison of spectra of signal jets and unfolded spectra of signal
+  jets with the spectrum of truth jets for $2 \leq |y| < 2.5$ (top) and $2.5
+  \leq |y| < 3$ (bottom) rapidity bin. Each bin was divided by its width so the
+  $y$-axis has meaning of double differential cross section in $\pt$ and $y$. The
+  graph at bottom shows the relative difference between signal or unfolded
+  spectrum and the truth spectrum.} 
   \label{fig:Unfolding3}
 \end{figure}
 
 \begin{figure}[p]
   \centering
-  \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)3-3.5}.eps}
-  \includegraphics[width=\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)3.5-4}.eps}
-  \caption{Unfolding4}
+  \includegraphics[width=0.95\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)3-3.5}.eps}
+  \includegraphics[width=0.95\textwidth]{{Chapter3/Signal_VS_Unfold_VS_Truth_abs(y)3.5-4}.eps}
+  \caption{Comparison of spectra of signal jets and unfolded spectra of signal
+  jets with the spectrum of truth jets for $3 \leq |y| < 3.5$ (top) and $3.5
+  \leq |y| < 4$ (bottom) rapidity bin. Each bin was divided by its width so the
+  $y$-axis has meaning of double differential cross section in $\pt$ and $y$. The
+  graph at bottom shows the relative difference between signal or unfolded
+  spectrum and the truth spectrum.} 
   \label{fig:Unfolding4}
 \end{figure}
 
 \chapter{Unfolding and Prediction}
+\label{App:UnfoldingAndPrediction}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{{Chapter3/Unfolded_VS_Prediciton_abs(y)0.5-1}.eps}
-  \caption{Comparision unfolding with prediction 1}
+  \caption{Unfolded double differential cross section of inclusive jets in
+  $\pt$ and rapidity $y$ compared to the NLO QCD prediction for $0.5 \leq |y| < 1$
+  rapidity bin. At the bottom the relative difference between unfolded and
+  predicted cross section is shown. }
   \label{fig:CompareUnfoldPred1}
 \end{figure}
 
@@ -134,7 +175,10 @@
   \centering
   \includegraphics[width=\textwidth]{{Chapter3/Unfolded_VS_Prediciton_abs(y)1-1.5}.eps}
   \includegraphics[width=\textwidth]{{Chapter3/Unfolded_VS_Prediciton_abs(y)1.5-2}.eps}
-  \caption{Comparision unfolding with prediction 2}
+  \caption{Unfolded double differential cross section of inclusive jets in
+  $\pt$ and rapidity $y$ compared to the NLO QCD prediction for $1 \leq |y| <
+  1.5$ (top) and $1.5 \leq |y| < 2$ (bottom) rapidity bin. At the bottom the
+  relative difference between unfolded and predicted cross section is shown. }
   \label{fig:CompareUnfoldPred2}
 \end{figure}
 
@@ -142,7 +186,10 @@
   \centering
   \includegraphics[width=\textwidth]{{Chapter3/Unfolded_VS_Prediciton_abs(y)2-2.5}.eps}
   \includegraphics[width=\textwidth]{{Chapter3/Unfolded_VS_Prediciton_abs(y)2.5-3}.eps}
-  \caption{Comparision unfolding with prediction 3}
+  \caption{Unfolded double differential cross section of inclusive jets in
+  $\pt$ and rapidity $y$ compared to the NLO QCD prediction for $2 \leq |y| <
+  2.5$ (top) and $2.5 \leq |y| < 3$ (bottom) rapidity bin. At the bottom the
+  relative difference between unfolded and predicted cross section is shown. }
   \label{fig:CompareUnfoldPred3}
 \end{figure}
 

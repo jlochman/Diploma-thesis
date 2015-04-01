@@ -42,7 +42,9 @@
 \newcommand{\abstrEN}{Abstrakt EN}                  
 
 \newcommand{\MyQuote}[2]{
-  \textit{\quotation{#1}}
+  \begin{center}
+    \textit{\quotation{#1}}
+  \end{center}
   \begin{flushright}
     #2
   \end{flushright}
@@ -221,6 +223,7 @@ Dekuji\ldots
 \addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
 
+\cleardoublepage
 
 %================================================================================
 % Chapters
@@ -254,6 +257,8 @@ Dekuji\ldots
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{ieeetr}
 \bibliography{bibliography}
+
+\cleardoublepage
 
 %\clearpage
 %
