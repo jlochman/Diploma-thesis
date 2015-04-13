@@ -1,11 +1,11 @@
-\documentclass[a4paper,11pt,twoside,openright]{report}
+\documentclass[a4paper,11pt,twoside,openright]{book}
 \usepackage[T1]{fontenc}
-\usepackage[toc,page]{appendix}
+\usepackage[title,toc,page]{appendix}
 \usepackage[cp1250]{inputenc}  
 \usepackage{amsmath} 
 \usepackage{amssymb} 
 \usepackage{epsfig} 
-\usepackage[a4paper]{geometry} 
+\usepackage[inner=3cm,outer=2cm]{geometry} 
 \usepackage{cite}
 \usepackage{graphicx}
 \usepackage{caption}
@@ -20,6 +20,9 @@
 \usepackage{xcolor}
 \usepackage{colortbl}
 \usepackage{array}
+%\usepackage{showframe}
+%\usepackage{setspace}
+%\setstretch{1.1}
 
 \newcommand{\cvut}{Czech Technical University in Prague}
 \newcommand{\fjfi}{Faculty of Nuclear Sciences and Physical Engineering}
@@ -29,17 +32,26 @@
 \newcommand{\zamereni}{Mathematical Physics}
 
 \newcommand{\nazevcz}{Jety s vysokou p\v{r}\'{i}\v{c}nou hybnost\'{i} v RunII experimentu ATLAS}        
-\newcommand{\nazeven}{High pT jets in RunII of the ATLAS Experiment}    
+\newcommand{\nazeven}{High $\pt$ jets in RunII of the ATLAS Experiment}    
 \newcommand{\autor}{Jan Lochman}          
 \newcommand{\rok}{May 2015}         
 \newcommand{\vedouci}{Ing. Zden\v{e}k Hub\'{a}\v{c}ek, Ph.D.}        
 \newcommand{\pracovisteVed}{CERN}	
 
 \newcommand{\klicova}{Klicova slova}   
-\newcommand{\keyword}{Key words}       
+\newcommand{\keyword}{Keywords}
 
 \newcommand{\abstrCZ}{Abstrakt CZ} 
-\newcommand{\abstrEN}{Abstrakt EN}                  
+\newcommand{\abstrEN}{
+This thesis deals with the meassurement of the inclusive jet double differential
+cross section in $\pt$ and rapidity using \textsc{Pythia8} generated events of
+$pp$ colisions at $\sqrt{s} = 13 \, \text{TeV}$ with the ATLAS detector response
+reconstructed by \textsc{Geant4} detector simulation. Differential cross
+section obtained from the detector level is unfolded on the particle level
+and compared with the parton level cross section prediction of the NLO pQCD.
+Both \textsc{Pythia8} and NLO pQCD have used CT10 PDFs and ATLAS underlying
+event tune AU2.  
+}
 
 \newcommand{\MyQuote}[2]{
   \begin{center}
@@ -61,6 +73,7 @@
 \newcommand{\pt}{p_{T}}
 \newcommand{\Euler}{\mathrm{e}}
 \newcommand{\rts}{\sqrt{s}}
+
 
 
 \begin{document}
@@ -234,6 +247,70 @@ Dekuji\ldots
 
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
+
+Search for the superior equation which would be able to explain all about the
+physical universe we do observe, sometimes called the Theory of Everything, led
+physicists to the concept of elementary particles some of which define the
+building blocks of our observable universe whereas the remaining govern the way how
+they interact. 
+
+From the beginning of the 20$^{th}$ century, the term of elementary particles
+was redefined with new generation of physicists as is illustrated in Figure
+\ref{fig:HistoryOfElPartPhysics}. The latest reform was caused by quarks and the
+invention of Quantum Chromodynamics describing its strong interaction which is
+next to the electromagnetic and weak interactions encapsulated by the present
+theory of elementary particles called the Standard Model. 
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{Introduction/HistoryOfElementaryParticlePhysics.png}
+  \caption{History of elementary particle physics. Figure From
+    \cite{LatticeQCDForPedestrians}.}
+  \label{fig:HistoryOfElPartPhysics}
+\end{figure}
+
+Although Standard Model contains mechanism for assigning elementary particles
+masses, gravity was not included in Standard Model up to date because the
+present attempts of quantization gravity and description gravity as the
+interaction mediated by the quanta of gravity, known as graviton, led to the
+unrenormalizable theories.
+
+Humans have build large particle accelerators to verify, if the Standard Model
+is the correct theory of particle physics. Next to these experiments, the huge
+telescopes on the Earth as well as in the orbit are looking to the distant
+galaxies.  Although Standard Model have with the help of supercomputers
+succeeded in explanation of the structure and origin of recently observed
+objects (pulsars, neutron stars) and the description of Supernovas, the new
+yet unexplained phenomenons emerged including dark matter and dark energy.
+
+Standard Model in its present form is not able to explain what these dark
+substances of our universe are. Fortunately there are some theories or better -
+some extensions of Standard Model - which could have answer. These include the
+Supersymmetry or the theories of Extra Dimensions. 
+
+The LHC run II which will start in June 2015 could find one of these expansions
+of the Standard Model is correct. This thesis deals with the measurement of
+inclusive jets double differential cross section in $\pt$ and rapidity.
+Inclusive jets are the dominant objects observed on hadron colliders
+dominating any other observable physics process in orders of magnitude and could
+thus be the one of the first indicators that there is a new theory emerging. 
+
+First Chapter deals with the Quantum Chromodynamics and follows the historical
+development including experiments which led to the removing proton from the list
+of elementary particles and replacing it by the quarks. QCD will be formulated
+as the quantum field theory and the phenomenon known as the running coupling
+constant will be discussed. This will lead to the division of the QCD into
+perturbative and non-perturbative regions.
+
+In the second Chapter, the Large Hadron Collider will be encountered with
+detailed description of its largest ATLAS detector. The basic features of QCD
+introduced in the previous chapter will be used to define jets - objects we do
+dominantly observe on hadron colliders. The jet reconstruction on ATLAS detector
+including description of jet calibration and unfolding of observed spectra will
+be presented in this chapter as well.
+
+Third chapter describes the steps of analysis.
+
 
 \input{Chapter1.tex}
 \input{Chapter2.tex}

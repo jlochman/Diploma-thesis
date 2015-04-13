@@ -17,8 +17,8 @@ analysis.
 
 Data used in this thesis are Monte Carlo generated events of $pp$ collisions at
 the center-of-mass energy $\sqrt{s} = 13\TeV$ by \textsc{Pythia8}
-(?citace?) event generator using CT10 PDFs (?citace?) and ATLAS underlying event
-tune AU2 (?citace?). QCD calculations are done only to the leading order in
+\cite{Pythia8} event generator using CT10 PDFs \cite{CT10PDF} and ATLAS underlying event
+tune AU2 \cite{AU2}. QCD calculations are done only to the leading order in
 \textsc{Pythia8}. The response of the ATLAS detector on these events was
 calculated with ?\textsc{Geant4}? (?citace?) software toolkit.
 
@@ -28,11 +28,11 @@ further in this thesis are denoted truth jets, and next to them, there are the
 signal jets reconstructed from the output of \textsc{Geant4} detector
 simulation from the topological cell clusters. 
 
-Signal jets were calibrated using \textsc{ApplyJetCalibration} (?citace?)
-library version 3.28 and configuration parameters were loaded from the
-\texttt{JES\_Full2012dataset\_May2014.config} with calibration sequence
-\texttt{JetArea\_Residual\_EtaJES}. In next signal jets denotes the signal
-calibrated jets.
+Signal jets were calibrated using \textsc{ApplyJetCalibration}
+\cite{ApplyJetCalibration} library version 3.28 and configuration parameters
+were loaded from the \texttt{JES\_Full2012dataset\_May2014.config} with
+calibration sequence \texttt{JetArea\_Residual\_EtaJES}. In next signal jets
+denotes the signal calibrated jets.
 
 Generated events are divided into JZXW samples according to
 the leading truth jet $\pt$. These samples differ in event weight which is for
@@ -177,6 +177,7 @@ range defined by the JZXW sample and that each event is filled with weight
 defined by the JZXW sample, which with increasing $\pt$ falls down.
 
 \section{Unfolding}
+\label{Sec:Unfolding3}
 
 Summarizing the results of the previous section, all events saved in Monte Carlo
 simulated data firstly underwent the series of four cutoffs to obtain the set of
@@ -254,8 +255,8 @@ Next to the transfer matrix, numbers of matched and unmatched signal and truth
 jets are needed for each $(y,\pt)$ bin by unfolding procedure. These serve for
 calculation of matching efficiency which is the key ingredient for final
 reweighting of reconstructed $\pt$ spectrum. The Iterative Dynamical Stabilized
-(IDS) (?citace?) unfolding method was used in this thesis and the unfolding
-procedure was iterated once.
+(IDS) \cite{IterativeDynamicallyStabilized} unfolding method was used in this
+thesis and the unfolding procedure was iterated once.
 
 Comparison of unfolded $\pt$ spectrum for $|y|<0.5$ rapidity bin is compared
 with $\pt$ spectra of signal and truth jets in Figure \ref{fig:Unfolding0},
