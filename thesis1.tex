@@ -39,7 +39,7 @@
 \newcommand{\pracovisteVed}{CERN}	
 
 \newcommand{\klicova}{Klicova slova}   
-\newcommand{\keyword}{Keywords}
+\newcommand{\keyword}{Quantum Chromodynamics, Jets, Unfolding}
 
 \newcommand{\abstrCZ}{Abstrakt CZ} 
 \newcommand{\abstrEN}{
@@ -49,8 +49,9 @@ $pp$ colisions at $\sqrt{s} = 13 \, \text{TeV}$ with the ATLAS detector response
 reconstructed by \textsc{Geant4} detector simulation. Differential cross
 section obtained from the detector level is unfolded on the particle level
 and compared with the parton level cross section prediction of the NLO pQCD.
-Both \textsc{Pythia8} and NLO pQCD have used CT10 PDFs and ATLAS underlying
-event tune AU2.  
+Two different approaches of unfolding denoted as the simple and 2D unfolding are
+used and results of these two approaches are compared. Both \textsc{Pythia8} and
+NLO pQCD have used CT10 PDFs and ATLAS underlying event tune AU2. 
 }
 
 \newcommand{\MyQuote}[2]{
@@ -263,7 +264,7 @@ theory of elementary particles called the Standard Model.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\textwidth]{Introduction/HistoryOfElementaryParticlePhysics.png}
+  \includegraphics[width=0.8\textwidth]{Introduction/HistoryOfElementaryParticlePhysics.png}
   \caption{History of elementary particle physics. Figure From
     \cite{LatticeQCDForPedestrians}.}
   \label{fig:HistoryOfElPartPhysics}
@@ -277,35 +278,23 @@ unrenormalizable theories. There are others by the Standard Model unresolved
 questions including the nature of the dark part of our universe and the origin
 of the matter-antimatter asymmetry. 
 
-
-%Humans have build large particle accelerators to verify, if the Standard Model
-%is the correct theory of particle physics. Next to these experiments, the huge
-%telescopes on the Earth as well as in the orbit are looking to the distant
-%galaxies.  Although Standard Model have with the help of supercomputers
-%succeeded in explanation of the structure and origin of recently observed
-%objects (pulsars, neutron stars) and the description of Supernovas, the new
-%yet unexplained phenomenons emerged including dark matter and dark energy.
-
-%Standard Model in its present form is not able to explain what these dark
-%substances of our universe are. Fortunately there are some theories or better -
-%some extensions of Standard Model - which could have answer. These include the
-%Supersymmetry or the theories of Extra Dimensions. 
-
-Although it is sure, the Standard Model is not the ultimate Theory of
-Everything, it successfully stands against present results from particle
-accelerators. 
-Last discoveries in particle physics occured on $\sim 100\GeV$ energy
-scale with top quark discovery (?citace?) with mass $173.34 \pm 0.98 \GeV$ in 1995
-at Tevatron and Higgs boson discovery (?citace?) with mass $125.09 \pm 0.32
-\GeV$ in 2012 at CERN and both were successfully predicted by the Standard
-Model. If there is new physics beyond the Standard Model on $\sim \TeV$ scale,
-the LHC Run II could be the first to discover it \cite{PhysicsAtRun2LHC}. 
+We know, the Standard Model is not the ultimate Theory of Everything,
+but it successfully stands against present results from particle accelerators.  Last
+discoveries in particle physics occured on $\sim 100\GeV$ energy scale with top
+quark discovery \cite{TopQuark1,TopQuark2} with mass $173.34 \pm 0.98 \GeV$ in
+1995 at Tevatron and Higgs boson discovery \cite{HiggsDiscovery} with mass
+$125.09 \pm 0.32 \GeV$ in 2012 at CERN and both were successfully predicted by
+the Standard Model. If there is new physics beyond the Standard Model on $\sim
+\TeV$ scale, the LHC Run II could be the first to discover it
+\cite{PhysicsAtRun2LHC}. 
 
 This thesis deals with the measurement of double differential inclusive jets 
-cross section in $\pt$ and rapidity.  Inclusive jets are the dominant objects
+cross section in $\pt$ and rapidity. Inclusive jets are the dominant objects
 observed on hadron colliders dominating any other observable physics process in
-orders of magnitude and could thus be the one of the first indicators of new
-physics. 
+orders of magnitude and covering wide range of momentum transfers, inclusive
+jets may serve as the test for both ATLAS detector performance and may
+be able to revel some discrepancy between Standard Model predictions and the
+experiment as well.
 
 First Chapter deals with the Quantum Chromodynamics and follows the historical
 development including experiments which led to the removing proton from the list
@@ -321,7 +310,11 @@ dominantly observe on hadron colliders. The jet reconstruction on ATLAS detector
 including description of jet calibration and unfolding of observed spectra will
 be presented in this chapter as well.
 
-Third chapter describes the steps of analysis.
+Third chapter describes the steps of analysis beginning with characteristics of
+data used, including event selection and jet matching criteria. Two approaches
+of unfolding are used to unfold $\pt$ spectra on detector level to truth level.
+Results obtained from both approaches are compared with each other and with the
+NLO pQCD prediction on parton level.
 
 
 \input{Chapter1.tex}
@@ -336,9 +329,10 @@ cross section in $\pt$ and rapidity. Inclusive jets are dominant objects created
 by the ultrarelativistic collisions at Large Hadron Collider (LHC) with $\pt$
 covering range from a few $\GeV$ to a few $\TeV$. Nowhere is the increase in the
 center-of-mass energy appreciated as is in the case of inclusive jets as it can
-be seen from figure ?.  According to the preliminary analysis, the $pp$
-collision in LHC Run II with the center-of-mass energy $\sqrt{s} = 13\TeV$ could
-create a thousands of jets with $1\TeV < \pt < 4\TeV$.
+be seen from Figure \ref{fig:ComparePredictionsDemonstation}  According to the
+preliminary analysis, the $pp$ collision in LHC Run II with the center-of-mass
+energy $\sqrt{s} = 13\TeV$ could create a thousands of jets with $1\TeV < \pt <
+4\TeV$.
 
 Inclusive jets are theoretically straightforward and hence powerful test of
 perturbative Quantum chromodynamics (pQCD) and with wide range of 
@@ -364,9 +358,65 @@ thesis and the procedure which must be done to detector recorded signal
 could be compared with the theoretical predictions of QCD leading to inevitable
 definitions of jet calibration and unfolding procedures. 
 
-Last chapter describes the analysis done in this thesis.
+The last chapter describes the analysis of double differential inclusive jet
+cross section in $\pt$ and rapidity. As the input data, the
+\textsc{Pythia8} generated events of $pp$ collisions with center-of-mass energy
+$\sqrt{s}=13\TeV$ using CT10 PDFs and ATLAS underlying event tune AU2.
+These data provided the detector and particle level jets, which were
+reconstructed using anti-$k_t$ jet algorithm with $R=0.4$. Jet energy scale
+calibration is done on detector level jets and $\pt$ spectrum obtained after
+event selection is unfolded on particle level.
 
+Two different approaches to unfolding were used - simple unfolding which matches
+jets only within the same rapidity bin and 2D unfolding which allows the
+migration of matched jets between different rapidity bins. These approaches
+differ in definitions of transfer matrices and in matching efficiencies which
+are shown in Appendix \ref{sec:MatchingEfficiency}. It can be seen the matching
+efficiency in case of simple unfolding is $\sim 2-5\,\%$ worse than the matching
+efficiency in 2D unfolding. This should cause the unfolded spectrum from simple
+unfolding will be more precise than that of 2D unfolding.
 
+The results from both of the unfolding approaches are compared with the $\pt$
+spectrum of particle level jets in Appendix \ref{sec:SimpleAnd2DUnfolding}. It
+can be seen, that in both cases, the unfolded $\pt$ spectrum is in agreement
+with the $\pt$ spectrum of particle level jets up to systematic error $<
+10^{-3}\,\%$ and that the relative difference between two unfolding approaches
+is even smaller.
+
+The second input for this analysis are the next-to-leading (NLO) order perturbative QCD
+predictions of double differential inclusive jet cross section in $\pt$ and
+rapidity for center-of-mass energies $\sqrt{s}=8\TeV$ (corresponding to LHC Run I)
+and $\sqrt{s}=13\TeV$ (Run II) calculated using \textsc{NLOJET++} program using
+the same parton distribution functions as \textsc{Pythia8}. In predictions the
+uncertainties in coupling constant $\alpha_S$, PDFs and
+factorization and normalization scales are included. These uncertainties are
+shown in Appendix \ref{sec:NLOUncertainties}.
+
+Cross section predictions for $\sqrt{s}=8\TeV$ and $\sqrt{s}=13\TeV$ are
+compared in Appendix \ref{sec:PredictionsForRunIAndII} where with the usage of
+integrated luminosities $L=20\,\text{fb}^{-1}$ (Run I) and
+$L=100\,\text{fb}^{-1}$ (Run II expected) the numbers of jets expected to be
+observed in each $\pt$ bin were calculated. It can be seen, that according to
+this prediction, in Run II $\sim 1000$ times more jets with $\pt > 1\TeV$ will
+be observed than it was in Run I. In addition LHC run II could create a few jets
+with $\pt \sim 4 \TeV$.
+
+$\pt$ spectrum of particle jets obtained from \textsc{Pythia8} is compared with
+$\pt$ spectrum of parton jets from NLO prediction in Appendix
+\ref{sec:PythiaAndNLO}. Only for few highest $\pt$ bins the cross section
+predicted by the NLO is bigger than that of \textsc{Pythia8} whereas for low
+$\pt$ the situation is opposite. The explanation for this behavior lies in
+hadronization, by which the original parton jet with high $\pt$ can split into
+two or more jets with smaller $\pt$'s.
+
+There are several ways to extend this analysis. Although this analysis is only
+preparation for the analysis of real data which will be collected in LHC Run II,
+the implementations of the IDS unfolding method developed could serve for
+unfolding of the real $\pt$ spectra measured by the ATLAS detector in Run II.
+The unfolding results could be further improved by the running on new datasets
+generated by the \textsc{Pythia8} with the usage of newer parton density
+functions. The NLO prediction should be improved by the assuming the electroweak
+and non-perturbative corrections. 
 
 %================================================================================
 % Appendices

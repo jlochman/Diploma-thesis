@@ -20,7 +20,7 @@ the center-of-mass energy $\sqrt{s} = 13\TeV$ with \textsc{Pythia8}
 \cite{Pythia8} event generator using CT10 PDFs \cite{CT10PDF} and ATLAS underlying event
 tune AU2 \cite{AU2}. QCD calculations are done only to the leading order in
 \textsc{Pythia8}. The response of the ATLAS detector on these events was
-calculated with \textsc{Geant4} (?citace?) software toolkit.
+calculated with \textsc{Geant4} \cite{Geant4} software toolkit.
 
 Particles were recombined into jets using anti-$k_t$ jet algorithm with parameter $R=0.4$.
 There are particle jets reconstructed from the \textsc{Pythia8} output, which
@@ -76,7 +76,7 @@ this theses are given in Table \ref{tab:JZXW}.
 
 Analysis uses jets with transverse momentum $\pt > 15\GeV$ and rapidity $|y| <
 4$ and is done in double binning in $\pt$ and $|y|$ with the following edges
-which are the same as in the analysis from 2011/2012 (?citace?).
+which are the same as in the analysis from 2011/2012 \cite{Analysis2012}.
 
 \begin{align}
   \pt = \, &15-20-25-35-45-55-70-85-100-116-134-152-172-194-216- \nonumber \\
@@ -173,7 +173,7 @@ $\pt$ cut, the reason is, that more than a half of truth jets has $\pt < 15
 \GeV$ in every JZXW sample, which does not hold for the reco jets. There is
 much more reco jets in statistics than is the truth jets. 
 
-From the top of the figure \ref{fig:MatchedUnmatched} showing the contribution
+From the top of the Figure \ref{fig:MatchedUnmatched} showing the contribution
 of matched jets to $\pt$ spectra, it can be seen, that starting with
 $\pt>25\GeV$, $\pt$ spectra of reco jets overwhelms those of truth jets.
 Taking into account the fact, that $\pt$ spectra of matched reco and matched
@@ -287,7 +287,7 @@ calculation of matching efficiency which is the key ingredient in the first and
 the last step of unfolding procedure. Matching efficiencies for $|y|<0.5$
 rapidity bin are for both simple and 2D unfolding shown at Figure
 \ref{fig:MatchingEfficiencyDemonstration} and for other rapidity bins, the
-results are shown ???.
+results are shown in Appendix \ref{sec:MatchingEfficiency}
 
 \begin{figure}[p]
   \centering
@@ -296,7 +296,7 @@ results are shown ???.
   \caption{Comparison of matching efficiency of simple and 2D unfolding for $|y|
     < 0.5$ rapidity bin. Matching efficiency is compared for both reco jets
     (left) and truth jets (right). Matching efficiency for all rapidity bins is
-  shown ???.}
+    shown in Appendix \ref{sec:MatchingEfficiency}.}
   \label{fig:MatchingEfficiencyDemonstration}
 
   \vspace{1cm}
@@ -308,7 +308,7 @@ results are shown ???.
     (left). Comparison of unfolded spectra obtained by the 2D and simple
     unfolding with the $\pt$ spectra of the truth jets (right). Both graphs are
     for $|y|<0.5$ rapidity regions. Results for all rapidity bins are shown in
-    ???. }
+    Appendices \ref{sec:UnfoldingResults}, \ref{sec:SimpleAnd2DUnfolding}. }
   \label{fig:UnfoldingResultsDemonstration}
 \end{figure}
 
@@ -331,7 +331,7 @@ Figure \ref{fig:UnfoldingResultsDemonstration} shows the comparison of $\pt$
 spectra of signal jets and unfolded spectrum (by 2D unfolding method) with the
 $\pt$ spectrum of truth jets (left) and the comparison of simple and 2D unfolded
 spectra with the spectrum of truth jets (right) for $|y|<0.5$ rapidity bin.
-Results for all rapidity bins are shown in ???.
+Results for all rapidity bins are shown in Appendix \ref{sec:UnfoldingResults}.
 
 From figures it follows, the unfolding procedure corrects the
 $\pt$ spectrum of reco jets to $\pt$ spectrum of truth jets up to the systematic
@@ -342,8 +342,8 @@ unfolding are even smaller.
 
 The unfolded $\pt$ spectrum obtained in the previous section, was compared with
 the $\pt$ spectrum obtained by the NLO QCD calculations.  These calculations was
-done with \textsc{NLOJET++} program v4.1.2 (?citace?) using CT10 NLO PDF set
-(?citace?). 
+done with \textsc{NLOJET++} program v4.1.2 \cite{NLOJetProgram} using CT10 NLO PDF set
+\cite{CT10PDF}.
 
 NLO predictions were compared for two different center-of-mass energies of $pp$
 collisions - first corresponding to the LHC Run I ($\sqrt{s}=8\TeV$) and second
@@ -352,8 +352,8 @@ rapidity bin in Figure \ref{fig:ComparePredictionsDemonstation}, where also the
 differential cross section is multiplied by the $\pt$ bin width and by
 the integrated luminosity of Run I ($20\,\text{fb}^{-1}$) and expected
 integrated luminosity of Run II ($100\,\text{fb}^{-1}$) to obtain expected number
-of jets observed in each $\pt$ bin. Comparison for other rapidity bins is shown
-???.
+of jets observed in each $\pt$ bin. Comparisons for other rapidity bins are
+shown in Appendix \ref{sec:PredictionsForRunIAndII}.
 
 \begin{figure}[t]
   \centering
@@ -364,13 +364,13 @@ of jets observed in each $\pt$ bin. Comparison for other rapidity bins is shown
     corresponding to the LHC Run I. The cross section is multiplied by
     integrated luminosities and $\pt$ bin width to obtain the expected number of jets
     observed in each $\pt$ bin (blue). Figure shows only $|y|<0.5$ rapidity bin,
-    remaining rapidity bins are shown in ???.}
+    remaining rapidity bins are shown in Appendix \ref{sec:PredictionsForRunIAndII}.}
   \label{fig:ComparePredictionsDemonstation}
 \end{figure}
 
 It can be seen, that the increase in the center-of-mass energy is the most
 significant for jets with high $\pt$. By the NLO QCD theoretical computations, several
-uncertainties are taken into account. These include (?citace?)
+uncertainties are taken into account. These include \cite{Analysis2012}
 
 \begin{itemize}
   \item \textbf{Scale uncertainty}
@@ -382,7 +382,7 @@ uncertainties are taken into account. These include (?citace?)
   \item \textbf{$\alpha_S$ uncertainty}
 
     Because $\alpha_S$ is experimentally determined with error as is shown in
-    Figure \ref{fig:RunningCouplingConstant}.
+    Figure with running coupling constant \ref{fig:RunningCouplingConstant}.
 
   \item \textbf{PDF uncertainty}
 
@@ -404,7 +404,7 @@ correction is represented by the set of equally likely histograms differing
 from the default prediction. Correction was determined as the square sum of all
 the corrections up and down separately and for $|y|<0.5$ rapidity bin are shown
 at Figure \ref{fig:NLOSystematicsDemonstartion}, other rapidity bins are shown
-in ???.
+in Appendix \ref{sec:NLOUncertainties}.
 
 \begin{figure}[p]
   \centering
@@ -413,7 +413,8 @@ in ???.
   \caption{NLO uncertainties for NLO QCD predictions of inclusive jet
     differential cross section for $pp$ collisions at
     $\sqrt{s}=8\TeV$ (left) and $\sqrt{s}=13\TeV$ (right) for $|y|<0.5$ rapidity
-    bin. Uncertainties for other rapidity bins are shown in ???.}
+    bin. Uncertainties for other rapidity bins are shown in Appendix
+    \ref{sec:NLOUncertainties}.}
   \label{fig:NLOSystematicsDemonstartion}
 
   \vspace{1cm}
@@ -422,10 +423,11 @@ in ???.
   \caption{Comparison of \textsc{Pythia8} prediction with NLO QCD prediction of
     inclusive jet double differential cross section for $|y|<0.5$ rapidity bin
     with uncertaintis of NLO QCD predictions symbolized by the blue area.
-    Comparisons for other rapidity bins are shown in ???.}
+    Comparisons for other rapidity bins are shown in Appendix
+    \ref{sec:PythiaAndNLO}.}
   \label{fig:TruthVSPredictionsDemonstation}
 \end{figure}
 
 Comparison of $\pt$ spectra of truth jets with NLO QCD prediction is for $|y| <
 0.5$ rapidity bin shown at Figure \ref{fig:TruthVSPredictionsDemonstation} for
-other rapidity bins see ???.
+other rapidity bins see Appendix \ref{sec:PythiaAndNLO}.
