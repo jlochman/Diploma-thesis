@@ -9,11 +9,11 @@ accelerators persistently with no signs for new physics so far. Large Hadron
 Collider which will open energy regions not observed yet can change this very
 soon.
 
-Jets are the most important objects observed on hadron colliders, which allows
-the QCD predictions being confronted with the experiment. In this chapter, after
-the introduction of the Large Hadron Collider and the ATLAS detector, jet
-algorithms and the way how jets are reconstructed on the ATLAS detector will be
-described.
+Jets are the most important objects observed by inelastic collisions on hadron
+colliders, which allows the QCD predictions to be confronted with the
+experiment. In this chapter, after the introduction of the Large Hadron Collider
+and the ATLAS detector, jet algorithms and the way how jets are reconstructed on
+the ATLAS detector will be described.
 
 \section{The Large Hadron Collider and The ATLAS Detector}
 
@@ -21,7 +21,8 @@ described.
 
 The Large Hadron Collider (LHC) \cite{LHC, LHCPastPresentFuture} is a charged
 particle accelerator located on the border of France and Switzerland, near
-Geneva. Built using the areas of the Large Electron-Positron collider, the main
+Geneva at CERN (the European Organization for Nuclear Research) in Switzerland.
+Built using the areas of the Large Electron-Positron collider, the main
 accelerator ring, of a 27 km circumference, is located around 100 m below the
 surface. There are four main experiments located around the ring: A Large Ion
 Collider Experiment (ALICE), A Toroidal LHC ApparatuS (ATLAS), Compact Muon
@@ -54,11 +55,12 @@ asymmetric collisions.
 The first running period of the LHC, Run I, was very successful and resulted in
 the discovery of the Higgs boson on July 4, 2012 \cite{HiggsDiscovery}.  The
 accelerator complex including its experiments has been upgraded for two years
-and the Run II is expected to start in summer 2015 \cite{LHCFuture,
+and the Run II is expected to start in early summer 2015 \cite{LHCFuture,
 LHCFutureLuminosigy}. In Run II the center-of-mass energy of proton-proton
 collisions will be raised to $\sqrt{s} = 13 \TeV$ and the beam crossing time
-will be reduced from the current $50\,\text{ns}$ to $25\,\text{ns}$. The
-expected integrated luminosity is $\sim 100\,\text{fb}^{-1}$.
+could be reduced from the current $50\,\text{ns}$ to $25\,\text{ns}$. The
+expected integrated luminosity is expected to be $\sim 100\,\text{fb}^{-1}$
+after three years of data collecting.
 
 \subsection{The ATLAS Detector}
 
@@ -76,13 +78,13 @@ spectrometer.
   \centering
   \begin{subfigure}[b]{0.9\textwidth}
     \includegraphics[width=\textwidth]{Chapter2/ATLAS.png}
-    \caption{ATLAS detector}
+    \caption{ATLAS detector.}
     \label{fig:ATLASfull}
   \end{subfigure}
   ~
   \begin{subfigure}[b]{0.9\textwidth}
     \includegraphics[width=\textwidth]{Chapter2/ATLASinner.jpeg}
-    \caption{Inner detector and calorimeter systems}
+    \caption{Inner detector and calorimeter systems.}
     \label{fig:ATLASinner}
   \end{subfigure}
   \caption{(a) an overview of the ATLAS detector 
@@ -139,23 +141,23 @@ Reference about Monte Carlo event generators \cite{PDG}.
 Two incoming protons can be understood as two bags of partons. The collision is
 dominated by the strong interaction of two partons - one from each of the
 colliding hadrons. These partons are called incoming partons and the
-momentum transfer by their interaction is $Q \gg \Lambda$, so the perturbative
+momentum transfer of their interaction is $Q \gg \Lambda$, so the perturbative
 QCD can be used to describe the process of hard scattering. The remaining energy
 is carried by the remaining partons, which create the so called underlying event -
 particles, which do not come from the hard QCD processes.
 
-When partons are sufficiently from each other, the non-perturbative QCD has to
-be used to describe the process of hadronisation, by which a set of colored
+When partons are sufficiently far from each other, the non-perturbative QCD has to
+be used to describe the process of hadronisation, in which a set of colored
 partons is transformed into a set of colorless primary hadrons which may then
 decay further. 
 
-During the collision, the electric and color charges of partons interact
-resulting in radiation of photons $q \rightarrow q\gamma$ and gluons $q
-\rightarrow qg$. These processes are described by perturbative QCD and lead to
-infrared and collinear divergences. However, infrared divergences are
+During the collision, the color charges of partons interact resulting in
+radiation of gluons $q \rightarrow qg$. This process is described by
+perturbative QCD and leads to infrared and collinear divergences. However,
+infrared divergences are
 canceled by Kinoshita--Lee--Nauenberg theorem \cite{KLN1,KLN2}, so only
 collinear divergences remain. There is no mechanism known up to date, which
-would solve the problem with collinear divergence. However, observables
+would solve the problem with collinear divergences. However, observables
 inclusive enough to be insensitive to processes that distinguish between
 different numbers of partons are not affected by infrared divergences.
 There is no possibility how to theoretically predict the energy of hardest
@@ -171,7 +173,7 @@ analysis of QCD processes.
 
 Jet algorithm is a generic "recipe" which takes a set of particles (or other
 objects with defined four-momenta) and returns jets created from them. The jet
-algorithm usually involves a set of parameters which the algorithm fully specify
+algorithm usually involves a set of parameters which togetger with the algorithm fully specify
 the jet definition. According to the remarks at the end of the previous section,
 jet algorithms should fulfill the following conditions 
 
@@ -191,18 +193,18 @@ Two important steps must be defined in each jet algorithm
 Additional steps may include the preclustering reducing the number of input
 objects for jet algorithm.
 
-Two jet algorithms are described here - fixed cone algorithm and $k_t$
-algorithm. First of these algorithms is more illustrative, the second one is
+Two classes of jet algorithms are described here - cone algorithms and $k_t$
+algorithms. First of these algorithms is more illustrative, the second one is
 used in ATLAS. These algorithms use two different recombination schemes which
 description will follow.  Detailed description as well as other jet algorithms
-can be found in \cite{ATLASmain,JetDoporuceniZdenek}. After definitions of jet
-algorithms it is shortly described, how the objects (not necessary particles)
+can be found in \cite{ATLASmain,JetDoporuceniZdenek}. After the definition of jet
+algorithms a short description follows, how the objects (not necessary particles)
 with defined four-momenta are constructed from the signal observed on the ATLAS
 detector.
 
-\subsection{Fixed cone algorithm}
+\subsection{Cone algorithms}
 
-The first step of this algorithm is to order all input objects (reconstructed
+The first step of these algorithms is to order all input objects (reconstructed
 detector objects with four-momentum representation) in decreasing order of
 transverse momentum $\pt$. If the object with the highest $\pt$ is above the
 seed threshold, all objects within a cone in rapidity $y$ and azimuth
@@ -221,14 +223,14 @@ available.
 The proto-jets found by this procedure can share some constituents. Constituents
 shared between two proto-jets are recombined into new proto-jet and if the ratio
 $E_T^{shared} / \text{min} ( E_T^{neighbor} ) > f$ is over the certain threshold
+for example 
 $f = 0.5$ the neighboring proto-jets are recombined into one proto-jet (shared
 constituents are taken only once). If this condition is not satisfied, the
 shared constituents are assigned to the nearest proto-jet. When proto-jet does
-not share constituents it is recombined into the jet using four-momentum
-recombination (see Section \ref{sse:Recombination}).
+not share constituents it is recombined into the jet.
 
 This algorithm is both not infrared safe (Figure \ref{fig:IRsafety}) and not
-collinear safe (Figure \ref{fig:ColSafety}). The infrared sensitivity can be
+collinear safe (Figure \ref{fig:ColSafety}). The infrared insensitivity can be
 improved by adding the midpoints between pairs of proto-jets fulfilling
 $R_{cone} < \Delta R < 2 R_{cone}$ and repeating the iterative procedure with
 midpoints being new seeds. Since the collinear unsafety arises from the use of
@@ -254,7 +256,7 @@ detector to find all stable proto-jets.
   \label{fig:JetIRCOLsafety}
 \end{figure}
 
-Parameters used by fixed cone algorithm are a seed threshold of $\pt > 1 \GeV$,
+Typical parameters used by fixed cone algorithm are a seed threshold of $\pt > 1 \GeV$,
 and a narrow ($R_{cone} = 0.4$) or a wide cone jet ($R_{cone} = 0.7$) option.
 
 \subsection{$k_t$ algorithms}
@@ -279,20 +281,6 @@ was added to split $k_t$~algorithms into three categories.
 	\item $p = 0$ Cambridge/Aachen algorithm,
 	\item $p = -1$ anti-$k_t$ jet-clustering algorithm.
 \end{itemize}
-The differences between these algorithms are detailed described
-in~\cite{ANTIKT}. Recombination of calorimeter signal towers (see Section
-\ref{sse:CalorimeterJets}) in jets is for $k_t$ and anti-$k_t$ algorithms shown
-at Figure \ref{fig:JetRecombination}.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{Chapter2/JetRecombination.png}
-  \caption{Illustration of $k_t$ and anti-$k_t$ jet algorithms with $R=1$ for
-    calorimeter signal towers in azimuth $\Phi$ and pseudorapidity $y$. Towers of
-    the same color were recombined to one jet. Figure taken from
-    \cite{JetTheoreticalPictures}.} 
-  \label{fig:JetRecombination}
-\end{figure}
 
 These algorithms first find the minimum $d_{min}$ of all $d_{ij}$ and $d_i$. If
 $d_{min}$ is in $d_{ij}$'s, the corresponding objects $i$ and $j$ are combined
@@ -307,14 +295,27 @@ objects are shared between jets and the procedure is both infrared and collinear
 safe.
 
 ATLAS uses anti-$k_t$ algorithm with $R=0.4$ for narrow and $R=0.6$ for wide
-jets.
+jets. The differences between $k_t$-algorithms are detailed described
+in~\cite{ANTIKT}. Recombination of calorimeter signal towers (see Section
+\ref{sse:CalorimeterJets}) in jets is for $k_t$ and anti-$k_t$ algorithms shown
+at Figure \ref{fig:JetRecombination}.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{Chapter2/JetRecombination.png}
+  \caption{Illustration of $k_t$ and anti-$k_t$ jet algorithms with $R=1$ for
+    calorimeter signal towers in azimuth $\Phi$ and pseudorapidity $y$. Towers of
+    the same color were recombined to one jet. Figure taken from
+    \cite{JetTheoreticalPictures}.} 
+  \label{fig:JetRecombination}
+\end{figure}
 
 \subsection{Recombination}
 \label{sse:Recombination}
 
 Let $J$ be the index set of the input objects with the defined four-momenta
 $(E^i,p_x^i,p_y^i,p_z^i)$, $i \in J$ which has to be recombined into the jet
-with new kinematic quantities $E^J$, $\mathbf{p}^j$, $\pt^J$, $y^J$, $\ldots$
+with new kinematic quantities $E^J$, $\mathbf{p}^J$, $\pt^J$, $y^J$, $\ldots$
 Possible recombination schemes are
 
 \begin{itemize}
@@ -332,7 +333,7 @@ Used by fixed cone algorithm when finding proto-jets.
 
 \item \textbf{Four-Momentum Recombination ($E$-Scheme)}
 
-Used by $k_t$-algorithms and in fixed cone algorithm to final recombination of
+Used by $k_t$-algorithms and by fixed cone algorithm to final recombination of
 proto-jets into jets.
 
 \begin{equation}
@@ -385,7 +386,7 @@ in dead material and cracks, longitudinal leakage and particle deflection in the
 magnetic field. Indispensable tool for jet corrections are Monte Carlo event
 generators - \textsc{Pythia8} \cite{Pythia8} generating high-energy-physics
 events and \textsc{Geant4} \cite{Geant4} or \textsc{AtlfastII} \cite{AtlfastII}
-detector simulations for simulating the ALTAS detector response on
+detector simulations for simulating the ALTAS detector response of
 \textsc{Pythia8} generated events.
 
 Using these tools it is possible to reconstruct jets from Monte Carlo events on three
@@ -403,9 +404,9 @@ is used and the recorded signal is reconstructed into reco jets.
   \label{fig:JetPhases}
 \end{figure}
 
-First, the signal jets are corrected to the particle jets leading to modification
-of kinematic properties of individual signal jet in the process called 
-calibration. 
+First, the reco jets are corrected to the truth jets leading to modification
+of kinematic properties of individual reco jet in the process called jet energy
+scale calibration. 
 
 \subsection{Jet Energy Scale Calibration}
 
@@ -433,15 +434,15 @@ However, there are some detector effects which can't be fixed by the calibration
 effects include the limited detector resolution (detector cells have finite
 dimensions) and the limited acceptance (not all events are recorded). The former
 leads to the smearing of jet kinematic properties wheres the later to
-lowering of observed cross section against the value theoretically
-predicted. Both of these effects are negatively influencing the observables
+decrease of observed cross section against the value theoretically
+predicted. Both of these effects are negatively affecting the observables
 and can be partially removed by the unfolding procedure, which unlike
 the jet calibration, is analysis dependent. 
 
 \subsection{Unfolding}
 
 In this analysis, the distribution $f(\pt)$ of inclusive jet $\pt$ is measured
-for $\pt \in \langle a, b \rangle$. Thanks to the detector imperfections,
+for $\pt \in \langle a, b \rangle$. Due to the detector imperfections,
 instead of physical variable $\pt$ new variable $x$ and its distribution
 $g(x)$ are measured. New distribution can be expressed as
 
@@ -470,11 +471,11 @@ with $g$ and $f$ being vectors of $g_i$'s and $f_i$'s respectively and $A$
 matrix derived from $A(x, \pt)$, later in Section \ref{Sec:Unfolding3} called
 the transfer matrix. If the limited acceptance would be the only detector
 problem, then $A$ would be diagonal matrix with some elements $ < 1$. When the
-limited resolution comes to play, the diagonal entries starts to smear out of
+limited resolution comes to play, the diagonal entries start to smear out of
 the diagonal and the matrix $A$ starts to complicate.
 
 The unfolding result which offers the solution of
-\eqref{eq:UnfoldingDiscretized} by inversion of matrix $A$ is mostly
+\eqref{eq:UnfoldingDiscretized} by the inversion of matrix $A$ is mostly
 disappointing as is illustrated e.g. in \cite{UnfoldingExplained}. For result
 improvement, different unfolding methods were developed including Iterative
 Bayesian Unfolding \cite{IterativeBayesianUnfolding}, Singular Value

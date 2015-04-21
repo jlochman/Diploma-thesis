@@ -10,8 +10,8 @@
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{Chapter3/SignalCutting.eps}
-  \includegraphics[width=0.9\textwidth]{Chapter3/TruthCutting.eps}
+  \includegraphics[width=\textwidth]{Chapter3/SignalCutting.eps}
+  \includegraphics[width=\textwidth]{Chapter3/TruthCutting.eps}
   \caption{Impact of 4 cuts defined in Section \ref{SubSec:JetCuts} on
   differential cross section in $\pt$ of signal jets (top) and truth jets
   (bottom). Black dots represent the original uncutted spectrum, green area then
@@ -21,10 +21,11 @@
 
 \section{Match Results}
 \label{sed:MatchResults}
+
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{Chapter3/SignalMatching.eps}
-  \includegraphics[width=0.9\textwidth]{Chapter3/TruthMatching.eps}
+  \includegraphics[width=\textwidth]{Chapter3/SignalMatching.eps}
+  \includegraphics[width=\textwidth]{Chapter3/TruthMatching.eps}
   \caption{Results of matching procedure described in Section
   \ref{SubSec:JetMatching} demonstrated on differential cross section in $\pt$ of
   signal (top) and truth (bottom) jets. Black dots represent the original
@@ -35,10 +36,17 @@
 
 \section{Truth and Reco $\pt$ Spectra}
 \label{sec:TruthAndRecoSpectra}
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{Chapter3/ptTruthAllRapidityBins.eps}
   \includegraphics[width=\textwidth]{Chapter3/ptSignalAllRapidityBins.eps}
+  \caption{Inclusive jet cross section of truth (top) and reco (bottom) jets as
+    the function of jet $\pt$ and rapidity. For the convenience the cross
+    sections for different rapidity bins are multiplied by the factor indicated
+    in the legend. Jets were identified with anti-$k_t$ jet algorithm with
+    $R=0.4$.}
+  \label{fig:ptSpectraMasacreEverythingFuck}
 \end{figure}
 
 
@@ -116,13 +124,15 @@
 \section{Matching Efficiency}
 \label{sec:MatchingEfficiency}
 
-\vfill
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DSignal|abs(y)|0-0.5Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DTruth|abs(y)|0-0.5Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DSignal|abs(y)|0.5-1Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DTruth|abs(y)|0.5-1Compare}.eps}
+  \caption{Comparison of matching efficiencies of simple and 2D unfolding for
+  $|y| < 0.5$ (top) and $0.5 \leq |y| < 1$ (bottom) rapidity bins. Matching
+  efficiencies are shown for both reco jets (left) and truth jets (right). }
 \end{figure}
 
 \begin{figure}[p]
@@ -133,6 +143,10 @@
   \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DTruth|abs(y)|1.5-2Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DSignal|abs(y)|2-2.5Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DTruth|abs(y)|2-2.5Compare}.eps}
+  \caption{Comparison of matching efficiencies of simple and 2D unfolding for
+  $1 \leq |y| < 1.5$ (top), $1.5 \leq |y| < 2$ and $2 \leq |y| < 2.5$ (bottom)
+  rapidity bins. Matching efficiencies are shown for both reco jets (left) and truth
+  jets (right). }
 \end{figure}
 
 \begin{figure}[p]
@@ -143,79 +157,98 @@
   \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DTruth|abs(y)|3-3.5Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DSignal|abs(y)|3.5-4Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DTruth|abs(y)|3.5-4Compare}.eps}
+  \caption{Comparison of matching efficiencies of simple and 2D unfolding for
+  $2.5 \leq |y| < 3$ (top), $3 \leq |y| < 3.5$ and $3.5 \leq |y| < 4$ (bottom)
+  rapidity bins. Matching efficiencies are shown for both reco jets (left) and truth
+  jets (right). }
 \end{figure}
 
 \section{Unfolding Results}
 \label{sec:UnfoldingResults}
 
-\vfill
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.49\textwidth]{{Chapter3/SignalUnfolded_VS_Truth|abs(y)|0-0.5Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/SignalUnfolded_VS_Truth|abs(y)|0.5-1Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/SignalUnfolded_VS_Truth|abs(y)|1-1.5Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/SignalUnfolded_VS_Truth|abs(y)|1.5-2Compare}.eps}
-\end{figure}
-
-\begin{figure}[p]
-  \centering
   \includegraphics[width=0.49\textwidth]{{Chapter3/SignalUnfolded_VS_Truth|abs(y)|2-2.5Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/SignalUnfolded_VS_Truth|abs(y)|2.5-3Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/SignalUnfolded_VS_Truth|abs(y)|3-3.5Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/SignalUnfolded_VS_Truth|abs(y)|3.5-4Compare}.eps}
+  \caption{Comparison of $\pt$ spectra of reco jets and the unfolded $\pt$
+  spectra (2D unfolding) with the $\pt$ spectra of the truth jets for 8
+  different rapidity bins.}
 \end{figure}
 
 \section{Simple and 2D Unfolding}
 \label{sec:SimpleAnd2DUnfolding}
 
-\vfill
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.49\textwidth]{{Chapter3/UnfoldedSimpleComplex_VS_Truth|abs(y)|0-0.5Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/UnfoldedSimpleComplex_VS_Truth|abs(y)|0.5-1Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/UnfoldedSimpleComplex_VS_Truth|abs(y)|1-1.5Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/UnfoldedSimpleComplex_VS_Truth|abs(y)|1.5-2Compare}.eps}
-\end{figure}
-
-\begin{figure}[p]
-  \centering
   \includegraphics[width=0.49\textwidth]{{Chapter3/UnfoldedSimpleComplex_VS_Truth|abs(y)|2-2.5Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/UnfoldedSimpleComplex_VS_Truth|abs(y)|2.5-3Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/UnfoldedSimpleComplex_VS_Truth|abs(y)|3-3.5Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/UnfoldedSimpleComplex_VS_Truth|abs(y)|3.5-4Compare}.eps}
+  \caption{Comparison of results obtained by two unfolding method - simple and
+    2D unfolding - with the $\pt$ spectra of truth jets for 8 different
+    rapidity bins.}
 \end{figure}
-
-
 
 \chapter{NLO QCD Prediction}
 \label{App:UnfoldingAndPrediction}
 
+\newpage
+
 \section{Predictions for Run I and Run II}
 \label{sec:PredictionsForRunIAndII}
 
-\vfill
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{{Chapter3/PredictionCompare0}.eps}
-  \includegraphics[width=0.6\textwidth]{{Chapter3/PredictionCompare1}.eps}
+  \includegraphics[width=0.9\textwidth]{{Chapter3/PredictionCompare0}.eps}
+  \includegraphics[width=0.9\textwidth]{{Chapter3/PredictionCompare1}.eps}
+  \caption{Comparison of NLO QCD prediction of double differential inclusive jet
+    cross section (black) in $\pt$ and rapidity of $pp$ collisions at $\rts=13\TeV$
+    (filled circles) corresponding to LHC Run II and $\rts=8\TeV$ (empty circles)
+    corresponding to LHC Run I. The cross section is multiplied by integrated
+    luminosities and $\pt$ bin width to obtain expected number of jets observed in
+    each $\pt$ bin (blue). Figures show the comparison for $0.5<|y|$ (top) and
+    $0.5\leq|y|<1$ (bottom) rapidity bins.}
 \end{figure}
 
 \begin{figure}[p]
   \centering
-  \includegraphics[width=0.8\textwidth]{{Chapter3/PredictionCompare2}.eps}
-  \includegraphics[width=0.8\textwidth]{{Chapter3/PredictionCompare3}.eps}
+  \includegraphics[width=0.9\textwidth]{{Chapter3/PredictionCompare2}.eps}
+  \includegraphics[width=0.9\textwidth]{{Chapter3/PredictionCompare3}.eps}
+  \caption{Comparison of NLO QCD prediction of double differential inclusive jet
+    cross section (black) in $\pt$ and rapidity of $pp$ collisions at $\rts=13\TeV$
+    (filled circles) corresponding to LHC Run II and $\rts=8\TeV$ (empty circles)
+    corresponding to LHC Run I. The cross section is multiplied by integrated
+    luminosities and $\pt$ bin width to obtain expected number of jets observed in
+    each $\pt$ bin (blue). Figures show the comparison for $1\leq|y|<1.5$ (top) and $1.5
+    \leq |y| < 2$ (bottom) rapidity bins.}
 \end{figure}
 
 \begin{figure}[p]
   \centering
-  \includegraphics[width=0.8\textwidth]{{Chapter3/PredictionCompare4}.eps}
-  \includegraphics[width=0.8\textwidth]{{Chapter3/PredictionCompare5}.eps}
+  \includegraphics[width=0.9\textwidth]{{Chapter3/PredictionCompare4}.eps}
+  \includegraphics[width=0.9\textwidth]{{Chapter3/PredictionCompare5}.eps}
+  \caption{Comparison of NLO QCD prediction of double differential inclusive jet
+    cross section (black) in $\pt$ and rapidity of $pp$ collisions at $\rts=13\TeV$
+    (filled circles) corresponding to LHC Run II and $\rts=8\TeV$ (empty circles)
+    corresponding to LHC Run I. The cross section is multiplied by integrated
+    luminosities and $\pt$ bin width to obtain expected number of jets observed in
+    each $\pt$ bin (blue). Figures show the comparison for $2\leq|y|<2.5$ (top) and $2.5
+    \leq |y| < 3$ (bottom) rapidity bins.}
 \end{figure}
 
 \section{NLO Uncertainties}
 \label{sec:NLOUncertainties}
 
-\vfill
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.49\textwidth]{{Chapter3/NLO_Systematics8_TeV0}.eps}
@@ -224,6 +257,10 @@
   \includegraphics[width=0.49\textwidth]{{Chapter3/NLO_Systematics13_TeV1}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/NLO_Systematics8_TeV2}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/NLO_Systematics13_TeV2}.eps}
+  \caption{NLO uncertainties for NLO QCD predictions of inclusive jet double
+    differential cross section of $pp$ collisions at $\rts=8\TeV$ (left) and
+    $\rts=13\TeV$ (right) for $|y|<0.5$ (top), $0.5\leq|y|<1$ (middle) and
+    $1\leq|y|<1.5$ (bottom) rapidity bins.}
 \end{figure}
 
 \begin{figure}[p]
@@ -234,12 +271,15 @@
   \includegraphics[width=0.49\textwidth]{{Chapter3/NLO_Systematics13_TeV4}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/NLO_Systematics8_TeV5}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/NLO_Systematics13_TeV5}.eps}
+  \caption{NLO uncertainties for NLO QCD predictions of inclusive jet double
+    differential cross section of $pp$ collisions at $\rts=8\TeV$ (left) and
+    $\rts=13\TeV$ (right) for $1.5\leq|y|<2$ (top), $2\leq|y|<2.5$ (middle) and
+    $2.5\leq|y|<3$ (bottom) rapidity bins.}
 \end{figure}
 
 \section{Pythia and NLO}
 \label{sec:PythiaAndNLO}
 
-\vfill
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.49\textwidth]{{Chapter3/Truth_VS_Prediction|abs(y)|0-0.5Compare}.eps}
@@ -248,6 +288,10 @@
   \includegraphics[width=0.49\textwidth]{{Chapter3/Truth_VS_Prediction|abs(y)|1.5-2Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/Truth_VS_Prediction|abs(y)|2-2.5Compare}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/Truth_VS_Prediction|abs(y)|2.5-3Compare}.eps}
+  \caption{Comparison of \textsc{Pythia8} prediction with NLO QCD prediction of
+    inclusive jet double differential cross section in $\pt$ and rapidity for six
+    different rapidity bins. Blue area represents the uncertainties of NLO QCD
+    predictions.}
 \end{figure}
 
 \end{appendices}
