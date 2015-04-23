@@ -20,9 +20,12 @@
 \usepackage{xcolor}
 \usepackage{colortbl}
 \usepackage{array}
+\usepackage{xparse}
 %\usepackage{showframe}
 %\usepackage{setspace}
 %\setstretch{1.1}
+\usepackage{setspace}
+\onehalfspacing
 
 \newcommand{\cvut}{Czech Technical University in Prague}
 \newcommand{\fjfi}{Faculty of Nuclear Sciences and Physical Engineering}
@@ -43,15 +46,20 @@
 
 \newcommand{\abstrCZ}{Abstrakt CZ} 
 \newcommand{\abstrEN}{
-This thesis deals with the meassurement of the inclusive jet double differential
-cross section in $\pt$ and rapidity using \textsc{Pythia8} generated events of
-$pp$ colisions at $\sqrt{s} = 13 \, \text{TeV}$ with the ATLAS detector response
-reconstructed by \textsc{Geant4} detector simulation. Differential cross
-section obtained from the detector level is unfolded on the particle level
-and compared with the parton level cross section prediction of the NLO pQCD.
+This thesis deals with the measurement of the inclusive jet double differential
+cross section in $\pt$ and rapidity in proton-proton colisions at
+$\sqrt{s}=13\TeV$ with the ATLAS detector. 
+The measurement uses the Monte Carlo simulated data by the \textsc{Pythia8}
+event generator and anti-$k_t$ jets with parameter $R=0.4$ reconstructed at
+particle and detector level.
+Differential cross section obtained from the detector level is unfolded to the
+particle level and compared with the parton level differential cross section
+prediction of the next-to-leading perturbative QCD.  
 Two different approaches of unfolding denoted as the simple and 2D unfolding are
-used and results of these two approaches are compared. Both \textsc{Pythia8} and
-NLO pQCD have used CT10 PDFs and ATLAS underlying event tune AU2. 
+implemented and results of these two approaches are compared.
+Both of these approaches can be applyed to unfold differential cross section of
+inclusive jets measured by the ATLAS detector in LHC Run II, which will start in
+early summer 2015.
 }
 
 \newcommand{\MyQuote}[2]{
@@ -146,9 +154,11 @@ Zadani prace
 {\bf Statement} 
 
 \vspace{0.5cm} 
-Prohlasuji\ldots
+This thesis is the result of my own work, except where explicit reference
+is made to the work of others, and has not been submitted for another
+qualification to this or any other university.
 
-\vspace{5mm}V Praze dne ....................\hfill 
+\vspace{5mm}In Prague on ....................\hfill 
 ............................................       
 \begin{flushright}
   \autor 
@@ -168,7 +178,27 @@ Prohlasuji\ldots
 {\bf Acknowledgment} 
 
 \vspace{0.5cm} 
-Dekuji\ldots
+There are many people to whom I am indebted. First and the most important of
+these is my supervisor, Ing. Zden\v{e}k Hub\'{a}\v{c}ek, Ph.D.. Two years ago,
+he threw me into the unknown world of particle physics. With his help, I learned
+not to be frightened from the unknown. He taught me, how to use knowledge, I have
+obtained at the university, to shed some light into the darkness. With his help,
+the beautiful world of particle physics has revealed to me.
+
+I deeply appreciate a support from my Faculty, when I was sent after my
+supervisor at CERN. The leading support, which allowed this to happen, came from
+Prof. Ing. Igor Jex, DrSc., to whom I would like to thank. It was astounding
+feeling to be part of one of the leading experiments in particle physics and the
+satisfaction, when I found out, I can make some contribution to it -
+indescribable. 
+
+Next thanks to my family for their support during my studies.
+
+And thanks to You, Flying Spaghetti Monster, for creating such a beautiful
+Universe, in which the physics reality extends far beyond the frontiers of human
+imagination, that it is never going to let us relax.
+
+
 
 \begin{flushright}
   \autor 
@@ -249,75 +279,78 @@ Dekuji\ldots
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-Search for the superior equation which would be able to explain all about the
-physical universe we do observe, sometimes called the Theory of Everything, led
-some of the physicists to the concept of elementary particles some of which define the
-building blocks of our observable universe whereas the remaining govern the way how
-they interact. 
+Search for the superior equation which coule explain all the physical universe
+we observe, sometimes called the Theory of Everything, led some of the
+physicists to the concept of elementary particles, some of which define the
+building blocks of our observable universe, whereas the remaining govern their
+interaction.
 
-From the beginning of the twentieth century, the term of elementary particle
-was redefined with new generation of physicists as is illustrated in Figure
-\ref{fig:HistoryOfElPartPhysics}. The latest reform was caused by quarks and the
-invention of Quantum Chromodynamics describing its strong interaction which is
-next to the electromagnetic and weak interactions encapsulated by the present
-theory of elementary particles called the Standard Model. 
+From the beginning of the twentieth century, the term elementary particle
+was redefined by a new generation of physicists, as illustrated in
+Figure~\ref{fig:HistoryOfElPartPhysics}. The latest reform was caused by quarks
+and the invention of Quantum Chromodynamics, describing its strong interaction
+,which, apart from the electromagnetic and weak interaction, is encapsulated
+by the present theory of elementary particles called the Standard Model. 
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.8\textwidth]{Introduction/HistoryOfElementaryParticlePhysics.png}
-  \caption{History of elementary particle physics. Figure From
-    \cite{LatticeQCDForPedestrians}.}
+  \caption[History of elementary particle physics.]{History of elementary
+    particle physics. Figure taken from~\cite{LatticeQCDForPedestrians}.}
   \label{fig:HistoryOfElPartPhysics}
 \end{figure}
 
-Although the Standard Model contains mechanism for assigning elementary particles
-masses, gravity was not included in the Standard Model up to date because the
-present attempts of quantization of gravity and description of the gravitation as the
-interaction mediated by the quanta of gravity, known as gravitons, led to 
-unrenormalizable theories. There are others by the Standard Model unresolved
-questions including the nature of the dark part of our universe and the origin
-of the matter-antimatter asymmetry. 
+Although the Standard Model contains mechanism for assigning masses to
+elementary particles, gravity was not included in it up
+to date, because the current attempts to quantize and describe gravitation as an
+interaction mediated by the quanta of gravity, know as gravitons, led to
+unrenormalizable theories. There are other questions, unresolved by the Standard
+Model, such as the nature of the dark part of our Universe or the origin of the
+matter-antimatter asymmetry.
 
 We know that the Standard Model is not the ultimate Theory of Everything,
 but it successfully stands against present results from particle physics
-experiments. Last
-discoveries of elementary particles occured on $\sim 100\GeV$ energy scale with top
-quark discovery \cite{TopQuark1,TopQuark2} with mass $173.34 \pm 0.98 \GeV$ in
-1995 at Tevatron and Higgs boson discovery \cite{HiggsDiscovery} with mass
-$125.09 \pm 0.32 \GeV$ in 2012 at CERN and both were successfully predicted by
-the Standard Model. If there is new physics beyond the Standard Model on $\sim
-\TeV$ scale, the LHC Run II could be the first to discover it
-\cite{PhysicsAtRun2LHC}. 
+experiments. 
+Last discoveries of elementary particles, successfully predicted by the Standard
+Model, occurred on $\sim 100\GeV$ energy scale with top quark discovery
+\cite{TopQuark1,TopQuark2} with mass $173.34 \pm 0.98 \GeV$ in 1995 at Tevatron
+and Higgs boson discovery \cite{HiggsDiscovery} with mass $125.09 \pm 0.32 \GeV$
+in 2012 at CERN.
+If there is a new physics beyond the Standard Model on $\sim \TeV$ scale, the
+LHC Run II could be the first to discover it \cite{PhysicsAtRun2LHC}. 
 
-This thesis deals with the measurement of the double differential inclusive jets 
-cross section in $\pt$ and rapidity. Jets are the dominant objects
-observed by inelastic collisions on hadron colliders dominating any other observable physics process in
-orders of magnitude and covering wide range of momentum transfers. Inclusive
-jets measurements may therefore serve as the test for both ATLAS detector
-performance as well as may
-be able to reveal some discrepancy in the Standard Model predictions.
+This thesis deals with the measurement of the double differential inclusive jet 
+cross section in $\pt$ and rapidity. 
+The term inclusive stresses the fact, we are not interested in other particles,
+which can be, next to the jets, created by the collision.
+Jets are the dominant objects observed at inelastic collisions on hadron
+colliders and, covering a wide range of momentum transfers, they overshadow any
+other observable physics process in orders of magnitude.
+Inclusive jets measurements may therefore verify the ATLAS detector performance,
+as well as reveal some discrepancy in the Standard Model predictions.
 
-First Chapter of this thesis deals with the Quantum Chromodynamics and follows the historical
-development including the experiments which led to the removal of the proton from the list
-of elementary particles and replacing it by the quarks. QCD will be formulated
-as a quantum field theory and the phenomenon known as the running coupling
-constant will be discussed in order to divide the QCD into perturbative and
-non-perturbative regions.
+First Chapter of this thesis discuss the Quantum Chromodynamics (QCD) and
+follows its historical development, including the experiments which led to the
+removal of the proton from the list of elementary particles, replacing it with
+the quarks. 
+I will formulate the QCD as a quantum field theory and I will discuss the phenomenon
+known as a running coupling constant, so that the QCD can be divided into
+perturbative and non-perturbative regions.
 
-In the second Chapter, the Large Hadron Collider will be presented with
-detailed description of the ATLAS detector. The basic features of QCD
-introduced in the previous chapter will be used to define jets - objects we do
-dominantly observe by inelastic collisions on hadron colliders. The jet
-reconstruction on ATLAS detector including description of jet calibration and
-unfolding of observed spectra will be presented in this chapter as well.
+The second Chapter concerns with the Large Hadron Collider along a detailed
+description of the ATLAS detector. 
+I will use the basic features of the QCD, introduced in the previous Chapter, to
+define jets - objects predominantly observed at inelastic collisions on hadron
+colliders. At the end of this Chapter, I will also present the jet
+reconstruction on ATLAS detector, including description of jet calibration and
+unfolding of observed spectra.
 
-Third chapter describes the steps of the inclusive jets analysis beginning with
+Third chapter describes the steps of the inclusive jet analysis, beginning with
 the characteristics of Monte Carlo data used, including event selection 
-criteria. Two approaches of unfolding are used to unfold $\pt$ spectra on
-detector level to particle level.  Results obtained from both approaches are
-compared with each other and with the next-to-leading order perturbative QCD
-prediction on parton level. 
-
+criteria. I use two approaches to unfold $\pt$ spectra from
+detector level to particle level. In the end I compare results obtained from
+both approaches and set them against the next-to-leading order perturbative QCD
+prediction of parton level.
 
 \input{Chapter1.tex}
 \input{Chapter2.tex}
@@ -327,56 +360,63 @@ prediction on parton level.
 \addcontentsline{toc}{chapter}{Conclusion}
 
 This thesis deals with the measurement of the inclusive jet double differential
-cross section in $\pt$ and rapidity. Inclusive jets are dominant objects created
-by the ultrarelativistic collisions at Large Hadron Collider (LHC) with $\pt$
+cross section in $\pt$ and rapidity in the ATLAS experiment. Inclusive jets are
+the prevailing objects created in the inelastic collisions at the LHC with $\pt$
 covering range from a few $\GeV$ to a few $\TeV$. Nowhere is the increase in the
 center-of-mass energy appreciated as is in the case of inclusive jets as it can
-be seen from Figure \ref{fig:ComparePredictionsDemonstation}  According to the
+be seen from Figure~\ref{fig:ComparePredictionsDemonstation}. According to the
 preliminary analysis, the $pp$ collision in LHC Run II with the center-of-mass
-energy $\sqrt{s} = 13\TeV$ could create a thousands of jets with $1\TeV < \pt <
-4\TeV$.
+energy $\sqrt{s} = 13\TeV$ could create thousands of jets with $\pt$ in the
+intrrval $1\TeV < \pt < 4\TeV$.
 
 Inclusive jets are theoretically straightforward and hence powerful test of
-perturbative Quantum chromodynamics (pQCD) and with wide range of 
+perturbative QCD and with wide range of 
 momentum transfers, the inclusive jet cross section is sensitive to the
 properties of the running coupling constant $\alpha_S$.  Momentum transfers in
 orders of $\sim 1 \TeV$ will probe the structure of proton at small distance
 scales $\lambda \sim 1 / \pt \sim \TeV^{-1} \sim 10^{-19} \, \text{m}$ and will
 contribute to our understanding of the proton structure (parton distribution
-functions (PDF)). If there is new physics at these scales (such as the
+functions). If there is new physics at these scales (such as the
 structure of quark), the inclusive jets may reveal it.
 
-After an introduction, thesis begins with a brief description of the Quantum
-Chromodynamics (QCD) as one of the parts of the Standard Model (SM) following
-its historical development during which description the key concepts of QCD are
-introduced.  These include the PDFs, running coupling constant $\alpha_S$ and
-asymptotic freedom phenomenons, leading to splitting QCD into perturbative and
-non-perturbative regions. 
+This thesis begins with a brief description of QCD as one of the components of
+the Standard Model. My intention was to connect historical development of QCD
+with definitions of its key concepts, which I am using later in this thesis.
+These concepts include the parton distribution functions, running coupling
+constant $\alpha_S$ and asymptotic freedom phenomena. The first chapter ends
+with the splitting of QCD into perturbative and non-perturbative regions.
 
-LHC with the ATLAS detector are described in the second chapter in which the key
-concept of this thesis - the jet - is defined. This include the description of
-jet algorithms with emphasize on anti-$k_t$ jet algorithm relevant for this
-thesis and the procedure which must be done to detector recorded signal
-could be compared with the theoretical predictions of QCD leading to inevitable
-definitions of jet calibration and unfolding procedures. 
+The second chapter starts with the description of the LHC with the ATLAS
+detector, and introduces the most important concept of this thesis - a jet. Using
+the QCD, I am trying to explain the necessity of the jet on hadron colliders,
+and to define the jet itself. This is done by the definition of jet algorithms,
+which I am formulating with the emphasis on possible jet definition at three
+different stages of collision: at parton, particle and detector level. The
+second chapter ends with the description of jet energy scale calibration and
+unfolding procedures, which objective is to reduce negative detector effects and
+to lower differences between jets at detector and particle levels. 
 
-The last chapter describes the analysis of double differential inclusive jet
-cross section in $\pt$ and rapidity. As the input data, the
-\textsc{Pythia8} generated events of $pp$ collisions with center-of-mass energy
-$\sqrt{s}=13\TeV$ using CT10 PDFs and ATLAS underlying event tune AU2.
-These data provided the detector and particle level jets, which were
-reconstructed using anti-$k_t$ jet algorithm with $R=0.4$. Jet energy scale
-calibration is done on detector level jets and $\pt$ spectrum obtained after
-event selection is unfolded on particle level.
+The last chapter of my thesis describes the analysis of the double differential
+inclusive jet cross section in $\pt$ and rapidity $y$. As the Run II data are
+not yet available, I have used as the input the \textsc{Pythia8} generated
+events of $pp$ collisions with the center-of-mass energy $\sqrt{s}=13\TeV$ using
+CT10 parton distribution functions and ATLAS underlying event tune AU2. These
+data contains the jets reconstructed on particle and detector levels and as a
+jet algorithm, the anti-$k_t$ jet algorithm with parameter $R=0.4$ is used.
 
-Two different approaches to unfolding were used - simple unfolding which matches
-jets only within the same rapidity bin and 2D unfolding which allows the
-migration of matched jets between different rapidity bins. These approaches
-differ in definitions of transfer matrices and in matching efficiencies which
-are shown in Appendix \ref{sec:MatchingEfficiency}. It can be seen the matching
-efficiency in case of simple unfolding is $\sim 2-5\,\%$ worse than the matching
-efficiency in 2D unfolding. This should cause the unfolded spectrum from simple
-unfolding will be more precise than that of 2D unfolding.
+The first step of my analysis is energy scale calibration of jets on detector
+level, which is followed by the description of event selection criteria and jet
+matching procedure. To correct the reconstructed $\pt$ spectrum on detector
+level, I implement two different approaches of data unfolding. A simple
+unfolding, the first of unfolding approaches, allows jet matching only within
+the same rapidity bins. In addition to the simple unfolding I introduce a 2D
+unfolding, which allows matching between different rapidity bins. These
+approaches differ in definitions of transfer matrices and in matching
+efficiencies which are shown in Appendix~\ref{sec:MatchingEfficiency}.
+It can be seen the matching efficiency in case of simple unfolding is $\sim
+2-5\,\%$ worse than the matching efficiency in 2D unfolding. This should cause
+the unfolded spectrum from 2D unfolding will be more precise than that of simple
+unfolding.
 
 The results from both of the unfolding approaches are compared with the $\pt$
 spectrum of particle level jets in Appendix \ref{sec:SimpleAnd2DUnfolding}. It
@@ -385,31 +425,30 @@ with the $\pt$ spectrum of particle level jets up to systematic error $<
 10^{-3}\,\%$ and that the relative difference between two unfolding approaches
 is even smaller.
 
-The second input for this analysis are the next-to-leading (NLO) order perturbative QCD
-predictions of double differential inclusive jet cross section in $\pt$ and
+The second input for this analysis is the next-to-leading (NLO) order perturbative QCD
+prediction of double differential inclusive jet cross section in $\pt$ and
 rapidity for center-of-mass energies $\sqrt{s}=8\TeV$ (corresponding to LHC Run I)
 and $\sqrt{s}=13\TeV$ (Run II) calculated using \textsc{NLOJET++} program using
-the same parton distribution functions as \textsc{Pythia8}. In predictions the
-uncertainties in coupling constant $\alpha_S$, PDFs and
-factorization and normalization scales are included. These uncertainties are
+the same parton distribution functions as \textsc{Pythia8}. The predictions
+include uncertainties in coupling constant $\alpha_S$, PDFs and
+factorization and normalization scales. These uncertainties are
 shown in Appendix \ref{sec:NLOUncertainties}.
 
 Cross section predictions for $\sqrt{s}=8\TeV$ and $\sqrt{s}=13\TeV$ are
-compared in Appendix \ref{sec:PredictionsForRunIAndII} where with the usage of
+compared in Appendix \ref{sec:PredictionsForRunIAndII} where the
 integrated luminosities $L=20\,\text{fb}^{-1}$ (Run I) and
-$L=100\,\text{fb}^{-1}$ (Run II expected) the numbers of jets expected to be
+$L=100\,\text{fb}^{-1}$ (Run II expected) are used. The numbers of jets expected to be
 observed in each $\pt$ bin were calculated. It can be seen, that according to
 this prediction, in Run II $\sim 1000$ times more jets with $\pt > 1\TeV$ will
 be observed than it was in Run I. In addition LHC run II could create a few jets
 with $\pt \sim 4 \TeV$.
 
-$\pt$ spectrum of particle jets obtained from \textsc{Pythia8} is compared with
+The $\pt$ spectrum of particle jets obtained from \textsc{Pythia8} is compared with
 $\pt$ spectrum of parton jets from NLO prediction in Appendix
 \ref{sec:PythiaAndNLO}. Only for few highest $\pt$ bins the cross section
 predicted by the NLO is bigger than that of \textsc{Pythia8} whereas for low
-$\pt$ the situation is opposite. The explanation for this behavior lies in
-hadronization, by which the original parton jet with high $\pt$ can split into
-two or more jets with smaller $\pt$'s.
+$\pt$ the situation is opposite. The explanation is, that \textsc{Pythia8}
+generates events of $pp$ collisions only using LO QCD.
 
 There are several ways to extend this analysis. Although this analysis is only
 preparation for the analysis of real data which will be collected in LHC Run II,
@@ -417,8 +456,12 @@ the implementations of the IDS unfolding method developed could serve for
 unfolding of the real $\pt$ spectra measured by the ATLAS detector in Run II.
 The unfolding results could be further improved by the running on new datasets
 generated by the \textsc{Pythia8} with the usage of newer parton density
-functions. The NLO prediction should be improved by the assuming the electroweak
-and non-perturbative corrections. 
+functions. 
+
+The unfolding approaches introduced in this thesis could be probed further. One
+of the possibility is the event reweighting and checking, if the unfolding is
+not dependent on the shape of the $\pt$ spectra. Next possibility is to compare,
+how the simple and 2D unfolding will deal with new structure in data.
 
 %================================================================================
 % Appendices

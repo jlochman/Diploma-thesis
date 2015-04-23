@@ -3,15 +3,23 @@
 \MyQuote{In physics, you don't have to go around making trouble for yourself - nature
 does it for you.}{Frank Wilczek}
 
-QCD jets are the most common hard objects observed in the ultrarelativistic
+QCD jets are the most common hard objects observed at inelastic collisions 
 collisions at hadron colliders, with their cross section exceeding any other
 physics process by orders of magnitude.  Measurement of inclusive jet cross
-section thus provides the test for both QCD predictions and the detector
+section provides the test for both QCD predictions and the detector
 performance up to the momentum transfers not reachable by any other physics
 processes. 
 
-This chapter describes the details of the double differential inclusive jet
-cross section analysis.
+In this Chapter, I will describe the details of the double differential
+inclusive jet cross section analysis, which I have done in this thesis.
+I will begin with the characteristics of the Monte Carlo data, I have used.
+These data together with the event selection criteria and matching procedure,
+which description will follow, fully specify the input for the unfolding
+procedure. Two approaches to the unfolding, which I have implemented in this
+thesis, will be described and compared with each other. 
+
+At the end of this Chapter, I will compare the results of my data analysis, with
+the next-to-leading order perturbative QCD prediction of my supervisor. 
 
 \section{Data Characteristics}
 
@@ -20,7 +28,7 @@ the center-of-mass energy $\sqrt{s} = 13\TeV$ with \textsc{Pythia8}
 \cite{Pythia8} event generator using CT10 PDFs \cite{CT10PDF} and ATLAS underlying event
 tune AU2 \cite{AU2}. QCD calculations are done only to the leading order in
 \textsc{Pythia8}. The response of the ATLAS detector on these events was
-calculated with \textsc{Geant4} \cite{Geant4} software toolkit.
+simulated with \textsc{Geant4} \cite{Geant4} software toolkit.
 
 Particles were recombined into jets using anti-$k_t$ jet algorithm with parameter $R=0.4$.
 There are particle jets reconstructed from the \textsc{Pythia8} output, which
@@ -28,28 +36,27 @@ further in this thesis are denoted truth jets, and next to them, there are the
 reco jets reconstructed from the output of \textsc{Geant4} detector
 simulation from the ATLAS detector topological cell clusters. 
 
-Reco jets were calibrated using \textsc{ApplyJetCalibration}
+Reco jets were calibrated using the \textsc{ApplyJetCalibration}
 \cite{ApplyJetCalibration} library version 3.28 with configuration parameters
 loaded from the \texttt{JES\_Prerecommendation2015\_Feb2015.config} with
-calibration sequence \texttt{JetArea\_Residual\_EtaJES}. In next reco jets
-denotes the reco calibrated jets.
+calibration sequence \texttt{JetArea\_Residual\_EtaJES}. In next, reco jets
+denote the reco calibrated jets.
 
-Events are generated in JZ slices according to 
-the leading truth jet $\pt$. These samples differ in event weight which is for
-the whole event calculated as 
+Events are generated in slices according to the leading truth jet $\pt$. These
+samples differ in event weight which is for the whole event calculated as 
 
 \begin{equation}
   \text{weight} = \frac{\text{(XS)} \cdot \text{(FE)} \cdot w_0}{\text{(\# events)}},
 \end{equation}
 with XS beeing cross-section, FE filter efficiency and $w_0$ additional weight
 factor stored in \texttt{EventInfoAux} container. Concrete values for datasets used in
-this theses are given in Table \ref{tab:JZXW}.  
+this theses are given in Table~\ref{tab:JZXW}.  
 
 \begin{table}
   \centering
   \begin{tabular}{|c|rcr|c|c|c|}
     \hline 
-     JZXW & \multicolumn{3}{|c|}{$\pt$ range (GeV)} & Cross-section (fb) & Filter Efficiency & \# envents  \\ 
+     JZXW & \multicolumn{3}{|c|}{$\pt$ range (GeV)} & Cross-section (fb) & Filter Efficiency & \# events  \\ 
     \hline
     \hline
 		 JZ0W &     0 & - &    20 & 7.8420e+13 & 9.7193e-01 & 3498000 \\ 
@@ -74,20 +81,21 @@ this theses are given in Table \ref{tab:JZXW}.
   \label{tab:JZXW}
 \end{table}
 
-Analysis uses jets with transverse momentum $\pt > 15\GeV$ and rapidity $|y| <
+The analysis uses jets with transverse momentum $\pt > 15\GeV$ and rapidity $|y| <
 4$ and is done in double binning in $\pt$ and $|y|$ with the following edges
 which are the same as in the analysis from 2011/2012 \cite{Analysis2012}.
 
 \begin{align}
-  \pt = \, &15-20-25-35-45-55-70-85-100-116-134-152-172-194-216- \nonumber \\
-        &240-264-290-318-346-376-408-442-478-516-556-598-642- \nonumber \\
-        &688-736-786-838-894-952-1012-1076-1162-1310-1530- \nonumber \\
-        &1992-2300-2800-3400-4100-5000-6000-7200 \GeV \nonumber \\
+  \pt = \, &15-20-25-35-45-55-70-85-100-116-134-152- \nonumber \\
+        &172-194-216-240-264-290-318-346-376-408- \nonumber \\
+        &442-478-516-556-598-642-688-736-786-838- \nonumber \\
+        &894-952-1012-1076-1162-1310-1530-1992-2300- \nonumber \\
+        &2800-3400-4100-5000-6000-7200 \GeV \nonumber \\
   |y| = \, &0.0-0.5-1.0-1.5-2.0-2.5-3.0-3.5-4.0
   \label{eq:Binning}
 \end{align}
-The edges in $\pt$ are chosen to resolution in each bin was the same up to the
-systematic error.
+The edges in $\pt$ are chosen to uncertainty in each bin was smaller than the
+differences in values in neighboring bins.
 
 \section{Event Selection}
 
@@ -113,8 +121,8 @@ numerical results for procedures described in this section are given in Appendix
 
   \item \textbf{Zero jet (0-jet) Cut}
 
-    Only those events which has at leas one reco or one truth jet left proceeded
-    further in the analysis.
+    Only those events which has at least one reco or one truth jet are
+    considered.
     
   \item \textbf{Leading Ration (LR) Cut}
 
@@ -122,7 +130,7 @@ numerical results for procedures described in this section are given in Appendix
     there was only one reco jet left, the ratio $LR = \pt^{reco,leading} /
     \pt^{truth,leading}$ was calculated. If there were two reco jets, instead
     of $\pt^{reco,leading}$ the average $\pt$ of two leading reco jets was
-    calculated. If $0.6 < LR < 1.4$ the event was assumbed by the analysis.
+    calculated. If $0.6 < LR < 1.4$ the event are considered.
 
 \end{itemize}
 
@@ -138,16 +146,15 @@ the leading truth jet $\pt < 20 \GeV$ which has no longer to hold for reco
 jets which were in some cases reconstructed with $\pt \sim 100 \GeV$. Because of
 Monte Carlo event weight of events from JZ0W sample is dominant over event
 weights of other JZXW samples by several orders, the misreconstructed reco
-jets from JZ0W sample were parasitizing on the observed $\pt$ spectrum of reco
-jets as can be seen from top of the Figure \ref{fig:Cutting}.
+jets from JZ0W sample were negatively influencing the observed $\pt$ spectrum of
+reco jets as can be seen from top of the Figure \ref{fig:Cutting}.
 
 \subsection{Jet Matching}
 \label{SubSec:JetMatching}
 
 To find, how the truth jets are reconstructed by the detector, the jet matching
 has to be done, i.e. for each truth jet it is needed to find corresponding reco
-jet which should correspond to the original truth jet reconstructed by the
-detector. Jet matching used in this thesis is based on minimal angular distance
+jet. Jet matching used in this thesis is based on minimal angular distance
 between matched and its description follows in this section.
 
 For each pair $(i,j)$ of reco and truth jet, the quantity $dR_{ij} =
@@ -161,52 +168,36 @@ or all of the reco or truth jets were matched.
 
 Numbers of reco and truth jets, both matched and unmatched are shown in Table
 \ref{tab:CutAndMatchingEfficiency} where also the matching efficiencies for
-individual JZXW samples are shown. In Figure \ref{fig:Matching} $\pt$ spectra of
-matched and unmatched reco and truth jets are compared with $\pt$ spectra of
-all reco and truth jets respectively. Figure
-\ref{fig:ptSpectraMasacreEverythingFuck} shows the $\pt$ spectra of reco and
-truth jets after event selection for all rapidity bins assumed in this analysis.
-
-It can be seen that for JZ(1-7)W samples, there is much more unmatched reco
-jets, than is the unmatched truth jets. Looking back at the statistics of the
-$\pt$ cut, the reason is, that more than a half of truth jets has $\pt < 15
-\GeV$ in every JZXW sample, which does not hold for the reco jets. There is
-much more reco jets in statistics than is the truth jets. 
-
-From the top of the Figure \ref{fig:MatchedUnmatched} showing the contribution
-of matched jets to $\pt$ spectra, it can be seen, that starting with
-$\pt>25\GeV$, $\pt$ spectra of reco jets overwhelms those of truth jets.
-Taking into account the fact, that $\pt$ spectra of matched reco and matched
-truth jets are obtained from the same number of jets, this can seem to be a
-little bit confusing. The reason is, that some reco jets overflow the $\pt$
-range defined by the JZXW sample and that each event is filled with weight
-defined by the JZXW sample, which with increasing $\pt$ falls down.
+individual JZXW samples are shown. Figure~\ref{fig:Matching} shows the $\pt$
+spectra of truth and reco jets after event selection, which are composed from
+$\pt$ spectra of matched and unmatched jets, which are shown also. $\pt$ spectra
+of truth and reco jets are for all rapidity bins assumed in this thesis shown in
+Figure~\ref{fig:ptSpectraMasacreEverythingFuck}.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.8\textwidth]{{Chapter3/SignalVSTruth}.eps}
   \caption{Comparison of $\pt$ spectra of reco and truth jets after event
-    selection. Each bin was divided by its width and all corresponding rapidity
-    bins were merged to this histogram so $y$-axis has
-    physical meaning of differential cross section in $\pt$.
-    Bottom graph contains the relative difference between reco and truth
-    differential cross section in $\pt$.} 
+    selection for selected $|y|<0.5$ rapidity bin. Each $\pt$ bin was divided by
+    its width so $y$-axis has physical meaning of double differential cross
+    section in $\pt$ and $y$.  Bottom graph contains the relative difference
+    between reco and truth cross sections.} 
   \label{fig:SignalVSTruth}
 \end{figure}
 
 \section{Unfolding}
 \label{Sec:Unfolding3}
 
-Summarizing the results of the previous section, firstly the series of four
-cutoffs was done on all events saved in Monte Carlo simulated data and the sets
-of jets denoted reco and truth jets were obtained. Both reco and truth jets
-were split into two categories depending on successful matching - there is
-correspondence $1:1$ between matched reco and matched truth jets. Reco jets,
-which were not matched, formed the unmatched reco jets, and similarly a set of
-unmatched truth jets was created. All these 6 sets of jets are needed by the
-unfolding procedure which description follows in this section.
+After the four cuts from section~\ref{SubSec:JetCuts}, the sets of jets
+denoted reco and truth jets were obtained. Matching procedure, described in
+section~\ref{SubSec:JetMatching},
+divided both reco and truth jets into two categories depending on successful
+matching - there is correspondence 1 : 1 between matched reco and matched truth
+jets. Reco jets, which were not matched, formed the unmatched reco jets, and
+similarly a set of unmatched truth jets was created. All these 6 sets of jets
+are needed by the unfolding procedure which description follows in this section.
 
-Figure \ref{fig:SignalVSTruth} shows the $\pt$ spectra of reco and truth jets.
+Figure~\ref{fig:SignalVSTruth} shows the $\pt$ spectra of reco and truth jets.
 It can be seen, that observed $\pt$ spectrum, represented by the reco jets,
 differs from the $\pt$ spectrum theoretically expected which is represented by
 the $\pt$ spectrum of truth jets. Unfolding should transform the observed $\pt$
@@ -218,31 +209,31 @@ presented in data, but not included by the theory.
 The main ingredient for the unfolding procedure is the transfer matrix $A_{ij}$
 which contains the number of reco jets in bin $i$ with a matched truth jet that
 was generated in bin $j$ and describes thus the smearing effects of the
-detector.  In this thesis the double binning \ref{eq:Binning} is used which
+detector. In this thesis, the double binning \eqref{eq:Binning} is used which
 complicates the situation because the matched reco jet can simply migrate of the
-transfer matrix from Figure \ref{fig:UnfoldingMatrixDetail}, when its rapidity
-$|y|>0.5$ and when it was matched with truth jet with $|y|<0.5$ or vice versa.
-Two ways of dealing with double binning are assumed in this thesis.
+transfer matrix from Figure~\ref{fig:UnfoldingMatrixDetail}, when, for example,
+its rapidity $|y|>0.5$ and when it was matched with truth jet with $|y|<0.5$ or
+vice versa. Two ways of dealing with double binning are tested in this thesis.
 
 \begin{enumerate}
   \item \textbf{Simple unfolding}
     
-    In this case, only those reco and truth jets was used in the transfer
+    In this case, only those reco and truth jets were used in the transfer
     matrix, which were matched within the same rapidity bin. Remaining matched
-    jets were added to the unmatched statistic. 8 transfer matrices $46 \times
-    46$ is filled (one for each rapidity bin, $46$ = number of $\pt$ bins) and
+    jets were added to the unmatched jets. 8 transfer matrices $46 \times
+    46$ are filled (one for each rapidity bin, $46$ = number of $\pt$ bins) and
     unfolding is done for each of these matrices separately. One of these
-    matrices for $|y|<0.5$ rapidity bin is shown at Figure
-    \ref{fig:UnfoldingMatrixDetail}.
+    matrices for $|y|<0.5$ rapidity bin is shown in
+    Figure~\ref{fig:UnfoldingMatrixDetail}.
 
   \item \textbf{2D unfolding}
 
     In this case, the unfolding matrix was redefined to encapsulate the matching
-    of jets between two different rapidity bins. In this case only one transfer
-    matrix $368 \times 368$ is created ($368 = 46 \cdot 8$) with unfolding being
-    done only for this matrix shown at Figure \ref{fig:UnfoldingMatrixAll}, from which
+    of jets between different rapidity bins. In this case only one transfer
+    matrix $368 \times 368$ is created ($368 = 46 \times 8$) with unfolding being
+    done only for this matrix shown at Figure~\ref{fig:UnfoldingMatrixAll}, from which
     the way how the transfer matrix was redefined from the simple unfolding
-    should follow.
+    should follow. 
 \end{enumerate}
 
 \begin{figure}[p]
@@ -265,34 +256,40 @@ Two ways of dealing with double binning are assumed in this thesis.
     $\pt$ and $y$ determined by the $y$-axis. Marked square in $|y|<0.5$ region
     is the matrix shown in Figure \ref{fig:UnfoldingMatrixDetail}. Projection of
     this matrix on the $x$ and $y$-axis corresponds to the $\pt$ spectrum of
-    matched truth and reco jets for corresponding rapidity bin respectively.}
+    matched truth and reco jets for corresponding rapidity bin respectively.
+    Projections on $y$ axis are shown in
+    Appendix~\ref{sec:UnfoldingMatrixSlices}.} 
   \label{fig:UnfoldingMatrixAll}
 \end{figure}
 
-Transfer matrix from Figure \ref{fig:UnfoldingMatrixAll} used by the 2D
+Transfer matrix from Figure~\ref{fig:UnfoldingMatrixAll} used by the 2D
 unfolding contains at the diagonal 8 submatrices which are the unfolding
 matrices used by the simple unfolding. Next to these diagonal submatrices
 transfer matrix of 2D unfolding contains 14 additional submatrices beside
 diagonal. These corresponds to the matched jets with migration in rapidity bins
 and in case of simple unfolding, these jets are assumed to be unmatched.
+Appendix~\ref{sec:UnfoldingMatrixSlices} shows some of the
+    slices in the transfer matrix of 2D unfolding.
 
 Dominant elements of each of the submatrices are on the main diagonal, which
 corresponds to the fact, there is no significant bias in $\pt$ reconstruction.
 The finite $\pt$ resolution causes the smearing of the diagonal and finite
 rapidity resolution is the cause of the 14 minor submatrices.
+Appendix~\ref{sec:UnfoldingMatrixSlices} shows the slices in transfer matrix of
+2D unfolding which demonstrates the facts just stated.
 
 Next to the transfer matrix, numbers of matched and unmatched reco and truth
 jets are needed for each $(y,\pt)$ bin by unfolding procedure. These serve for
 calculation of matching efficiency which is the key ingredient in the first and
 the last step of unfolding procedure. Matching efficiencies for $|y|<0.5$
-rapidity bin are for both simple and 2D unfolding shown at Figure
-\ref{fig:MatchingEfficiencyDemonstration} and for other rapidity bins, the
-results are shown in Appendix \ref{sec:MatchingEfficiency}
+rapidity bin are for both simple and 2D unfolding shown in
+Figure~\ref{fig:MatchingEfficiencyDemonstration} and for other rapidity bins,
+the results are shown in Appendix~\ref{sec:MatchingEfficiency}
 
 \begin{figure}[p]
   \centering
-  \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DSignal|abs(y)|0-0.5Compare}.eps}
-  \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DTruth|abs(y)|0-0.5Compare}.eps}
+  \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DSignal0Compare}.eps}
+  \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DTruth0Compare}.eps}
   \caption{Comparison of matching efficiency of simple and 2D unfolding for $|y|
     < 0.5$ rapidity bin. Matching efficiency is compared for both reco jets
     (left) and truth jets (right). Matching efficiency for all rapidity bins is
@@ -301,9 +298,9 @@ results are shown in Appendix \ref{sec:MatchingEfficiency}
 
   \vspace{1cm}
 
-  \includegraphics[width=0.49\textwidth]{{Chapter3/SignalUnfolded_VS_Truth|abs(y)|0-0.5Compare}.eps}
-  \includegraphics[width=0.49\textwidth]{{Chapter3/UnfoldedSimpleComplex_VS_Truth|abs(y)|0-0.5Compare}.eps}
-  \caption{Comparison of $\pt$ spectra of signal jets and the unfolded
+  \includegraphics[width=0.49\textwidth]{{Chapter3/SignalUnfolded_VS_Truth0Compare}.eps}
+  \includegraphics[width=0.49\textwidth]{{Chapter3/UnfoldedSimpleComplex_VS_Truth0Compare}.eps}
+  \caption{Comparison of $\pt$ spectra of reco jets and the unfolded
     $\pt$ spectra (2D unfolding) with the $\pt$ spectra of the truth jets
     (left). Comparison of unfolded spectra obtained by the 2D and simple
     unfolding with the $\pt$ spectra of the truth jets (right). Both graphs are
@@ -316,7 +313,7 @@ results are shown in Appendix \ref{sec:MatchingEfficiency}
 Unfolding procedure can be divided into three main steps
 
 \begin{enumerate}
-  \item Input data are multiplied by the matching efficiency of signal jets.
+  \item Input data are multiplied by the matching efficiency of reco jets.
   \item Transfer matrix is used to correct data spectrum for detector effects.
     For this purpose, the Iterative Dynamical Stabilized (IDS)
     \cite{IterativeDynamicallyStabilized} unfolding method was used which uses
@@ -327,8 +324,8 @@ Unfolding procedure can be divided into three main steps
     jets.
 \end{enumerate}
 
-Figure \ref{fig:UnfoldingResultsDemonstration} shows the comparison of $\pt$
-spectra of signal jets and unfolded spectrum (by 2D unfolding method) with the
+Figure~\ref{fig:UnfoldingResultsDemonstration} shows the comparison of $\pt$
+spectra of reco jets and unfolded spectrum (by 2D unfolding method) with the
 $\pt$ spectrum of truth jets (left) and the comparison of simple and 2D unfolded
 spectra with the spectrum of truth jets (right) for $|y|<0.5$ rapidity bin.
 Results for all rapidity bins are shown in Appendix \ref{sec:UnfoldingResults}.
@@ -341,10 +338,24 @@ unfolding are even smaller.
 \section{Comparison with NLO Prediction}
 \label{sec:ComaprisonWithNLOPrediction}
 
-The unfolded $\pt$ spectrum obtained in the previous section, was compared with
-the $\pt$ spectrum obtained by the NLO QCD calculations.  These calculations was
-done with \textsc{NLOJET++} program v4.1.2 \cite{NLOJetProgram} using CT10 NLO PDF set
-\cite{CT10PDF}.
+In the previous sections, I have described the jet calibration and the unfolding
+procedures. These serve to remove the detector imperfections and correct the
+reco jet $\pt$ spectrum to the truth jet $\pt$ spectrum. For this purpose I
+have used the \textsc{Pythia8} generated events, which uses
+the leading-order QCD calculations to simulate initial $pp$ collision.
+Nowadays the QCD predictions are tested up to next-to-leading order and for
+LHC Run II, new calculations assuming next-to-next-to-leading order QCD
+processes are preparing \cite{NNLO1,NNLO2}.
+
+My supervisor has determined the theoretical prediction of $\pt$ spectra of
+parton jets using \textsc{NLOJET++} program v4.1.2 \cite{NLOJetProgram}. This
+program computes the QCD processes up to next-to-leading order with CT10
+parton distribution functions \cite{CT10PDF, Annecy}. In this thesis I have used
+his computations for center-of-mass energies $\sqrt{s}=8\TeV$ and
+$\sqrt{s}=13\TeV$, first corresponding to the LHC Run I and second to LHC Run
+II. In this section I compare the truth jet $\pt$ spectrum from \textsc{Pythia8}
+with the theoretical prediction of parton jet $\pt$ spectrum from
+next-to-leading order QCD predictions of my supervisor.
 
 NLO predictions were compared for two different center-of-mass energies of $pp$
 collisions - first corresponding to the LHC Run I ($\sqrt{s}=8\TeV$) and second
@@ -370,20 +381,18 @@ shown in Appendix \ref{sec:PredictionsForRunIAndII}.
 \end{figure}
 
 It can be seen, that the increase in the center-of-mass energy is the most
-significant for jets with high $\pt$. By the NLO QCD theoretical computations, several
+significant for jets with high $\pt$. In the NLO QCD theoretical computations, several
 uncertainties are taken into account. These include \cite{Analysis2012}
 
 \begin{itemize}
   \item \textbf{Scale uncertainty}
 
     Coming from the choice of renormalization and factorization scales,
-    including neglecting the higher order terms beyond NLO and making choice in
-    scale, where the hard processes are replaced by hadronisation. 
+    including neglecting the higher order terms beyond NLO 
 
   \item \textbf{$\alpha_S$ uncertainty}
 
-    Because $\alpha_S$ is experimentally determined with error as is shown in
-    Figure with running coupling constant \ref{fig:RunningCouplingConstant}.
+    Because $\alpha_S$ is experimentally determined with uncertainty.
 
   \item \textbf{PDF uncertainty}
 
@@ -391,27 +400,27 @@ uncertainties are taken into account. These include \cite{Analysis2012}
 
   \item \textbf{Nonperturbative corrections uncertainty}
 
-    ???
+    Hadronization can split outgoing hard parton into a several jets. 
 
   \item \textbf{Electroweak corrections uncertainty}
 
-    Next to the QCD processes, the electroweak processes has to be assumed.
-    These processes becomes more important, as the momentum transfer increases.
+    Next to the QCD processes, the electroweak processes has to be taken into
+    account. These processes becomes more important, as the momentum transfer
+    increases.  
 \end{itemize}
 
 In this analysis, only first three of these corrections are assumed. The
 corrections were extracted from the files with NLO QCD predictions, where each
-correction is represented by the set of equally likely histograms differing
-from the default prediction. Correction was determined as the square sum of all
-the corrections up and down separately and for $|y|<0.5$ rapidity bin are shown
-at Figure \ref{fig:NLOSystematicsDemonstartion}, other rapidity bins are shown
-in Appendix \ref{sec:NLOUncertainties}.
+correction is represented by the set of equally likely histograms expressing the
+deviation from the default prediction. Corrections are for $|y|<0.5$ rapidity bin
+shown in Figure~\ref{fig:NLOSystematicsDemonstartion}, other rapidity bins
+are shown in Appendix~\ref{sec:NLOUncertainties}.
 
 \begin{figure}[p]
   \centering
   \includegraphics[width=0.49\textwidth]{{Chapter3/NLO_Systematics8_TeV0}.eps}
   \includegraphics[width=0.49\textwidth]{{Chapter3/NLO_Systematics13_TeV0}.eps}
-  \caption{NLO uncertainties for NLO QCD predictions of inclusive jet
+  \caption{Theoretical uncertainties for NLO QCD predictions of inclusive jet
     differential cross section for $pp$ collisions at
     $\sqrt{s}=8\TeV$ (left) and $\sqrt{s}=13\TeV$ (right) for $|y|<0.5$ rapidity
     bin. Uncertainties for other rapidity bins are shown in Appendix
@@ -420,7 +429,7 @@ in Appendix \ref{sec:NLOUncertainties}.
 
   \vspace{1cm}
 
-  \includegraphics[width=0.8\textwidth]{{Chapter3/Truth_VS_Prediction|abs(y)|0-0.5Compare}.eps}
+  \includegraphics[width=0.8\textwidth]{{Chapter3/Truth_VS_Prediction0Compare}.eps}
   \caption{Comparison of \textsc{Pythia8} prediction with NLO QCD prediction of
     inclusive jet double differential cross section for $|y|<0.5$ rapidity bin
     with uncertaintis of NLO QCD predictions symbolized by the blue area.
@@ -431,4 +440,8 @@ in Appendix \ref{sec:NLOUncertainties}.
 
 Comparison of $\pt$ spectra of truth jets with NLO QCD prediction is for $|y| <
 0.5$ rapidity bin shown at Figure \ref{fig:TruthVSPredictionsDemonstation} for
-other rapidity bins see Appendix \ref{sec:PythiaAndNLO}.
+other rapidity bins see Appendix \ref{sec:PythiaAndNLO}. It can be seen that the
+truth $\pt$ spectrum is for low $\pt$ jet greater then the next-to-leading order QCD
+prediction and that for a few $\pt$ bins with the highest $\pt$ the situation is
+reversed. Physically, this is caused by the splitting of parton jet in the
+process of hadronization into several truth jets.
