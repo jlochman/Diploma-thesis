@@ -23,10 +23,11 @@ the next-to-leading order perturbative QCD prediction of my supervisor.
 
 \section{Data Characteristics}
 
-Data used in this thesis are Monte Carlo generated events of $pp$ collisions at
+As the input, I have used Monte Carlo generated events of proton-proton collisions at
 the center-of-mass energy $\sqrt{s} = 13\TeV$ with \textsc{Pythia8}
-\cite{Pythia8} event generator using CT10 PDFs \cite{CT10PDF} and ATLAS underlying event
-tune AU2 \cite{AU2}. QCD calculations are done only to the leading order in
+\cite{Pythia8} event generator using CT10 Parton Distribution Functions
+\cite{CT10PDF} and ATLAS underlying event tune AU2 \cite{AU2}. QCD calculations
+are done only to the leading order in
 \textsc{Pythia8}. The response of the ATLAS detector on these events was
 simulated with \textsc{Geant4} \cite{Geant4} software toolkit.
 
@@ -36,13 +37,13 @@ further in this thesis are denoted truth jets, and next to them, there are the
 reco jets reconstructed from the output of \textsc{Geant4} detector
 simulation from the ATLAS detector topological cell clusters. 
 
-Reco jets were calibrated using the \textsc{ApplyJetCalibration}
-\cite{ApplyJetCalibration} library version 3.28 with configuration parameters
-loaded from the \texttt{JES\_Prerecommendation2015\_Feb2015.config} with
+I have calibrated reco jets using the \textsc{ApplyJetCalibration}
+\cite{ApplyJetCalibration} library v3.28 with configuration 
+\texttt{JES\_Prerecommendation2015\_Feb2015.config} and
 calibration sequence \texttt{JetArea\_Residual\_EtaJES}. In next, reco jets
 denote the reco calibrated jets.
 
-Events are generated in slices according to the leading truth jet $\pt$. These
+Events were generated in slices according to the leading truth jet $\pt$. These
 samples differ in event weight which is for the whole event calculated as 
 
 \begin{equation}
@@ -81,9 +82,11 @@ this theses are given in Table~\ref{tab:JZXW}.
   \label{tab:JZXW}
 \end{table}
 
-The analysis uses jets with transverse momentum $\pt > 15\GeV$ and rapidity $|y| <
-4$ and is done in double binning in $\pt$ and $|y|$ with the following edges
-which are the same as in the analysis from 2011/2012 \cite{Analysis2012}.
+In the analysis, I am using jets with transverse momentum $\pt>15\GeV$ and
+rapidity $|y|<4$. Analysis is done in double binning in $\pt$ and $|y|$, with
+the edges being the same as in the analysis from 2011/2012 \cite{Analysis2012},
+which has chosen the binning in $\pt$ to uncertainty in each bin was smaller
+than the differences in values in neighboring bins.
 
 \begin{align}
   \pt = \, &15-20-25-35-45-55-70-85-100-116-134-152- \nonumber \\
@@ -94,8 +97,6 @@ which are the same as in the analysis from 2011/2012 \cite{Analysis2012}.
   |y| = \, &0.0-0.5-1.0-1.5-2.0-2.5-3.0-3.5-4.0
   \label{eq:Binning}
 \end{align}
-The edges in $\pt$ are chosen to uncertainty in each bin was smaller than the
-differences in values in neighboring bins.
 
 \section{Event Selection}
 
@@ -176,7 +177,7 @@ Figure~\ref{fig:ptSpectraMasacreEverythingFuck}.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{{Chapter3/SignalVSTruth}.eps}
+  \includegraphics[width=\textwidth]{{Chapter3/SignalVSTruth}.eps}
   \caption{Comparison of $\pt$ spectra of reco and truth jets after event
     selection for selected $|y|<0.5$ rapidity bin. Each $\pt$ bin was divided by
     its width so $y$-axis has physical meaning of double differential cross
@@ -288,8 +289,10 @@ the results are shown in Appendix~\ref{sec:MatchingEfficiency}
 
 \begin{figure}[p]
   \centering
-  \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DSignal0Compare}.eps}
-  \includegraphics[width=0.49\textwidth]{{Chapter3/MatchEffSimpe2DTruth0Compare}.eps}
+  \makebox[\textwidth][c]{
+    \includegraphics[width=0.6\textwidth]{{Chapter3/MatchEffSimpe2DSignal0Compare}.eps}
+    \includegraphics[width=0.6\textwidth]{{Chapter3/MatchEffSimpe2DTruth0Compare}.eps}
+  }
   \caption{Comparison of matching efficiency of simple and 2D unfolding for $|y|
     < 0.5$ rapidity bin. Matching efficiency is compared for both reco jets
     (left) and truth jets (right). Matching efficiency for all rapidity bins is
@@ -297,9 +300,11 @@ the results are shown in Appendix~\ref{sec:MatchingEfficiency}
   \label{fig:MatchingEfficiencyDemonstration}
 
   \vspace{1cm}
-
-  \includegraphics[width=0.49\textwidth]{{Chapter3/SignalUnfolded_VS_Truth0Compare}.eps}
-  \includegraphics[width=0.49\textwidth]{{Chapter3/UnfoldedSimpleComplex_VS_Truth0Compare}.eps}
+  
+  \makebox[\textwidth][c]{
+    \includegraphics[width=0.6\textwidth]{{Chapter3/SignalUnfolded_VS_Truth0Compare}.eps}
+    \includegraphics[width=0.6\textwidth]{{Chapter3/UnfoldedSimpleComplex_VS_Truth0Compare}.eps}
+  }
   \caption{Comparison of $\pt$ spectra of reco jets and the unfolded
     $\pt$ spectra (2D unfolding) with the $\pt$ spectra of the truth jets
     (left). Comparison of unfolded spectra obtained by the 2D and simple
@@ -369,7 +374,7 @@ shown in Appendix \ref{sec:PredictionsForRunIAndII}.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{{Chapter3/PredictionCompare0}.eps}
+  \includegraphics[width=\textwidth]{{Chapter3/PredictionCompare0}.eps} 
   \caption{Comparison of NLO QCD prediction of double differential inclusive jet
     cross section (black) for $pp$ collisions at $\sqrt{s}=13\TeV$ (filled circles)
     corresponding to the LHC Run II and $\sqrt{s}=8\TeV$ (empty circles)
@@ -409,6 +414,16 @@ uncertainties are taken into account. These include \cite{Analysis2012}
     increases.  
 \end{itemize}
 
+\begin{figure}[t]
+  \includegraphics[width=\textwidth]{{Chapter3/Truth_VS_Prediction0Compare}.eps}
+  \caption{Comparison of \textsc{Pythia8} prediction with NLO QCD prediction of
+    inclusive jet double differential cross section for $|y|<0.5$ rapidity bin
+    with uncertaintis of NLO QCD predictions symbolized by the blue area.
+    Comparisons for other rapidity bins are shown in Appendix
+    \ref{sec:PythiaAndNLO}.}
+  \label{fig:TruthVSPredictionsDemonstation}
+\end{figure}
+
 In this analysis, only first three of these corrections are assumed. The
 corrections were extracted from the files with NLO QCD predictions, where each
 correction is represented by the set of equally likely histograms expressing the
@@ -418,24 +433,14 @@ are shown in Appendix~\ref{sec:NLOUncertainties}.
 
 \begin{figure}[p]
   \centering
-  \includegraphics[width=0.49\textwidth]{{Chapter3/NLO_Systematics8_TeV0}.eps}
-  \includegraphics[width=0.49\textwidth]{{Chapter3/NLO_Systematics13_TeV0}.eps}
+  \includegraphics[width=\textwidth]{{Chapter3/NLO_Systematics8_TeV0}.eps}
+  \includegraphics[width=\textwidth]{{Chapter3/NLO_Systematics13_TeV0}.eps}
   \caption{Theoretical uncertainties for NLO QCD predictions of inclusive jet
     differential cross section for $pp$ collisions at
     $\sqrt{s}=8\TeV$ (left) and $\sqrt{s}=13\TeV$ (right) for $|y|<0.5$ rapidity
     bin. Uncertainties for other rapidity bins are shown in Appendix
     \ref{sec:NLOUncertainties}.}
   \label{fig:NLOSystematicsDemonstartion}
-
-  \vspace{1cm}
-
-  \includegraphics[width=0.8\textwidth]{{Chapter3/Truth_VS_Prediction0Compare}.eps}
-  \caption{Comparison of \textsc{Pythia8} prediction with NLO QCD prediction of
-    inclusive jet double differential cross section for $|y|<0.5$ rapidity bin
-    with uncertaintis of NLO QCD predictions symbolized by the blue area.
-    Comparisons for other rapidity bins are shown in Appendix
-    \ref{sec:PythiaAndNLO}.}
-  \label{fig:TruthVSPredictionsDemonstation}
 \end{figure}
 
 Comparison of $\pt$ spectra of truth jets with NLO QCD prediction is for $|y| <

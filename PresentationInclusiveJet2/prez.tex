@@ -4,6 +4,9 @@
 \setbeamertemplate{headline}{}
 \beamertemplatenavigationsymbolsempty
 
+\usepackage{lipsum}
+\setbeamersize{text margin left=10pt,text margin right=10pt}
+
 \addtobeamertemplate{navigation symbols}{}{%
     \usebeamerfont{footline}%
     \usebeamercolor[fg]{footline}%
@@ -51,14 +54,14 @@ Inclusive Jet Meeting \\
 %\end{frame}
 
 \begin{frame}
-\frametitle{Intro}
+\frametitle{Introduction}
 \begin{itemize}
   \item Double differential inclusive jet cross section in $p_T$ and $|y|$
   \item \textbf{Data} 
     \begin{itemize}
       \item \texttt{mc14\_13TeV, AntiKt4LCTopoJets}
     \end{itemize}
-  \item \textbf{Event Seelction}
+  \item \textbf{Event Selection}
     \begin{itemize}
       \item $p_T>15\,\text{GeV}$, $|y|<4$ 
       \item \# reco jets $\geq 1$ \& \# truth jets $\geq 1$ 
@@ -73,7 +76,7 @@ Inclusive Jet Meeting \\
 \end{frame}
 
 \begin{frame}
-\frametitle{Intro to Unfolding}
+\frametitle{Introduction to Unfolding}
 \begin{itemize}
   \item Used two approaches to unfolding
   \item \textbf{Simple Unfolding}
@@ -98,7 +101,7 @@ Inclusive Jet Meeting \\
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Transfer matrices}
+\frametitle{Transfer Matrices}
 \begin{columns}[onlytextwidth]
   \begin{column}{0.5\textwidth}
     2D unfolding
@@ -202,8 +205,8 @@ mc14\_13TeV.147916.Pythia8\_AU2CT10\_jetjet\_JZ6W.merge.AOD.e2743\_s1982\_s2008\
 
 \begin{frame}
 \frametitle{Slices in Transfer Matrix}
-\Put(250,20){\color{blue}\includegraphics[height=2.5cm]{{unfold_matrix_all}.eps}}
 \vfill
+\Put(280,40){\color{blue}\includegraphics[height=2.5cm]{{unfold_matrix_all}.eps}}
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.33\textwidth]{{UnfoldMatrixSlices00}.eps}
@@ -392,10 +395,15 @@ Unfolding trained on Reco Original, but executed on Reco Modified
 \frametitle{Conclusions}
 \begin{block}{Matching Efficiencies}
   2D Unfolding: $> 99\,\%$ for almost every bin with $p_T>100\,\text{GeV}$.
+
   Simple Unfolding: $\sim 2-5\,\%$ worse.
 \end{block}
 \begin{block}{Unfolding Results}
   Small differences between both of these approaches.
+
+  2D Unfolding: Small interconnection between neigboring rapidity bins
+
+  Simple Unfolding: Interconnection is not possible
 \end{block}
 \end{frame}
 

@@ -25,6 +25,8 @@
 %\usepackage{setspace}
 %\setstretch{1.1}
 \usepackage{setspace}
+\usepackage{lipsum} 
+
 \onehalfspacing
 
 \newcommand{\cvut}{Czech Technical University in Prague}
@@ -41,23 +43,37 @@
 \newcommand{\vedouci}{Ing. Zden\v{e}k Hub\'{a}\v{c}ek, Ph.D.}        
 \newcommand{\pracovisteVed}{CERN}	
 
-\newcommand{\klicova}{Klicova slova}   
+\newcommand{\klicova}{Kvantov\'{a} Chromodynamika, Jety, Unfolding}   
 \newcommand{\keyword}{Quantum Chromodynamics, Jets, Unfolding}
 
-\newcommand{\abstrCZ}{Abstrakt CZ} 
+\newcommand{\abstrCZ}{
+Diplomova prace se zabyva merenim dvojiteho diferencialniho ucineho prurezu v
+$\pt$ a rapidite v proton-protonovych srazkach pri $\sqrt{s}=13\TeV$ na
+detektoru ATLAS. 
+Prace pouziva data nasimulovana pomoci Monte Carlo generatoru \textsc{Pythia8} s
+jety zrekonstruovanymi na casticove a detektorove urovni pomoci anti-$k_t$
+jetoveho algorimu s parametrem $R=0.4$. 
+Diferencialni uciny prurez ziskan z detektorove urovne je unfoldovan na
+casticovou uroven a porovnan s partonovou predpovedi ziskanou z NLO QCD.
+Jsou pouzity dve metod unfoldingu, oznacene jako simpla a 2D, a vysledky z obou
+metod jsou vzajemne srovnany.
+Obe metody mohou byt pouzity k unfoldovani diferencialniho ucineho prurezu
+inkluzivnich jetu merenych v Run II experimentu ATLAS, ktery zacne v lete 2015.
+} 
+
 \newcommand{\abstrEN}{
-This thesis deals with the measurement of the inclusive jet double differential
+This thesis deals with the measurement of the inclusive jets double differential
 cross section in $\pt$ and rapidity in proton-proton colisions at
 $\sqrt{s}=13\TeV$ with the ATLAS detector. 
-The measurement uses the Monte Carlo simulated data by the \textsc{Pythia8}
-event generator and anti-$k_t$ jets with parameter $R=0.4$ reconstructed at
+The thesis uses the \textsc{Pythia8} Monte Carlo simulated events 
+and anti-$k_t$ jets with parameter $R=0.4$ reconstructed at
 particle and detector level.
 Differential cross section obtained from the detector level is unfolded to the
 particle level and compared with the parton level differential cross section
-prediction of the next-to-leading perturbative QCD.  
+prediction of the next-to-leading perturbative Chromodynamics.  
 Two different approaches of unfolding denoted as the simple and 2D unfolding are
 implemented and results of these two approaches are compared.
-Both of these approaches can be applyed to unfold differential cross section of
+Both of these approaches can be applied to unfold differential cross section of
 inclusive jets measured by the ATLAS detector in LHC Run II, which will start in
 early summer 2015.
 }
@@ -173,8 +189,6 @@ qualification to this or any other university.
 %================================================================================
 \newpage 
 \thispagestyle{empty}  
-~
-\vfill 
 {\bf Acknowledgment} 
 
 \vspace{0.5cm} 
@@ -203,6 +217,8 @@ imagination, that it is never going to let us relax.
 \begin{flushright}
   \autor 
 \end{flushright}
+~
+\vfill 
 
 \newpage 
 \thispagestyle{empty}  
@@ -294,7 +310,7 @@ by the present theory of elementary particles called the Standard Model.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{Introduction/HistoryOfElementaryParticlePhysics.png}
+  \includegraphics[width=\textwidth]{Introduction/HistoryOfElementaryParticlePhysics.png}
   \caption[History of elementary particle physics.]{History of elementary
     particle physics. Figure taken from~\cite{LatticeQCDForPedestrians}.}
   \label{fig:HistoryOfElPartPhysics}
