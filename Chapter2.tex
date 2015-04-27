@@ -18,7 +18,7 @@ are a suitable candidates allowing testing the QCD up to its edges.
 In this Chapter, I present the Large Hadron Collider and the ATLAS detector.
 With the use of the QCD, defined in the previous Chapter, I give reasons for the
 necessity of jets, and I define the jet algorithms allowing us to
-recombine straightforwardly a
+straightforwardly recombine a
 set of particles into jets. At the end of this Chapter, I describe the essential
 steps, which has to be taken, to correctly reconstruct jets on the ATLAS
 detector.
@@ -45,13 +45,13 @@ Figure~\ref{fig:LHC}.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{Chapter2/LHC.jpg}
-  \caption[This diagram shows the locations of the four main experiments (ALICE,
+  \caption[Diagram showing the locations of the four main experiments (ALICE,
           ATLAS, CMS and LHCb) that take place at the LHC. Located between 50 m and
           150 m underground, huge caverns have been excavated to house the giant
           detectors. The Super Proton Synchotron (SPS), the final link in the
           pre-acceleration chain, and its connection tunnels to the LHC, are also
           shown.]
-          {This diagram shows the locations of the four main experiments (ALICE,
+          {Diagram showing the locations of the four main experiments (ALICE,
           ATLAS, CMS and LHCb) that take place at the LHC. Located between 50 m and
           150 m underground, huge caverns have been excavated to house the giant
           detectors. The Super Proton Synchotron (SPS), the final link in the
@@ -72,11 +72,11 @@ in 2010 at a center-of-mass energy per pair of colliding nucleons $\sqrt{s} =
 during 3 weeks of 2013, successfully demonstrated the LHC capability to provide
 asymmetric collisions.  
 
-The first running period of the LHC, Run I, was very successful and resulted in
+The first running period of the LHC, Run~I, was very successful and resulted in
 the discovery of the Higgs boson on July 4, 2012 \cite{HiggsDiscovery}.  The
-accelerator complex including its experiments has been upgraded for two years
-and the Run II is expected to start in early summer 2015 \cite{LHCFuture,
-LHCFutureLuminosigy}. In Run II, the center-of-mass energy of proton-proton
+accelerator complex, including its experiments, has been upgraded for two years
+and the Run~II is expected to start in early summer 2015 \cite{LHCFuture,
+LHCFutureLuminosigy}. In Run~II, the center-of-mass energy of proton-proton
 collisions will be raised to $\sqrt{s} = 13 \TeV$, and the beam crossing time
 is expected to be reduced from the current $50\,\text{ns}$ to $25\,\text{ns}$. The
 integrated luminosity should be $\sim 100\,\text{fb}^{-1}$ after three years of
@@ -85,7 +85,7 @@ data collecting.
 \subsection{The ATLAS Detector}
 
 The ATLAS detector \cite{ATLAS} is a general-purpose detector surrounding one of
-the interaction points of the LHC and with $\sim 100$ million of individual
+the interaction points of the LHC and, with $\sim 100$ million of individual
 electronic channels, it is the most complicated instrument ever created.
 The purpose of the ATLAS detector is to record particle collisions, up to the center-of-mass
 energy per pair of colliding nucleons $\rts = 14 \TeV$. A detector overview is
@@ -107,11 +107,11 @@ spectrometer.
     \caption{Inner detector and calorimeter systems.}
     \label{fig:ATLASinner}
   \end{subfigure}
-  \caption[(a) an overview of the ATLAS detector 
-           (b) detail on the inner detector and the calorimeters - the dominant
+  \caption[(a) An overview of the ATLAS detector 
+           (b) Detail on the inner detector and the calorimeters - the dominant
            sub-detector systems used in this thesis.]
-           {(a) an overview of the ATLAS detector 
-           (b) detail on the inner detector and the calorimeters - the dominant
+           {(a) An overview of the ATLAS detector 
+           (b) Detail on the inner detector and the calorimeters - the dominant
            sub-detector systems used in this thesis. Figures taken from
            \cite{CERNbook}.}
   \label{fig:ATLAS}
@@ -134,9 +134,9 @@ $E$ stands for the total energy and $p$ for size of total momentum:
 The transverse momentum $\pt = \sqrt{p_x^2 + p_y^2}$ presents the component of a
 momentum perpendicular to the beam line.  
 
-The main detector system relevant to this thesis is the ATLAS calorimeter system,
+The main detector system, relevant to this thesis, is the ATLAS calorimeter system,
 which is emphasized in Figure~\ref{fig:ATLASinner}. The calorimeter is divided
-into sub-detectors, providing overall coverage up to $|\eta| < 4.9$. The
+into sub-detectors, providing an overall coverage up to $|\eta| < 4.9$. The
 electromagnetic calorimeter, covering region $|\eta| < 3.2$, is a
 high-granularity sampling detector, in which the liquid argon (LAr) active medium
 is interspaced with layers of lead absorber. The hadronic calorimeters are
@@ -172,12 +172,12 @@ The remaining energy is carried out by the rest of the partons, which create the
 called underlying event - particles, which do not come from the dominant QCD
 processes.
 
-When partons are sufficiently far from each other, the non-perturbative QCD is
+When the partons are sufficiently far from each other, the non-perturbative QCD is
 used to describe the process of hadronization, in which a set of colored
 partons is transformed into a set of colorless primary hadrons, which may then
 decay further. 
 
-During all the collision, the color charges of partons interact, resulting in
+During all the collision, the color charges of partons interact, resulting in a
 radiation of gluons $q \rightarrow qg$. This process is described by the
 perturbative QCD and leads to infrared and collinear divergences. However,
 infrared divergences are
@@ -199,7 +199,7 @@ analysis of QCD processes.
 
 A jet algorithm is a generic "recipe", which takes a set of particles (or other
 objects with defined four-momenta) and returns jets created from them. The jet
-algorithm usually involves a set of parameters, which together with the
+algorithm usually involves a set of parameters, which, together with the
 algorithm, fully specify the jet definition. According to the remarks at the end
 of the previous Section, jet algorithms should fulfill the following conditions 
 
@@ -223,7 +223,7 @@ This Sections starts with the definition of two classes of jet algorithms.
 First of these are cone algorithms, which seems to me to be more
 illustrative, and $k_t$ algorithms, which are used in ATLAS experiment. After
 a characterization of these algorithms, I introduce two possible recombination
-schemes, and at the end of this Section, I give a short description, how the
+schemes, and, at the end of this Section, I give a short description, how the
 objects, defined by its four-momenta, are constructed from the signal
 observed on the ATLAS detector. Detailed description as well as other jet
 algorithms can be found in \cite{ATLASmain,JetDoporuceniZdenek}.
@@ -232,12 +232,12 @@ algorithms can be found in \cite{ATLASmain,JetDoporuceniZdenek}.
 
 The first step of these algorithms is to order all input objects (reconstructed
 detector objects with four-momentum representation) in decreasing order in
-transverse momentum $\pt$. If the object with the highest $\pt$ is above the
+transverse momentum $\pt$. If the object with the highest $\pt$ is above a
 seed threshold, all objects within a cone in rapidity $y$ and azimuth
 $\phi$ with $\Delta R = \sqrt{\Delta y^2 + \Delta \phi^2} < R_{cone}$, where
 $R_{cone}$ is the fixed cone radius, are recombined.
 A new cone is centered around a new direction and all the objects within the new
-cone are recombined and again the direction is updated. This process continues,
+cone are recombined and again, the direction is updated. This process continues,
 until the direction of the cone does not change anymore after recombination, at
 which point, the cone is considered stable and is called a proto-jet. 
 
@@ -246,12 +246,12 @@ formed with the same iterative procedure. This continues until no more seeds are
 available. 
 
 The proto-jets found by this procedure can share some constituents. Constituents
-shared between two proto-jets are recombined into new proto-jet and if the ratio
+shared between two proto-jets are recombined into a new proto-jet and if the ratio
 $E_T^{shared} / \text{min} ( E_T^{neighbor} ) > f$ is over the certain
 threshold, for example $f = 0.5$, the neighboring proto-jets are recombined into
 one proto-jet (shared constituents are taken only once). If this condition is
 not satisfied, the shared constituents are assigned to the nearest proto-jet.
-When proto-jet does not share constituents it is recombined into the jet.
+When a proto-jet does not share constituents it is recombined into the jet.
 
 This algorithm is both not infrared safe (Figure \ref{fig:IRsafety}) and not
 collinear safe (Figure \ref{fig:ColSafety}). The infrared insensitivity can be
@@ -282,16 +282,17 @@ detector to find all stable proto-jets.
   \label{fig:JetIRCOLsafety}
 \end{figure}
 
-Typical parameters used by fixed cone algorithm are a seed threshold of $\pt > 1 \GeV$,
+Typical parameters used by the fixed cone algorithms are a seed threshold of $\pt > 1 \GeV$,
 and a narrow ($R_{cone} = 0.4$) or a wide cone jet ($R_{cone} = 0.7$) option.
 
 \subsection{$k_t$ algorithms}
 
-In this class of algorithms all pairs $(i,j)$ of input objects are analyzed with
+In this class of algorithms, all pairs $(i,j)$ of input objects are analyzed with
 respect to their relative transverse momentum squared, defined by 
 
 \begin{equation}
-	d_{ij} = \min{\left( p_{T,i}^{2p} , p_{T,j}^{2p} \right)} \frac{\Delta R_{ij}^2}{R^2}
+	d_{ij} = \min{\left( p_{T,i}^{2p} , p_{T,j}^{2p} \right)} \frac{\Delta
+    R_{ij}^2}{R^2},
 \end{equation}
 and the squared $\pt$ of object $i$ relative to the beam axis
 
@@ -309,15 +310,15 @@ parameter $p$ was introduced, to split $k_t$~algorithms into three categories.
 \end{itemize}
 
 These algorithms first find the minimum $d_{min}$ of all $d_{ij}$ and $d_i$. If
-$d_{min}$ is in $d_{ij}$'s, the corresponding objects $i$ and $j$ are combined
+$d_{min}$ is in $d_{ij}$'s, the corresponding objects $i$ and $j$ are recombined
 into a new object $k$ using four-momentum recombination (see
-Section~\ref{sse:Recombination}. Both objects $i$ and
+Section~\ref{sse:Recombination}). Both objects $i$ and
 $j$ are removed from the list, and the new object $k$ is added to it. If
 $d_{min}$ is in $d_i$'s, the object $i$ is considered to be a jet by itself and
 is removed from the list.
 
-This means that all original input objects end up to be either part of a jet or
-to be a jet by themselves. Contrary to the cone algorithm described earlier, no
+This means, that all original input objects end up to be either part of a jet, or
+to be a jet by themselves. Contrary to the cone algorithms, described earlier, no
 objects are shared between jets and the procedure is both infrared and collinear
 safe.
 
@@ -325,7 +326,7 @@ ATLAS uses anti-$k_t$ jet algorithm with $R=0.4$ for narrow and $R=0.6$ for wide
 jets.  Clustering of calorimeter signal towers (see Section
 \ref{sse:CalorimeterJets}) into jets is for $k_t$ and anti-$k_t$ algorithms shown
 in Figure~\ref{fig:JetRecombination}.  More information, about differences
-between $k-t$~algorithms, can be found for example in Reference \cite{ANTIKT}.
+between $k_t$~algorithms, can be found, for example, in Reference \cite{ANTIKT}.
 
 \begin{figure}[p]
   \centering
@@ -387,18 +388,18 @@ important detector system for the jet reconstruction. Calorimeter cells differ
 in sizes, geometries, as well as in readout technologies, and for jet algorithms,
 these cells has to be firstly combined into larger objects, having physically
 meaningful four-momenta. The two concepts available are the calorimeter signal
-towers and the topological cell cluster, which I will describe shortly.
+towers and the topological cell clusters, which I will describe shortly.
 
 In the case of calorimeter signal towers, the cells are projected onto a fixed
 grid in pseudorapidity $\eta$ and azimuth $\phi$. The tower bin size is $\Delta
 \eta \times \Delta \phi = 0.1 \times 0.1$ in the whole acceptance region of the
 calorimeters, i.e. in $|\eta| < 5$ and $- \pi < \phi < \pi$ with approximately 
-$100 \times 64 = 6,400$ towers in total.
+$100 \times 64 = 6400$ towers in total.
 
 The second possibility, how to combine calorimeter cells into a larger objects,
 are the topological cell clusters, which are an attempt to reconstruct a
 three-dimensional "energy blobs" created by each of the particles entering the
-calorimeter.  The clustering starts with seed cells with a signal-to-noise
+calorimeter.  The clustering starts with a seed cells with a signal-to-noise
 ratio, or signal significance $\Gamma = E_{cell} / \sigma_{noise,cell}$, above a
 certain threshold $S$, for example $|\Gamma| > S = 4$.  All directly neighboring cells
 of these seed cells, in all three dimensions, are collected into the cluster.
@@ -421,12 +422,15 @@ detector simulations for simulating the ALTAS detector response of
 \textsc{Pythia8} generated events.
 
 Using these tools, it is possible to reconstruct jets from Monte Carlo events on three
-different stages of collision indicated in Figure~\ref{fig:JetPhases}. First,
+different stages of collision indicated in Figure~\ref{fig:JetPhases}. Firstly,
 there are parton jets, which are reconstructed from the quarks, gluons and other
 elementary particles created just after the collision. Stable particles (with
 lifetime $c\tau \sim 10^{-15}\,\text{m}$), created by hadronization, are recombined into
 the truth jets. When a collision reaches the detector, the detector simulation
 is used and the recorded signal is reconstructed into reco jets.
+The objective of the jet corrections is to find universal prescription, how to
+modify a reco jet properties, to observables derived from detector level,
+correspond to the observables on particle level.
 
 \begin{figure}[t]
   \centering
@@ -440,7 +444,7 @@ Firstly, the reco jets are corrected to the truth jets leading to a modification
 of kinematic properties of the individual reco jet in the process called jet energy
 scale calibration.
 There are, however, some detector effects, which can not be
-fixed by the calibration. These effects include the limited detector resolution
+fixed by this calibration. These effects include the limited detector resolution
 (detector cells have finite dimensions) and the limited acceptance (not all
 events are recorded). The former leads to the smearing of jet kinematic
 properties, whereas the later to decrease of observed cross section against the
@@ -462,19 +466,19 @@ where the following corrections was defined
 
 \begin{itemize}
   \item \textbf{Offset} $\mathbf{O}$
-
+  \\*
     Represents the subtraction of additional energy, which is represented by the
     detector noise and pile-up with contributions from other proton-proton
-    collisions occurring during beam crossing.
+    collisions, occurring during beam crossing.
 
   \item \textbf{Response} $\mathbf{R}$
-
+  \\*
     Describing a fraction of a truth energy, which was measured by the
     detector. Thanks to the hadronic character of jets observed at the LHC, this
     is the largest correction.
 
   \item \textbf{Showering} $\mathbf{S}$
-
+  \\*
     Characterizing particle flow out/from jet recombination cells.
 
 \end{itemize}
@@ -490,7 +494,7 @@ standard \textsc{ApplyJetCalibration} library \cite{ApplyJetCalibration}.
 
 In this analysis, the distribution $f(\pt)$ of inclusive jet $\pt$ is measured
 for $\pt \in \langle a, b \rangle$. Due to the detector imperfections,
-instead of physical variable $\pt$, new variable $x$ and its distribution
+instead of physical variable $\pt$, a new variable $x$ and its distribution
 $g(x)$ are measured. The measured distribution can be expressed as
 
 \begin{equation}
