@@ -1,4 +1,4 @@
-\chapter{QCD}
+\chapter{Quantum Chromodynamics}
 \label{ch:qcd}
 
 \MyQuote{Is the purpose of theoretical physics to be no more than a cataloging of all the
@@ -29,15 +29,16 @@ internal structure to date.
 All fermions interact weakly, if they have electrical charge, they interact
 electromagnetically as well. Quarks are the only fundamental fermions which
 interact strongly. 
-Figure~\ref{fig:SMparticles} shows the system of fundmamental particles of the
+Figure~\ref{fig:SMparticles} shows the system of fundamental particles of the
 Standard Model.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{Chapter1/SM.png} 
   \caption[The system of fundamental particles of the SM.]
-          {The system of fundamental particles of the SM. Figure taken from~
-            \cite{wiki:SMParticlesSource}.} \label{fig:SMparticles}
+          {The system of fundamental particles of the SM. Figure taken
+           from~\cite{wiki:SMParticlesSource}.} 
+  \label{fig:SMparticles}
 \end{figure}
 
 Quarks bind together to form hadrons and there are hundreds
@@ -46,22 +47,22 @@ divided into baryons (3 quarks) and mesons (quark and anti-quark pairs).
 A theory called Quantum Chromodynamics (QCD) describes the strong interaction
 between quarks.  
 In this Chapter, I will discuss the key features of the QCD. 
-I will give reasons for quark existence and for a decription of their strong
+I will give reasons for quark existence and for a description of their strong
 interaction as an $SU(3)$ gauge theory. 
 After an introduction of a QCD Lagrangian, I will derive an expression for the
-running coupling constant, which will be used to split the QCD itno perturbative
+running coupling constant, which will be used to split the QCD into perturbative
 and non-perturbative regions. 
 In these regions, the QCD has to describe the strong interaction with the use of
 a different mathematical approaches. 
 At the end of this Chapter, I will compare
 these two approaches.
 
-Most of the ideas, presented here, is overtaken from the textbook 
+Most of the ideas, presented here, are overtaken from the textbook 
 about the QCD \cite{QCDTextbook}. 
 The electroweak sector of the Standard Model is described
 in~\cite{horejsi2002fundamentals}. 
 For more concise information about the Standard Model, the following textbooks
-can serve \cite{griffiths2008introduction,cottingham2007introduction}.
+can be used \cite{griffiths2008introduction,cottingham2007introduction}.
 
 \section{Theoretical Ansatz}
 \label{Sec:TheoreticalAnsatz}
@@ -165,7 +166,7 @@ Next to the three-dimensional representation of $\mathfrak{su}(3)$, a
 eight-dimensional adjoint representation can be defined.
 This representation has the following eigenstates and eigenvalues
 
-\begin{SCfigure}
+\begin{figure}[t]
   \centering
   \includegraphics[width=0.5\textwidth]{Chapter1/Quark-triplet.png} 
   \caption[Eigenvalues of three-dimensional representation of $\mathfrak{su}(3)$
@@ -173,7 +174,7 @@ This representation has the following eigenstates and eigenvalues
           {Eigenvalues of three-dimensional representation of $\mathfrak{su}(3)$ Lie
           Algebra. Figure taken from~\cite{LieAlgebrasForParticlePhysicists}.}
   \label{fig:QuarkTriplet}
-\end{SCfigure}
+\end{figure}
 
 \begin{align}
   \frac{1}{\sqrt{2}} \left( g_1 \pm i g_2  \right)
@@ -192,7 +193,7 @@ similarly for remaining 5 eigenstates. Defining
   H_1 = T_3 \quad \text{and} \quad H_2 = \frac{\sqrt{3}}{2} Y,
   \label{eq:LieIdentification}
 \end{equation}
-one can easily assign hadrons from Table~\ref{tab:SelectedHadrons} to
+one can easily assign hadrons from Table~\ref{tab:SelectedHadrons} to the
 corresponding eigenvalues of the adjoint representation
 in~\eqref{eq:RepresentLie8}, according to its third component of isospin $T_3$
 and its hypercharge $Y$.  This is depicted in Figure~\ref{fig:BaryonicOctet}. 
@@ -221,7 +222,7 @@ Table~\ref{tab:SelectedQuarks}.
   \label{tab:SelectedQuarks}
 \end{table}
 
-\begin{SCfigure}[][t]
+\begin{figure}[t]
   \centering
   \includegraphics[width=0.6\textwidth]{Chapter1/Baryon-octet.png} 
   \caption[Baryonic octuplet encapsulating baryons from
@@ -231,7 +232,7 @@ Table~\ref{tab:SelectedQuarks}.
           Table~\ref{tab:SelectedHadrons}. For baryons in this diagram, the
           relation $Y = S + 1$ holds. Figure taken from \cite{wiki:EightFoldWay}.}
   \label{fig:BaryonicOctet}
-\end{SCfigure}
+\end{figure}
 
 Another representations of $\mathfrak{su}(3)$ Lie Algebra can be constructed.
 The simplest way seems to be through the highest weight defining representation.
@@ -320,7 +321,7 @@ first.
 Feynmann diagram of this process is, together with kinematics variables and
 vertex algebraic structures, depicted in Figure~\ref{fig:Scattering}. 
 
-\begin{SCfigure}
+\begin{figure}[t]
   \centering
   \includegraphics[width=0.6\textwidth]{Chapter1/Scattering.png} 
   \caption[Scattering reaction $e^-N \rightarrow e^-N$ with kinematics variables
@@ -329,7 +330,7 @@ vertex algebraic structures, depicted in Figure~\ref{fig:Scattering}.
           e^-N$ with kinematics variables and vertex algebraic structures.
           Figure taken from~\cite{QCDTextbook}.}
   \label{fig:Scattering}
-\end{SCfigure}
+\end{figure}
 
 Because of Lorentz-invariance of Quantum Electrodynamics, the matrix
 element of the nucleon vertex $\bar{u}(P',S')\Gamma_\mu u(P,S)$ has to be a
@@ -356,7 +357,7 @@ state decays. The result is usually written using inelasticity parameter
 $y=\frac{E-E'}{E}$, $0 \leq y \leq 1$, $y=0$ corresponding to the elastic
 scattering, Bjorken variable $ x = \frac{Q^2}{2 P \cdot q}$, $ 0 < x \leq 1$, $x
 = 1$ denoting elastic scattering and finally, instead of negative value $q^2$, the
-$Q^2 = -q^2$ is used. Final result can be than written in the form
+$Q^2 = -q^2$ is used. Final result can be then written in the form
 
 \begin{equation}
   \left. \frac{d^2\sigma}{dxdy} \right|_{eN} =
@@ -369,18 +370,19 @@ The $eN$ sub(super)script stresses the fact, we are dealing with scattering
 $F_1^{eN}$ and $F_2^{eN}$, called Structure Functions, are not determinable by
 the theory just presented - they have to be measured experimentally.
 
-Structure Functions were first measured at $eP$ scattering, at SLAC in 1968
+Structure Functions were first measured at $ep$ scattering, at SLAC in 1968
 \cite{ePScattering}, and have shown the following results
 \begin{enumerate}
   \item for $Q^2 \geq 1\GeV$, there is no significant dependence of Structure
     Functions on $Q^2$ and
   \item for $Q^2 \geq 1\GeV$, $F_2 \approx 2xF_1$.
 \end{enumerate}
-These results can be explained by assumption nucleon being composed of
+These results can be explained by the assumption of nucleon being composed of
 point-like spin-1/2 constituents, for which R. P. Feynmann used the term
-partons. In the following, I introduce the basic ideas of parton model. 
+partons. 
 
-To $i$th parton, we assign momentum $P_{i,\mu}$
+In the following, I introduce the basic ideas of parton model. To $i$th parton,
+I assign momentum $P_{i,\mu}$
 
 \begin{equation}
   P_{i,\mu} = \xi_i P_\mu + \Delta P_{i,\mu} 
@@ -578,55 +580,55 @@ $m\bar{\psi}\psi$ vary under gauge transformation
 Higgs mechanism \cite{HiggsMechanism}, which is explained in
 \cite{horejsi2002fundamentals} in detail, has to be used.
 
-QCD Lagrangian \eqref{eq:QCDLagrangian} together with gauge transformations
-\eqref{eq:QCDGaugeTranform} are sufficient for determination of Feynman rules -
-the key ingredient in the perturbative QCD, which we will, after one final
+QCD Lagrangian \eqref{eq:QCDLagrangian} together with the gauge transformations
+\eqref{eq:QCDGaugeTranform} are sufficient for the determination of Feynman rules -
+the key ingredient in the perturbative QCD, which I will, after one final
 remark, discuss in the next Section.
 
 By derivation of a gluon propagator, the gauge-fixing term has to be added to
-the QCD Lagrangina.
+the QCD Lagrangian.
 
 \begin{equation}
   \mathscr{L}_{\text{QCD}}^{\text{gauge-fixing}} = - \frac{1}{2\xi} \left( \partial_\mu A_a^\mu
   \right)^2.
   \label{eq:QCDGaugeFixingTerm}
 \end{equation}
-This term confines the possible gauges to one class parametrized by real parameter
+This term confines the possible gauges to one class parametrized by a real parameter
 $\xi$. In non-Abelian gauge theories this term must be supplemented by the so
 called ghost term, which brings into the theory a new unphysical scalar particle
-obeying fermionic statistic. More details on the Faddev-Popov ghost field
+obeying fermionic statistic. More details on the Faddeev-Popov ghost field
 can be found in~\cite{FaddeevPopovGhosts}.
 
 
 \section{Perturbative QCD}
 
-The Quantum Electrodynamics and The QCD are both the quantum field gauge theories, but
-they differ in one killing feature - the former is Abelian whereas the latter is
+The Quantum Electrodynamics and the QCD are both quantum field gauge theories, but
+they differ in one key feature - the former is Abelian whereas the latter is
 not. The non-Abelian character of the QCD leads to new phenomenons of triple and
 quartic gluonic interactions, which have an origin in the QCD Lagrangian
 \eqref{eq:QCDLagrangian}. 
 In this Section, I discuss one remarkable consequence - the running coupling
 constant.
 
-We start with the scattering process
+I start with the scattering process
 
 \begin{equation}
   q \bar{q} \rightarrow q \bar{q},
   \label{eq:QuarkScattering}
 \end{equation}
-which is depicted in the lowest order of perturbation theory by the Feynman
-graph in Figure~\ref{fig:QuarkQuarkScattering}. Except contribution of this
+which is depicted in the lowest order of the perturbation theory by the Feynman
+graph in Figure~\ref{fig:QuarkQuarkScattering}. Except of the contribution of this
 graph to the scattering amplitude (which is the only contribution $\sim g^2$)
 there are 12 other Feynman diagrams with contributions $\sim g^4$. These are
 depicted in Figure~\ref{fig:QuarkQuarkScatteringCorrection}. 
 
-\begin{SCfigure}
+\begin{figure}[t]
   \centering
   \includegraphics[width=0.5\textwidth]{Chapter1/QuarkQuarkScattering.png} 
   \caption{Leading order Feynmann diagrams in the scattering reaction $q \bar{q}
     \rightarrow q \bar{q}$ with denoted transfered momentum $k$.}
   \label{fig:QuarkQuarkScattering}
-\end{SCfigure}
+\end{figure}
 
 \begin{figure}[t]
   \centering
@@ -639,9 +641,9 @@ depicted in Figure~\ref{fig:QuarkQuarkScatteringCorrection}.
 \end{figure}
 
 The contributions from all the Feynman diagrams are calculated in~\cite{QCDTextbook}
-in detail. There is shown, that all these contributions together are
+in detail. It is shown, that all these contributions together are
 logarithmically divergent. This divergence can be removed, when from the scattering
-amplitude for arbitrary momentum transfer $k^2$ the scattering amplitude for fixed
+amplitude for arbitrary momentum transfer $k^2$, the scattering amplitude for fixed
 momentum transfer $k^2 = -M^2$ is subtracted. This is how the renormalized
 coupling constant $g_R$ is obtained and here is its final expression 
 
@@ -652,17 +654,17 @@ coupling constant $g_R$ is obtained and here is its final expression
 \end{equation}
 Here $g_0$ stands for the coupling constant measured at the renormalization scale
 $k^2 = -M^2$ and $N_F$ for the number of different quark flavors with mass $m^2
-\ll \left| k^2 \right|$. Dependence of $g_R$ on transfered momentum $k^2$ is
-evident, but there are another two intertwined dependences - on renormalization
-scale $M$ and on coupling constant at renormalization scale $g_0 =
-\left. g_R \right|_{k^2=-M^2}$. For next purpose, it is convenient to use the
+\ll \left| k^2 \right|$. The dependence of $g_R$ on the transfered momentum $k^2$ is
+evident, but there are another two intertwined dependences - on the renormalization
+scale $M$ and on the coupling constant at the renormalization scale $g_0 =
+\left. g_R \right|_{k^2=-M^2}$. For the next purpose, it is convenient to use the
 dependence schema
 
 \begin{equation}
   g_R = g_R(-k^2,g_0(M)),
   \label{eq:RunningCouplingConstantDependenceSchema}
 \end{equation}
-which allows us to use the advantages of a $\beta$-function. With the usage of the
+allowing to use the advantages of a $\beta$-function. With the usage of the
 equation \eqref{eq:RenormalizedCoupling}, the differential equation for $g_0(M)$
 can be obtained
 
@@ -674,7 +676,7 @@ can be obtained
   , \quad b_0 = \frac{1}{16\pi^2}\left(11-\frac{2N_F}{3}\right),
   \label{eq:BetaFunction2}
 \end{align}
-and solved directly to obtain coupling constant $g_0$ for arbitrary
+and solved directly to obtain the coupling constant $g_0$ for arbitrary
 scale $-k^2$
 
 \begin{equation}
@@ -690,21 +692,21 @@ with solution
   , \quad g_0^2(-k^2) = 4 \pi \alpha_S( -k^2 ),
   \label{eq:RunningCouplingConstant}
 \end{equation}
-which is the final expression for running coupling constant up to one-loop
+which is the final expression for the running coupling constant up to one-loop
 order. This dependence corresponds to experimental data, which are depicted in
-Figure~\ref{fig:RunningCouplingConstant}. Coupling constant decreases with
-increasing momentum transfer allowing the use of the perturbation theory. This
+Figure~\ref{fig:RunningCouplingConstant}. The coupling constant decreases with
+the increasing momentum transfer allowing the use of the perturbation theory. This
 is known as the Principle of Asymptotic Freedom \cite{AssymptoticFreedom}.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.8\textwidth]{Chapter1/RunningCouplingConstant.png}
-  \caption[Experimental measurements of running coupling constant $\alpha_S(Q)$
+  \caption[Experimental measurements of the running coupling constant $\alpha_S(Q)$
           (solid line) and its uncertainty (yellow band).
           $Q=\sqrt{\left|k^2\right|}$ in comparison to
           \eqref{eq:RunningCouplingConstant}.]
-          {Experimental measurements of running
-          coupling constant $\alpha_S(Q)$ (solid line) and its uncertainty (yellow
+          {Experimental measurements of the running
+          coupling constant $\alpha_S(Q)$ (solid line) and their uncertainties (yellow
           band).  $Q=\sqrt{\left|k^2\right|}$ in comparison to
           \eqref{eq:RunningCouplingConstant}. Figure taken from
           \cite{RunningCouplingConstantMess}. }
@@ -724,21 +726,22 @@ demonstrates, that the perturbative QCD cannot be used at low energy transfers.
 In fact, the running coupling constant $\alpha_S(-k^2)$ reaches value $\sim 1$
 on momenta transfers $\sqrt{\left| k^2 \right|} \sim 500\MeV$. 
 
-The behavior of coupling constant at low energy transfers is not explainable in
+The behavior of the coupling constant at low energy transfers is not explainable in
 the language of the perturpative QCD just presented. It is non-perturbative effect
-known as the Principle of Color Confinment, which states, that quarks, when
-seperate, the gluon force field between them becomes stronger instead of
+known as the Principle of Color Confinement, which states, that when quarks
+become more distant, the gluon force field between them becomes stronger instead of
 diminishing. The accumulated energy is consumed by the creation of quark
 anti-quark pair, until there is no free color charge left. This principle
 forbids us from observing free quarks.
 
-To understand e.g. structure of proton with rest mass $< 1\GeV$, it is clear, the 
+To understand e.g. the structure of the proton with rest mass $< 1\GeV$, it is
+clear, that the 
 non-perturbative QCD has to be used. Basic ideas of the non-perturbative QCD are
 introduced in the next Section. 
 
 \section{Non-Perturbative QCD}
 
-The most well established non-perturbative approach to the QCD is a Lattice QCD.
+The most established non-perturbative approach to the QCD is a Lattice QCD.
 In this Section, I discuss the basic features of the Lattice QCD. More
 information on this extended topic can be found in~\cite{QCDTextbook,LQCDIntro}.
 

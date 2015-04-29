@@ -4,36 +4,35 @@
 questioning.}{Werner Heisenberg}
 
 In the previous Chapter, I have introduced the key features of the QCD, today's
-theory of the strong interaction. A predictions of the QCD are tested at particle
-accelerators persistently, with no signs for a new physics so far. 
-Large Hadron Collider, which will open energy regions not observed yet, can
-change this very soon.
+theory of the strong interaction. Predictions of the QCD are tested at particle
+accelerators persistently, with no clear signs for a new physics so far. 
+Run~II of the Large Hadron Collider (LHC), which will open energy regions not
+observed yet, can change this very soon.
 
-The most prevailing objects, we observe at inelastic collisions on hadron
+The most prevailing objects, we observe in inelastic collisions on hadron
 colliders, are collimated particle showers, called jets. With energies covering
-a range from a few GeV to a few TeV, at the Large Hadron Collider, and with the
+a range from a few GeV to a few TeV, at the LHC, and with the
 direct connection to the QCD processes, occurring during the collision, the jets
-are a suitable candidates allowing testing the QCD up to its edges.
+are suitable candidates to test the QCD.
 
-In this Chapter, I present the Large Hadron Collider and the ATLAS detector.
+In this Chapter, I present the LHC and the ATLAS detector.
 With the use of the QCD, defined in the previous Chapter, I give reasons for the
-necessity of jets, and I define the jet algorithms allowing us to
-straightforwardly recombine a
-set of particles into jets. At the end of this Chapter, I describe the essential
+necessity of jets, and I define the jet algorithms allowing straightforward
+recombination of set of particles into jets.
+At the end of this Chapter, I describe the essential
 steps, which has to be taken, to correctly reconstruct jets on the ATLAS
 detector.
 
-\section{The Large Hadron Collider and The ATLAS Detector}
+\section{LHC and ATLAS}
 
 CERN, the European Organization for Nuclear Research, is the largest particle
 physics laboratory in the world, located near Geneva, at the border between
 Switzerland and France. The current flagship project at CERN is a particle
-accelerator called the Large Hadron Collider, which, together with the
-ATLAS Detector, will be presented in this Section.
+accelerator called the LHC.
 
 \subsection{The Large Hadron Collider}
 
-The Large Hadron Collider (LHC) \cite{LHC, LHCPastPresentFuture} is a charged
+The LHC \cite{LHC, LHCPastPresentFuture} is a charged
 particle accelerator, which was built in the areas formerly used by the Large
 Electron-Positron Collider.  The main accelerator ring, of 27 km circumference,
 is located around 100 m below the surface, with four main experiments located
@@ -45,16 +44,10 @@ Figure~\ref{fig:LHC}.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{Chapter2/LHC.jpg}
-  \caption[Diagram showing the locations of the four main experiments (ALICE,
-          ATLAS, CMS and LHCb) that take place at the LHC. Located between 50 m and
-          150 m underground, huge caverns have been excavated to house the giant
-          detectors. The Super Proton Synchotron (SPS), the final link in the
-          pre-acceleration chain, and its connection tunnels to the LHC, are also
-          shown.]
-          {Diagram showing the locations of the four main experiments (ALICE,
-          ATLAS, CMS and LHCb) that take place at the LHC. Located between 50 m and
-          150 m underground, huge caverns have been excavated to house the giant
-          detectors. The Super Proton Synchotron (SPS), the final link in the
+  \caption{Diagram showing the locations of the four main experiments (ALICE,
+          ATLAS, CMS and LHCb) that take place at the LHC. 4 main experiments
+          are situated 50-150 m under ground.
+          The Super Proton Synchotron (SPS), the final link in the
           pre-acceleration chain, and its connection tunnels to the LHC, are also
           shown.  Figure taken from~\cite{CERN:ATLASexperimentPictureswiki}.  }
   \label{fig:LHC}
@@ -76,7 +69,7 @@ The first running period of the LHC, Run~I, was very successful and resulted in
 the discovery of the Higgs boson on July 4, 2012 \cite{HiggsDiscovery}.  The
 accelerator complex, including its experiments, has been upgraded for two years
 and the Run~II is expected to start in early summer 2015 \cite{LHCFuture,
-LHCFutureLuminosigy}. In Run~II, the center-of-mass energy of proton-proton
+LHCFutureLuminosigy}. In Run~II, the center-of-mass energy of the proton-proton
 collisions will be raised to $\sqrt{s} = 13 \TeV$, and the beam crossing time
 is expected to be reduced from the current $50\,\text{ns}$ to $25\,\text{ns}$. The
 integrated luminosity should be $\sim 100\,\text{fb}^{-1}$ after three years of
@@ -107,11 +100,11 @@ spectrometer.
     \caption{Inner detector and calorimeter systems.}
     \label{fig:ATLASinner}
   \end{subfigure}
-  \caption[(a) An overview of the ATLAS detector 
-           (b) Detail on the inner detector and the calorimeters - the dominant
+  \caption[(a) The overview of the ATLAS detector 
+           (b) The detail on the inner detector and the calorimeters - the dominant
            sub-detector systems used in this thesis.]
-           {(a) An overview of the ATLAS detector 
-           (b) Detail on the inner detector and the calorimeters - the dominant
+           {(a) The overview of the ATLAS detector 
+           (b) The detail on the inner detector and the calorimeters - the dominant
            sub-detector systems used in this thesis. Figures taken from
            \cite{CERNbook}.}
   \label{fig:ATLAS}
@@ -150,7 +143,7 @@ LAr/tungsten modules.
 \section{Hadron Collision at the LHC}
 
 Following the Reference about Monte Carlo event generators \cite{PDG} and the
-picture in Figure~\ref{fig:HardProcess}, I discuss, in this Section, the
+picture in Figure~\ref{fig:HardProcess}, in this Section,I discuss the
 phenomenology of inelastic proton-proton collisions. 
 
 \begin{figure}[t]
@@ -166,8 +159,8 @@ phenomenology of inelastic proton-proton collisions.
 Two incoming protons can be understood as two bags of partons. 
 The inelastic proton-proton collision is dominated by the strong interaction
 between two partons, called incoming partons. 
-Momentum transfer at their interaction is $Q \gg \Lambda$, co the perturbative
-QCD is used to describe the initial process of a hard scattering. 
+Momentum transfer at their interaction is $Q \gg \Lambda$, so the perturbative
+QCD is used to describe the initial process of the hard scattering. 
 The remaining energy is carried out by the rest of the partons, which create the so
 called underlying event - particles, which do not come from the dominant QCD
 processes.
@@ -184,7 +177,7 @@ infrared divergences are
 canceled by Kinoshita--Lee--Nauenberg theorem \cite{KLN1,KLN2}, so only
 collinear divergences remain. There is no mechanism known up to date, which
 would solve the problem with collinear divergences. However, observables
-inclusive enough, to be insensitive to processes, that distinguish between
+inclusive enough to be insensitive to processes, that distinguish between
 different numbers of partons, are not affected by infrared divergences.
 There is no possibility, how to theoretically predict the energy of hardest
 outgoing particle, but it is possible to predict the energy flow in a cone from
@@ -192,8 +185,8 @@ the point of scattering.
 
 This is where the term jet comes to play. A jet can be naively seen as a group
 of collimated particles generated by the hadronization of a parton in the
-scattering process, and it is the most important object used on hadron colliders for
-analysis of QCD processes.
+scattering process, and it is the most important object used on hadron colliders
+for the analysis of QCD processes.
 
 \section{Jet Algorithms}
 
@@ -219,7 +212,7 @@ Two important steps must be defined in each jet algorithm
 Additional steps may include the preclustering, which reduces the number of input
 objects for jet algorithm.
 
-This Sections starts with the definition of two classes of jet algorithms.
+This Section starts with the definition of two classes of jet algorithms.
 First of these are cone algorithms, which seems to me to be more
 illustrative, and $k_t$ algorithms, which are used in ATLAS experiment. After
 a characterization of these algorithms, I introduce two possible recombination
@@ -263,13 +256,13 @@ detector to find all stable proto-jets.
 
 \begin{figure}[t]
   \centering
-  \begin{subfigure}[b]{0.85\textwidth}
+  \begin{subfigure}[b]{0.95\textwidth}
     \includegraphics[width=\textwidth]{Chapter2/IRsafety.png}
     \caption{Infrared unsafety.}
     \label{fig:IRsafety}
   \end{subfigure}
   ~
-  \begin{subfigure}[b]{0.8\textwidth}
+  \begin{subfigure}[b]{0.9\textwidth}
     \includegraphics[width=\textwidth]{Chapter2/ColSafety.png}
     \caption{Collinear unsafety.}
     \label{fig:ColSafety}
@@ -301,7 +294,7 @@ and the squared $\pt$ of object $i$ relative to the beam axis
 \end{equation}
 Here $\Delta R_{ij}^2 = (y_i - y_j)^2 + (\phi_i - \phi_j)^2$ and $p_{T,i}$,
 $y_i$ and $\phi_i$ are respectively the transverse momentum, rapidity and
-azimuth of particle $i$. In addition to the radius parameter $R$, a new
+azimuth of particle $i$. In addition to the radius parameter $R$, a 
 parameter $p$ was introduced, to split $k_t$~algorithms into three categories.  
 \begin{itemize}
 	\item $p = 1$ $k_t$ algorithm,
@@ -457,12 +450,12 @@ unlike the jet calibration, is analysis dependent.
 Energy $E_{reco}$ of the jet measured by the detector may differ from the energy
 $E_{truth}$ of the corresponding particle jet. The goal of the jet energy scale
 calibration is to remove some detector effects and correct $E_{reco}$ to
-$E_{truth}$. The detector effects can be summarized by the formula
+$E_{truth}$. The detector effects can be approximated by the formula
 
 \begin{equation}
   E_{truth} = \frac{E_{reco} - O}{R \cdot S},
 \end{equation}
-where the following corrections was defined
+where the following corrections were defined
 
 \begin{itemize}
   \item \textbf{Offset} $\mathbf{O}$
