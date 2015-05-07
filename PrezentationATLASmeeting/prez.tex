@@ -3,18 +3,19 @@
 \usecolortheme{seagull}
 \setbeamertemplate{headline}{}
 \beamertemplatenavigationsymbolsempty
+\useoutertheme{infolines}
 
 \usepackage{lipsum}
 \setbeamersize{text margin left=10pt,text margin right=10pt}
 \setbeamertemplate{enumerate items}[default]
 \setbeamertemplate{itemize items}[default]
 
-\addtobeamertemplate{navigation symbols}{}{%
-    \usebeamerfont{footline}%
-    \usebeamercolor[fg]{footline}%
-    \hspace{1em}%
-    \insertframenumber/\inserttotalframenumber
-}
+%\addtobeamertemplate{navigation symbols}{}{%
+%    \usebeamerfont{footline}%
+%    \usebeamercolor[fg]{footline}%
+%    \hspace{1em}%
+%    \insertframenumber/\inserttotalframenumber
+%}
 
 \usepackage{graphicx}
 \graphicspath{{/Users/jlochman/Desktop/Diploma-thesis/Chapter3/}}
@@ -45,6 +46,8 @@ ATLAS Meeting \\
 
 \begin{document}
 
+\section{Introduction}
+
 %------------------------------------------------
 
 \begin{frame}
@@ -57,23 +60,32 @@ ATLAS Meeting \\
 \frametitle{My Analysis} 
 \begin{itemize}
   \item Inclusive jet double differential cross section in $\pt$ and rapidity
-    $y$. (Inclusive means $pp \rightarrow$ jet + anything)
+    $y$ (inclusive means $pp \rightarrow$ jet + anything) in Run~II of the ATLAS
+    Experiment (meaning $\sqrt{s}=13\TeV$)
   \item Data 
-    \begin{itemize}
+    \begin{enumerate}
       \item Monte Carlo  generated events of $pp$ collisions at
         $\sqrt{s}=13\TeV$. 
-      \item Collisions generated with \textsc{Pythia8} (LO QCD calculations).
-      \item ATLAS Detector response simulated with \textsc{Geant4} full simulation.
-    \end{itemize}
-  \item Detector level cross section corrected to the particle level
+      \begin{itemize}
+        \item Collisions generated with \textsc{Pythia8} (particle level)
+        \item ATLAS Detector response obtained with \textsc{Geant4} full
+          simulation (detector level)
+      \end{itemize}
+      \item NLO QCD predictions (parton level)
+    \end{enumerate}
+  \item Cross section corrected from the detector to the particle level in two
+    steps
     \begin{itemize}
       \item Calibration
       \item Unfolding
     \end{itemize}
-  \item Particle level cross section from \textsc{Pythia8} (LO QCD) compared with
-    NLO QCD cross section prediction on parton level.
+  \item Particle level cross section from \textsc{Pythia8} (LO QCD) compared
+    with the parton level NLO QCD cross section prediction.
 \end{itemize}
 \end{frame}
+
+\section{Jets}
+\subsection{Introduction}
 
 \begin{frame}
 \frametitle{Jet Necessity}
@@ -96,6 +108,8 @@ ATLAS Meeting \\
   \includegraphics[width=0.8\textwidth]{{../PrezentationATLASmeeting/gluonRadiation}.png}
 \end{figure}
 \end{frame}
+
+\subsection{Jet Algorithms}
 
 \begin{frame}
 \frametitle{Jet Requirements}
@@ -193,9 +207,11 @@ This jet algorithm is both infrared and collinear safe
 \end{figure}
 \end{frame}
 
+\section{Jet Reconstruction}
+\subsection{Parton, Particle and Detector Levels}
+
 \begin{frame}
 \frametitle{Jet Reconstruction}
-\framesubtitle{Parton, Particle and Detector Levels}
 Jet can be defined on three different levels of collisions
 \begin{itemize}
   \item Parton level - quarks, gluons and other particles created just after the
@@ -210,6 +226,8 @@ Jet can be defined on three different levels of collisions
 \end{figure}
 \end{frame}
 
+\subsection{Jet Corrections}
+
 \begin{frame}
 \frametitle{Jet Corrections}
 \begin{itemize}
@@ -220,9 +238,11 @@ Jet can be defined on three different levels of collisions
 \end{itemize}
 \begin{figure}[b]
   \centering
-  \includegraphics[width=0.9\textwidth]{{../PrezentationATLASmeeting/JetCorrections}.png}
+  \includegraphics[width=0.85\textwidth]{{../PrezentationATLASmeeting/JetCorrections}.png}
 \end{figure}
 \end{frame}
+
+\subsection{Calibration}
 
 \begin{frame}
 \frametitle{Calibration}
@@ -230,7 +250,7 @@ Jet can be defined on three different levels of collisions
   \item Modifies the kinematic properties of individual jets - the most important
     correction: Energy
   \item Tries to minimize the calorimeter non-compensation, noise, losses in dead
-    material and cracks, longitudial leakage and particle deflection in magnetic
+    material and cracks, longitudinal leakage and particle deflection in magnetic
     field.
   \item Universal for each jet analysis. Uses the standard
     \textsc{ApplyJetCalibration} library.
@@ -240,6 +260,8 @@ Jet can be defined on three different levels of collisions
   \includegraphics[width=0.9\textwidth]{{../PrezentationATLASmeeting/JetCalibration}.png}
 \end{figure}
 \end{frame}
+
+\subsection{Unfolding}
 
 \begin{frame}
 \frametitle{Unfolding}
@@ -257,7 +279,7 @@ Jet can be defined on three different levels of collisions
 \end{frame}
 
 \begin{frame}
-\frametitle{Unfolding - Mathematical Formualtion}
+\frametitle{Unfolding - Mathematical Formulation}
 \begin{itemize}
   \item I want: $f(\pt)$ (distribution of inclusive jet $\pt$ for $\pt \in
     \langle a, b \rangle$)
@@ -281,10 +303,13 @@ Jet can be defined on three different levels of collisions
 \end{itemize}
 \end{frame}
 
+\section{Data Analysis}
+\subsection{Data Characteristics}
+
 \begin{frame}
 \frametitle{Data Characteristics}
 \begin{itemize}
-  \item $pp$ collisions at $\sqrt{s}=13\TeV$, anti-$k_t$ jetn algorithm with
+  \item $pp$ collisions at $\sqrt{s}=13\TeV$, anti-$k_t$ jet algorithm with
     $R=0.4$, CT10 PDFs, AU2
   \item Measuring of inclusive jet double differential cross section in $\pt$
     and rapidity $y$ \end{itemize}
@@ -349,6 +374,8 @@ Jet can be defined on three different levels of collisions
 \normalsize
 \end{frame}
 
+\subsection{Event Selection}
+
 \begin{frame}
 \frametitle{Event Selection}
 \begin{itemize}
@@ -389,6 +416,8 @@ Jet can be defined on three different levels of collisions
 \end{figure}
 \end{frame}
 
+\subsection{Jet Matching}
+
 \begin{frame}
 \frametitle{Jet Matching}
 \begin{itemize}
@@ -423,11 +452,13 @@ Jet can be defined on three different levels of collisions
 \end{figure}
 \end{frame}
 
+\subsection{Unfolding}
+
 \begin{frame}
 \frametitle{Inputs for Unfolding}
-Unfolding ( calibrated reco spectrum ) = truth spectrum
+Unfolding (calibrated reco spectrum) $\approx$ truth spectrum
 \begin{itemize}
-  \item Input for unfolding procedure are
+  \item Inputs for unfolding procedure are
     \begin{itemize}
       \item Matching efficiencies - describing the ratio of matched jets to all jets
       \item Transfer matrix $A_{ij}$ - containing the number of reco jets in bin $i$ with
@@ -440,7 +471,7 @@ Unfolding ( calibrated reco spectrum ) = truth spectrum
   \item Simple unfolding
 
     Matching jets within different rapidity bins is not allowed. There are 8
-    indipendent 46x46 transfer matrices, one for each rapidity bin (46 = number
+    independent 46x46 transfer matrices, one for each rapidity bin (46 = number
     of $\pt$ bins)
   \item 2D unfolding
 
@@ -471,8 +502,9 @@ Unfolding ( calibrated reco spectrum ) = truth spectrum
 
 \begin{frame}
 \frametitle{Slices in Transfer Matrix of 2D Unfolding}
+\Put(265,20){\color{blue}\includegraphics[height=3cm]{{unfold_matrix_all}.eps}}
 \begin{figure}[b]
-  \centering
+  \raggedright
   \includegraphics[width=0.8\textwidth]{{UnfoldMatrixSlices11}.eps}
 \end{figure}
 \end{frame}
@@ -505,7 +537,7 @@ Unfolding procedure can be divided into three main steps
   \item Transfer matrix is used to correct data spectrum for detector effects. I
     use the Iterative Dynamical Stabilized unfolding method with one iteration
   \item The spectrum obtained by the step 2 is divided by the matching
-    efficienies of truth jets, in order to correct resulting spectrum for the
+    efficiencies of truth jets, in order to correct resulting spectrum for the
     unmatched truth jets
 \end{enumerate}
 \end{frame}
@@ -516,19 +548,22 @@ Unfolding procedure can be divided into three main steps
   \begin{column}{0.5\textwidth}
     \begin{figure}[H]
       \centering
-    Unfolded vs. Truth Spectrum
+    Reco and Unfolded vs. Truth Spectrum
       \includegraphics[width=\textwidth]{{SignalUnfolded_VS_Truth0Compare}.eps}
     \end{figure}
   \end{column}
   \begin{column}{0.5\textwidth}
     \begin{figure}[H]
       \centering
-    Simple vs. 2D unfolding
+    Simple and 2D unfolded vs. Truth Spectrum
       \includegraphics[width=\textwidth]{{UnfoldedSimpleComplex_VS_Truth0Compare}.eps}
     \end{figure}
   \end{column}
 \end{columns}
 \end{frame}
+
+\section{NLO QCD Predictions}
+\subsection{Introduction}
 
 \begin{frame}
 \frametitle{NLO QCD Prediction}
@@ -548,7 +583,7 @@ Unfolding procedure can be divided into three main steps
 
       Prediction depends on the concrete choice of a PDF
   \end{itemize}
-  \item Other uncertaintes (not so significant)
+  \item Other uncertainties (not so significant)
   \begin{itemize}
     \item \textbf{Nonperturbative corrections uncertainty}
 
@@ -559,6 +594,8 @@ Unfolding procedure can be divided into three main steps
   \end{itemize}
 \end{itemize}
 \end{frame}
+
+\subsection{Prediction Properties}
 
 \begin{frame}
 \frametitle{NLO Systematic Errors}
@@ -588,6 +625,8 @@ Unfolding procedure can be divided into three main steps
 \end{figure}
 \end{frame}
 
+\subsection{Comparison with \textsc{Pythia8}}
+
 \begin{frame}
 \frametitle{Comparison of LO and NLO QCD}
 \begin{figure}[b]
@@ -596,15 +635,19 @@ Unfolding procedure can be divided into three main steps
 \end{figure}
 \end{frame}
 
+\section{Conclusion}
+
 \begin{frame}
 \frametitle{Inclusive Jet Conclusions}
 \begin{block}{Why Inclusive Jets?}
-  They Cover wide range of momentum transfers ($\sim 1 \GeV - \sim 1 \TeV$ on
+  They Cover wide range of momentum transfers ($\sim 1 \GeV - 1 \TeV$ on
   the LHC) $\rightarrow$ predictions sensitive to
   the properties of the running coupling constant $\alpha_S$
 
-  They probe the structure of proton at small distance scales $\lambda \sim
-  1/\pt \sim \TeV^{-1} \sim 10^{-19}\,\text{m}$
+  They probe the structure of proton at small distance scales 
+  \begin{equation*}
+    \lambda \sim 1/\pt \sim \TeV^{-1} \sim 10^{-19}\,\text{m}
+  \end{equation*}
 
   They contribute to our understanding of PDF
 
@@ -618,7 +661,7 @@ Unfolding procedure can be divided into three main steps
 \begin{block}{Unfolding}
   Two approaches were probed.
   
-  No signiffacnt differences between these two approaches imply, for the real
+  No significant differences between these two approaches imply, for the real
   analysis, the Simple Unfolding approach should be used for its simpler
   implementation.
 
@@ -628,8 +671,6 @@ Unfolding procedure can be divided into three main steps
 \begin{block}{LO and NLO QCD}
   Significant differences showing the influence of the NLO QCD processes on
   physical observables.
-
-  In LHC Run II, the jet with $\pt$ up to $4\TeV$ will be observed.
 \end{block}
 \end{frame}
 
