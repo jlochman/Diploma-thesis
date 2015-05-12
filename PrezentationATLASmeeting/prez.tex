@@ -22,6 +22,10 @@
 \usepackage{epstopdf}
 \usepackage{booktabs} 
 \usepackage{courier}
+\usepackage{color}
+\usepackage{tikz}
+
+\setbeamercovered{transparent}
 
 \PassOptionsToPackage{demo}{graphicx}
 \def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
@@ -46,8 +50,6 @@ ATLAS Meeting \\
 
 \begin{document}
 
-\section{Introduction}
-
 %------------------------------------------------
 
 \begin{frame}
@@ -56,95 +58,121 @@ ATLAS Meeting \\
 
 %------------------------------------------------
 
+\section{Introduction}
+
 \begin{frame}
 \frametitle{My Analysis} 
-\begin{itemize}
-  \item Inclusive jet double differential cross section in $\pt$ and rapidity
-    $y$ (inclusive means $pp \rightarrow$ jet + anything) in Run~II of the ATLAS
+    Inclusive jet double differential cross section in $\pt$ and rapidity
+    $y$ (inclusive means $pp \rightarrow$ jet + ''anything'') in Run~II of the ATLAS
     Experiment (meaning $\sqrt{s}=13\TeV$)
-  \item Data 
-    \begin{enumerate}
-      \item Monte Carlo  generated events of $pp$ collisions at
-        $\sqrt{s}=13\TeV$. 
-      \begin{itemize}
-        \item Collisions generated with \textsc{Pythia8} (particle level)
-        \item ATLAS Detector response obtained with \textsc{Geant4} full
-          simulation (detector level)
-      \end{itemize}
-      \item NLO QCD predictions (parton level)
-    \end{enumerate}
-  \item Cross section corrected from the detector to the particle level in two
-    steps
-    \begin{itemize}
-      \item Calibration
-      \item Unfolding
-    \end{itemize}
-  \item Particle level cross section from \textsc{Pythia8} (LO QCD) compared
-    with the parton level NLO QCD cross section prediction.
-\end{itemize}
+
+\begin{block}{Why Inclusive Jets?}
+  \begin{itemize}
+    \item They Cover a \textit{\color{red}wide range of momentum transfers}
+      ($\sim 1 \GeV - 1 \TeV$ on the LHC) $\rightarrow$ predictions sensitive to
+      the properties of the running coupling constant $\alpha_S$
+
+    \item They probe the structure of proton at \textit{\color{red}small
+    distance scales}
+    \begin{equation*}
+      \lambda \sim 1/\pt \sim \TeV^{-1} \sim 10^{-19}\,\text{m}
+    \end{equation*}
+
+    \item They contribute to our understanding of PDFs
+
+    \item They \textit{\color{red}appreciate the increase in the center-of-mass
+    energy} as no other physics process observed on hadron colliders
+  \end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{My Analysis} 
+
+\begin{block}{Data}
+  Monte Carlo generated events of $pp$ collisions at $\sqrt{s}=13\TeV$. 
+  \begin{itemize}
+    \item collisions generated with \textsc{Pythia8} (particle level)
+    \item ATLAS detector response obtained with \textsc{Geant4} full
+      simulation (detector level)
+  \end{itemize}
+\end{block}
+
+\begin{block}{Jet Corrections}
+  Cross section corrected from the detector to the particle level in two steps
+  \begin{itemize}
+    \item Calibration
+    \item Unfolding
+  \end{itemize}
+\end{block}
+
+\begin{block}{LO vs. NLO QCD}
+  Particle level cross section from \textsc{Pythia8} (LO QCD) compared with the
+  parton level NLO QCD cross section prediction.  
+\end{block}
+
 \end{frame}
 
 \section{Jets}
 \subsection{Introduction}
 
 \begin{frame}
-\frametitle{Jet Necessity}
-\begin{itemize}
-  \item Gluon radiation cross section
-\begin{equation*}
-  \sigma_{q \rightarrow qg} \sim \frac{d\theta}{|\sin\theta|}
-  \frac{dE_k}{E_k}
-\end{equation*}
-  \item Divergences
-    \begin{itemize}
-      \item Infrared ($E_k = 0$)
-      \item Collinear ($\theta = 0$)
-    \end{itemize}
-  \item Good observables are IR and collinear safe, i.e. they are not
-    affected by soft and collinear splittings of final state partons.
-\end{itemize}
-\begin{figure}[b]
-  \centering
-  \includegraphics[width=0.8\textwidth]{{../PrezentationATLASmeeting/gluonRadiation}.png}
-\end{figure}
-\end{frame}
-
-\subsection{Jet Algorithms}
-
-\begin{frame}
-\frametitle{Jet Requirements}
-  \begin{itemize}
-    \item Jet can be naively seen as a group of collimated particles
-    \item Jet algorithm: A prescription, how particles (or other objects) are clustered
-          into separate jets. It should fulfill
-  \end{itemize}
+\frametitle{Jet Essential}
+\onslide<1->
 \begin{columns}[onlytextwidth]
-  \begin{column}{0.6\textwidth}
+  \begin{column}{0.5\textwidth}
+    \textbf{Gluon radiation cross section:}
+    \textbf{Divergences:}
+    \begin{itemize}
+      \item \textit{\color{red}Infrared} ($E_k = 0$)
+      \item \textit{\color{red}Collinear} ($\theta = 0$)
+    \end{itemize}
+    \textbf{Jet:} A group of collimated particles
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    \begin{equation*}
+      \sigma_{q \rightarrow qg} \sim \frac{d\theta}{|\sin\theta|}
+      \frac{dE_k}{E_k}
+    \end{equation*}
+    \begin{figure}[b]
+      \centering
+      \includegraphics[width=\textwidth]{{../PrezentationATLASmeeting/gluonRadiation}.png}
+    \end{figure}
+  \end{column}
+\end{columns}
+\onslide<2->
+\textbf{Jet algorithm:} A prescription, how particles (or other objects) are clustered
+  into separate jets. It should fulfill
+\begin{columns}[onlytextwidth]
+  \begin{column}{0.7\textwidth}
       \begin{itemize}
-        \item Infrared safety  
-          
-          The presence of an additional soft particle
+        \item \textit{Infrared safety:} The presence of an additional soft particle
           should not affect the recombination of particles into a jet.
-        \item Collinear safety  
-          
-          Jet reconstruction should not depend on the
+        \item \textit{Collinear safety:} Jet reconstruction should not depend on the
           fact, if the energy is carried by one particle, of if the particle is
           split into more collinear particles.
       \end{itemize}
   \end{column}
-  \begin{column}{0.4\textwidth}
+  \begin{column}{0.3\textwidth}
     \begin{figure}[b]
       \centering
-      \includegraphics[width=0.9\textwidth]{{../PrezentationATLASmeeting/clustering}.png}
+      \includegraphics[width=\textwidth]{{../PrezentationATLASmeeting/clustering}.png}
     \end{figure}
   \end{column}
 \end{columns}
+\textbf{Summary:} $q$ or $g$ {\color{red}CANNOT} be observed. Jets
+{\color{red}CAN}.
+
 \end{frame}
 
+
+\subsection{Jet Algorithms}
+
 \begin{frame}
-\frametitle{Fixed Cone Jet Algorithms}
+\frametitle{Cone Jet Algorithms}
 \begin{itemize}
-  \item The most illustrative jet algorithms. Different modifications.
+  \item The {\color{red}most illustrative} jet algorithms. Different modifications.
   \item Used in Tevatron. Not used in ATLAS. 
 \end{itemize}
 \begin{columns}[onlytextwidth]
@@ -161,6 +189,7 @@ ATLAS Meeting \\
     \end{figure}
   \end{column}
   \begin{column}{0.6\textwidth}
+    \textbf{Algorithm:}
     \begin{enumerate}
       \item Take particle with highest $\pt > \pt^{cutoff}$
       \item Recombine all particle within the fixed cone 
@@ -173,17 +202,23 @@ ATLAS Meeting \\
 \end{frame}
 
 \begin{frame}
-\frametitle{Anti-$k_t$ Jet Algorithm}
+\frametitle{$k_t$ Jet Algorithms}
+\textbf{Algorithm:}
 \begin{enumerate}
-  \item For each input object $i$ and all pairs of input objects $(i,j)$
+  \onslide<1-> \item For each input object $i$ and all pairs of input objects $(i,j)$
     calculate
     \begin{equation*}
-      d_i = p_{T,i}^{-2} \quad , \quad
-      d_{ij} = \min \left( p_{T,i}^{-2}, p_{T,j}^{-2} \right)
+      d_i = p_{T,i}^{2p} \quad , \quad
+      d_{ij} = \min \left( p_{T,i}^{2p}, p_{T,j}^{2p} \right)
       \frac{ \Delta y^2 + \Delta \phi^2 }{R^2} \quad \quad
       (R=0.4)
     \end{equation*}
-  \item Find minimum $d_{min}$ between all $d_{ij}$ and $d_i$
+    \begin{itemize}
+      \item $p=1$ $k_t$ algorithm,
+      \item $p=0$ Cambridge/Aachen algorithm,
+      \item $p=-1$ {\color{red}anti-$k_t$ algorithm}.
+    \end{itemize}
+  \onslide<2-> \item Find minimum $d_{min}$ between all $d_{ij}$ and $d_i$
   \begin{itemize}
     \item $d_{min}$ is between $d_{ij}$'s.
       
@@ -196,15 +231,19 @@ ATLAS Meeting \\
   \end{itemize}
   \item Go to 1 until all input objects are part of a jet.
 \end{enumerate}
-This jet algorithm is both infrared and collinear safe
 \end{frame}
 
 \begin{frame}
-\frametitle{Anti-$k_t$ Jet Algorithm}
+\frametitle{$k_t$ Jet Algorithms}
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{{../Chapter2/JetRecombination2}.png}
+  \includegraphics[width=0.5\textwidth]{{../Chapter2/JetRecombination1}.png}
+  \includegraphics[width=0.5\textwidth]{{../Chapter2/JetRecombination2}.png}
 \end{figure}
+\begin{itemize}
+  \item $k_t$ jet algorithms are both infrared and collinear safe
+  \item ATLAS uses anti-$k_t$ jet algorithm 
+\end{itemize}
 \end{frame}
 
 \section{Jet Reconstruction}
@@ -212,13 +251,13 @@ This jet algorithm is both infrared and collinear safe
 
 \begin{frame}
 \frametitle{Jet Reconstruction}
-Jet can be defined on three different levels of collisions
+Jet can be defined on a \textit{three different levels of collision}:
 \begin{itemize}
-  \item Parton level - quarks, gluons and other particles created just after the
-    collision. Directly connected to the QCD processes
-  \item Particle level - particles created by the hadronization. 
-  \item Detector level - from recorded signal. Detector imperfections cause a
-    distortion of observables.
+  \item \textbf{Parton level} - quarks, gluons and other particles created just after the
+    collision. Directly connected to the QCD processes.
+  \item \textbf{Particle level} - particles created by the hadronization. 
+  \item \textbf{Detector level} - recorded signal. Detector imperfections cause a
+    \textit{\color{red}distortion of observables}.
 \end{itemize}
 \begin{figure}[b]
   \centering
@@ -231,14 +270,14 @@ Jet can be defined on three different levels of collisions
 \begin{frame}
 \frametitle{Jet Corrections}
 \begin{itemize}
-  \item Correct observables derived from detector level to particle level by
+  \item Correct observables derived from detector to particle level by
     removing the detector effects
-  \item Two main procedures - Calibration and Unfolding
-  \item Both procedures are trained on Monte Carlo data
+  \item Two main procedures - \textit{\color{red}Calibration} and
+    \textit{\color{red}Unfolding}
 \end{itemize}
 \begin{figure}[b]
   \centering
-  \includegraphics[width=0.85\textwidth]{{../PrezentationATLASmeeting/JetCorrections}.png}
+  \includegraphics[width=0.9\textwidth]{{../PrezentationATLASmeeting/JetCorrections}.png}
 \end{figure}
 \end{frame}
 
@@ -247,12 +286,12 @@ Jet can be defined on three different levels of collisions
 \begin{frame}
 \frametitle{Calibration}
 \begin{itemize}
-  \item Modifies the kinematic properties of individual jets - the most important
+  \item Modifies the kinematic properties of \textit{\color{red}individual jets} - the most important
     correction: Energy
   \item Tries to minimize the calorimeter non-compensation, noise, losses in dead
     material and cracks, longitudinal leakage and particle deflection in magnetic
     field.
-  \item Universal for each jet analysis. Uses the standard
+  \item \textit{\color{red}Universal} for each jet analysis. Uses the standard
     \textsc{ApplyJetCalibration} library.
 \end{itemize}
 \begin{figure}[b]
@@ -268,8 +307,8 @@ Jet can be defined on three different levels of collisions
 \begin{itemize}
   \item Corrects the observables from detector level, to observables on particle
     level. 
-  \item Tries to minimize the effects of detector finite resolution.
-  \item Analysis dependent.
+  \item Tries to minimize the effects of detector \textit{\color{red}finite resolution}.
+  \item \textit{\color{red}Analysis dependent}.
 \end{itemize}
 \begin{figure}[b]
   \centering
@@ -281,25 +320,27 @@ Jet can be defined on three different levels of collisions
 \begin{frame}
 \frametitle{Unfolding - Mathematical Formulation}
 \begin{itemize}
-  \item I want: $f(\pt)$ (distribution of inclusive jet $\pt$ for $\pt \in
+  \onslide<1-> \item \textbf{I want:} $f(\pt)$ (distribution of inclusive jet $\pt$ for $\pt \in
     \langle a, b \rangle$)
-  \item From detector level I get: $g(x)$ (distribution of unphysical variable
+  \item From detector level \textbf{I have:} $g(x)$ (distribution of unphysical variable
     $x$)
   \begin{equation*}
     g(x) = \int_a^b A(x,\pt) f(\pt) d\pt
   \end{equation*}
   \item Detector smearing described by $A(x,\pt)$
-  \item Luckily $g(x)$ and $f(\pt)$ are for practical purpose discretized and in
+  \item Complicated \textit{\color{red}integral~equation} for $f(\pt)$
+  \onslide<2-> \item Luckily $g(x)$ and $f(\pt)$ are for practical purpose discretized and in
     analysis, I assume $x \in \langle a, b \rangle$, $N(i) \subset \langle
     a , b \rangle$ 
   \begin{equation*}
     g_i = \int_{N(i)}g(x)dx \quad , \quad f_i = \int_{N(i)}f(\pt)d\pt
   \end{equation*}
-  \item So the response of the detector is described by a simple matrix equation
-    \begin{equation*}
-      g = A f
-    \end{equation*}
-  \item Here $A$ is called the Transfer Matrix
+  \item So the response of the detector is described by a ''simple''
+    \textit{\color{red}matrix~equation}, with $A$ being called
+    \textit{\color{red}Transfer Matrix} 
+  \begin{equation*}
+    g = A f
+  \end{equation*}
 \end{itemize}
 \end{frame}
 
@@ -308,28 +349,29 @@ Jet can be defined on three different levels of collisions
 
 \begin{frame}
 \frametitle{Data Characteristics}
+\begin{columns}[onlytextwidth]
+  \begin{column}{0.4\textwidth}
 \begin{itemize}
   \item $pp$ collisions at $\sqrt{s}=13\TeV$, anti-$k_t$ jet algorithm with
     $R=0.4$, CT10 PDFs, AU2
   \item Measuring of inclusive jet double differential cross section in $\pt$
-    and rapidity $y$ \end{itemize}
-\begin{columns}[onlytextwidth]
-  \begin{column}{0.5\textwidth}
-\begin{itemize}
-  \item Parton level - cross section prediction calculated with NLOJET++ program
-    (NLO~QCD)
-  \item Particle level - events generated by \textsc{Pythia8} (LO~QCD)
-  \item Detector level - detector response on \textsc{Pythia8} events obtained
-    by \textsc{Geant4} full detector simulation. 
+    and rapidity $y$ 
 \end{itemize}
   \end{column}
-  \begin{column}{0.5\textwidth}
+  \begin{column}{0.6\textwidth}
 \begin{figure}[b]
   \centering
   \includegraphics[width=\textwidth]{{../PrezentationATLASmeeting/DataChar}.png}
 \end{figure}
   \end{column}
 \end{columns}
+\begin{itemize}
+  \item \textbf{Parton level} - cross section prediction calculated with NLOJET++ program
+    (NLO~QCD)
+  \item \textbf{Particle level} - events generated by \textsc{Pythia8} (LO~QCD)
+  \item \textbf{Detector level} - detector response on \textsc{Pythia8} events obtained
+    by \textsc{Geant4} full detector simulation. 
+\end{itemize} 
 \end{frame}
 
 \begin{frame}
@@ -374,18 +416,42 @@ Jet can be defined on three different levels of collisions
 \normalsize
 \end{frame}
 
+\begin{frame}
+\frametitle{$\pt$ spectra of Reco and Truth Jets}
+\begin{columns}[onlytextwidth]
+  \begin{column}{0.5\textwidth}
+    \begin{figure}[H]
+    \centering
+    Reco Spectra
+    \includegraphics[width=\textwidth]{{ptSignalAllRapidityBins}.eps}
+    \end{figure}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    \begin{figure}[H]
+      \centering
+    Truth Spectra
+    \includegraphics[width=\textwidth]{{ptTruthAllRapidityBins}.eps}
+    \end{figure}
+  \end{column}
+\end{columns}
+\end{frame}
+
 \subsection{Event Selection}
 
 \begin{frame}
 \frametitle{Event Selection}
+\onslide<1-> \textbf{Remove the jets} with $\pt$ and rapidity $y$ out of used binning
 \begin{itemize}
+
   \item \textbf{$\mathbf{\pt}$ Cut}
   
     Reco and truth jets with $\pt > 15 \GeV$ were kept.
   \item \textbf{$\mathbf{y}$ Cut}
 
     Reco and truth jets with $|y| < 4$ were kept.
-
+\end{itemize}
+\onslide<2-> \textbf{Remove the events} badly reconstructed by the detector
+\begin{itemize}
   \item \textbf{Zero Jet (0-jet) Cut}
     
     Events with at least one reco and one truth jet, after the
@@ -422,8 +488,8 @@ Jet can be defined on three different levels of collisions
 \frametitle{Jet Matching}
 \begin{itemize}
   \item In each event, for each truth jet, the corresponding reco jet has to be found.
-  \item I have used angular matching
-    \begin{itemize}
+  \item I have used \textit{\color{red}angular matching}
+    \begin{enumerate}
       \item For each pair $(i,j)$ of reco and truth jets
         \begin{equation*}
           dR_{ij} = \sqrt{d\phi_{ij}^2 + dy_{ij}^2}
@@ -432,7 +498,7 @@ Jet can be defined on three different levels of collisions
         matched and further not assumed
       \item Matching was done, when $\min(dR_{ij}) < dR^{cutoff}$ was not
         satisfied or all of the reco or truth jets were matched.
-    \end{itemize}
+    \end{enumerate}
 \end{itemize}
 \end{frame}
 
@@ -456,26 +522,26 @@ Jet can be defined on three different levels of collisions
 
 \begin{frame}
 \frametitle{Inputs for Unfolding}
-Unfolding (calibrated reco spectrum) $\approx$ truth spectrum
+Unfolding(calibrated reco spectrum) $\approx$ truth spectrum
 \begin{itemize}
-  \item Inputs for unfolding procedure are
+  \item Inputs for unfolding procedure 
     \begin{itemize}
-      \item Matching efficiencies - describing the ratio of matched jets to all jets
-      \item Transfer matrix $A_{ij}$ - containing the number of reco jets in bin $i$ with
+      \item \textbf{Matching efficiencies} - describing the ratio of matched jets to all jets
+      \item \textbf{Transfer matrix} $A_{ij}$ - containing the number of reco jets in bin $i$ with
         a matched truth jets generated in bin $j$
     \end{itemize}
-  \item To deal with the double binning (in $\pt$ and $y$), I use two approaches
-    to the unfolding
+  \item I test two approaches to the unfolding, allowing a dealing with the
+    double binning (in $\pt$ and $y$)
 \end{itemize}
 \begin{enumerate}
-  \item Simple unfolding
+  \item \textbf{Simple unfolding}
 
-    Matching jets within different rapidity bins is not allowed. There are 8
-    independent 46x46 transfer matrices, one for each rapidity bin (46 = number
-    of $\pt$ bins)
-  \item 2D unfolding
+    Matching jets within different rapidity bins is not allowed. There are
+    {\color{red}8~independent} 46x46 transfer matrices, one for each rapidity
+    bin (46~=~number of $\pt$ bins)
+  \item \textbf{2D unfolding}
 
-    Matching within different rapidity bins allowed. Only one 368x368 transfer
+    Matching within different rapidity bins allowed. {\color{red}Only one} 368x368 transfer
     matrix ($368=8 \times 48$)
 \end{enumerate}
 \end{frame}
@@ -486,15 +552,15 @@ Unfolding (calibrated reco spectrum) $\approx$ truth spectrum
   \begin{column}{0.5\textwidth}
     \begin{figure}[H]
       \centering
-    2D unfolding
-      \includegraphics[width=\textwidth]{{unfold_matrix_all}.eps}
+    Simple unfolding
+      \includegraphics[width=\textwidth]{{unfold_matrix_firstBin}.eps}
     \end{figure}
   \end{column}
   \begin{column}{0.5\textwidth}
     \begin{figure}[H]
       \centering
-    Simple unfolding
-      \includegraphics[width=\textwidth]{{unfold_matrix_firstBin}.eps}
+    2D unfolding
+      \includegraphics[width=\textwidth]{{unfold_matrix_all}.eps}
     \end{figure}
   \end{column}
 \end{columns}
@@ -516,14 +582,14 @@ Unfolding (calibrated reco spectrum) $\approx$ truth spectrum
     \begin{figure}[H]
       \centering
     Truth jets
-      \includegraphics[width=\textwidth]{{MatchEffSimpe2DSignal0Compare}.eps}
+      \includegraphics[width=\textwidth]{{MatchEffSimpe2DTruth0Compare}.eps}
     \end{figure}
   \end{column}
   \begin{column}{0.5\textwidth}
     \begin{figure}[H]
       \centering
     Reco jets
-      \includegraphics[width=\textwidth]{{MatchEffSimpe2DTruth0Compare}.eps}
+      \includegraphics[width=\textwidth]{{MatchEffSimpe2DSignal0Compare}.eps}
     \end{figure}
   \end{column}
 \end{columns}
@@ -531,11 +597,11 @@ Unfolding (calibrated reco spectrum) $\approx$ truth spectrum
 
 \begin{frame}
 \frametitle{Steps of Unfolding}
-Unfolding procedure can be divided into three main steps
+\textit{Three main steps of the unfolding procedure}
 \begin{enumerate}
   \item Input data are multiplied by the matching efficiencies of reco jets
   \item Transfer matrix is used to correct data spectrum for detector effects. I
-    use the Iterative Dynamical Stabilized unfolding method with one iteration
+    use the \textit{Iterative Dynamical Stabilized} unfolding method with one iteration
   \item The spectrum obtained by the step 2 is divided by the matching
     efficiencies of truth jets, in order to correct resulting spectrum for the
     unmatched truth jets
@@ -570,7 +636,7 @@ Unfolding procedure can be divided into three main steps
 \begin{itemize}
   \item NLO QCD predictions on parton level for $\sqrt{s}=8\TeV$ and
     $\sqrt{s}=13\TeV$
-  \item Theoretical uncertainties which are taken into account
+  \onslide<1-> \item \textit{\color{red}Theoretical uncertainties} which are taken into account
   \begin{itemize}
     \item \textbf{Scale uncertainty}
 
@@ -583,7 +649,7 @@ Unfolding procedure can be divided into three main steps
 
       Prediction depends on the concrete choice of a PDF
   \end{itemize}
-  \item Other uncertainties (not so significant)
+  \onslide<2-> \item \textit{\color{red}Other corrections} (not so significant)
   \begin{itemize}
     \item \textbf{Nonperturbative corrections uncertainty}
 
@@ -631,30 +697,11 @@ Unfolding procedure can be divided into three main steps
 \frametitle{Comparison of LO and NLO QCD}
 \begin{figure}[b]
   \centering
-  \includegraphics[width=0.8\textwidth]{{Truth_VS_Prediction0Compare}.eps}
+  \includegraphics[width=0.7\textwidth]{{Truth_VS_Prediction0Compare}.eps}
 \end{figure}
 \end{frame}
 
 \section{Conclusion}
-
-\begin{frame}
-\frametitle{Inclusive Jet Conclusions}
-\begin{block}{Why Inclusive Jets?}
-  They Cover wide range of momentum transfers ($\sim 1 \GeV - 1 \TeV$ on
-  the LHC) $\rightarrow$ predictions sensitive to
-  the properties of the running coupling constant $\alpha_S$
-
-  They probe the structure of proton at small distance scales 
-  \begin{equation*}
-    \lambda \sim 1/\pt \sim \TeV^{-1} \sim 10^{-19}\,\text{m}
-  \end{equation*}
-
-  They contribute to our understanding of PDF
-
-  They appreciate the increase in the transverse momentum as no other physics
-  process observed on hadron colliders
-\end{block}
-\end{frame}
 
 \begin{frame}
 \frametitle{Thesis Conclusions}
@@ -662,7 +709,7 @@ Unfolding procedure can be divided into three main steps
   Two approaches were probed.
   
   No significant differences between these two approaches imply, for the real
-  analysis, the Simple Unfolding approach should be used for its simpler
+  analysis, the {\color{red}Simple Unfolding approach should be used} for its simpler
   implementation.
 
   Agreement of the unfolded $\pt$ spectra with the truth $\pt$ spectra up to
