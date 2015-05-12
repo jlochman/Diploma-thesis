@@ -62,10 +62,19 @@ ATLAS Meeting \\
 
 \begin{frame}
 \frametitle{My Analysis} 
-    Inclusive jet double differential cross section in $\pt$ and rapidity
-    $y$ (inclusive means $pp \rightarrow$ jet + ''anything'') in Run~II of the ATLAS
-    Experiment (meaning $\sqrt{s}=13\TeV$)
+\footnotesize
 
+\begin{columns}[onlytextwidth]
+  \begin{column}{0.5\textwidth}
+    Inclusive jet double differential cross section in $\pt$ and rapidity
+    $y$ (inclusive means $pp~\rightarrow$~jet~+~''anything'') in Run~II of the ATLAS
+    Experiment ($\sqrt{s}=13\TeV$)
+    \begin{figure}[b]
+      \centering
+      \includegraphics[width=\textwidth]{{../PrezentationATLASmeeting/ATLASinclusive04}.png}
+    \end{figure}
+  \end{column}
+  \begin{column}{0.5\textwidth}
 \begin{block}{Why Inclusive Jets?}
   \begin{itemize}
     \item They Cover a \textit{\color{red}wide range of momentum transfers}
@@ -84,6 +93,10 @@ ATLAS Meeting \\
     energy} as no other physics process observed on hadron colliders
   \end{itemize}
 \end{block}
+  \end{column}
+\end{columns}
+
+\normalsize
 
 \end{frame}
 
@@ -597,7 +610,7 @@ Unfolding(calibrated reco spectrum) $\approx$ truth spectrum
 
 \begin{frame}
 \frametitle{Steps of Unfolding}
-\textit{Three main steps of the unfolding procedure}
+\textbf{Three main steps of the unfolding procedure}
 \begin{enumerate}
   \item Input data are multiplied by the matching efficiencies of reco jets
   \item Transfer matrix is used to correct data spectrum for detector effects. I
@@ -651,10 +664,10 @@ Unfolding(calibrated reco spectrum) $\approx$ truth spectrum
   \end{itemize}
   \onslide<2-> \item \textit{\color{red}Other corrections} (not so significant)
   \begin{itemize}
-    \item \textbf{Nonperturbative corrections uncertainty}
+    \item \textbf{Nonperturbative corrections}
 
       Hadronization and Underlying Event corrections.
-    \item \textbf{Electroweak corrections uncertainty}
+    \item \textbf{Electroweak corrections}
 
       Next to the QCD processes, the electroweak processes should be assumed.
   \end{itemize}
