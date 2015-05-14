@@ -131,7 +131,7 @@ ATLAS Meeting \\
 \subsection{Introduction}
 
 \begin{frame}
-\frametitle{Jet Essential}
+\frametitle{Why Do We Need Jets?}
 \onslide<1->
 \begin{columns}[onlytextwidth]
   \begin{column}{0.5\textwidth}
@@ -204,10 +204,10 @@ ATLAS Meeting \\
   \begin{column}{0.6\textwidth}
     \textbf{Algorithm:}
     \begin{enumerate}
-      \item Take particle with highest $\pt > \pt^{cutoff}$
-      \item Recombine all particle within the fixed cone 
-      \item Update cone direction
-      \item If direction have changed go to 2, else you have a jet
+      \item Take a particle with the highest $\pt > \pt^{cutoff}$
+      \item Recombine all particles within the fixed cone 
+      \item Update the cone direction
+      \item If the direction has changed, go to 2, else you have a jet
       \item Go to 1 until there is no particle left with $\pt > \pt^{cutoff}$
     \end{enumerate}
   \end{column}
@@ -430,23 +430,11 @@ Jet can be defined on a \textit{three different levels of collision}:
 \end{frame}
 
 \begin{frame}
-\frametitle{$\pt$ spectra of Reco and Truth Jets}
-\begin{columns}[onlytextwidth]
-  \begin{column}{0.5\textwidth}
-    \begin{figure}[H]
+\frametitle{$\pt$ spectra of Truth Jets}
+  \begin{figure}[H]
     \centering
-    Reco Spectra
-    \includegraphics[width=\textwidth]{{ptSignalAllRapidityBins}.eps}
-    \end{figure}
-  \end{column}
-  \begin{column}{0.5\textwidth}
-    \begin{figure}[H]
-      \centering
-    Truth Spectra
     \includegraphics[width=\textwidth]{{ptTruthAllRapidityBins}.eps}
-    \end{figure}
-  \end{column}
-\end{columns}
+  \end{figure}
 \end{frame}
 
 \subsection{Event Selection}
