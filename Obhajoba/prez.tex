@@ -142,11 +142,9 @@ $q$ or $g$ {\color{red}CANNOT} be directly observed. Jets {\color{red}CAN}
 
 \begin{frame}
 \frametitle{Inclusive Jets} 
+\textbf{Inclusive Jet:} $pp~\rightarrow$~jet~+~''anything'', 2012 Analysis
 \scriptsize
-Inclusive jet double differential cross section in $\pt$ and rapidity
-$y$ (inclusive means $pp~\rightarrow$~jet~+~''anything'') in Run~II of the ATLAS
-Experiment ($\sqrt{s}=13\TeV$).
-2012 Analysis {\footfullcite{Analysis2012}}:
+{\footfullcite{Analysis2012}}:
 \begin{columns}[onlytextwidth]
   \begin{column}{0.5\textwidth}
     \begin{figure}[b]
@@ -252,7 +250,7 @@ Experiment ($\sqrt{s}=13\TeV$).
   \begin{equation*}
     g(x) = \int_a^b A(x,\pt) f(\pt) d\pt
   \end{equation*}
-  \item Detector smearing described by $A(x,\pt)$
+  \item Detector smearing described by $A(x,\pt)$ (suppose, it is known)
   \item Complicated \textit{\color{red}integral~equation} for $f(\pt)$
   \onslide<2-> \item Luckily $g(x)$ and $f(\pt)$ are for practical purpose discretized and in
     analysis, I assume $x \in \langle a, b \rangle$, $N(i) \subset \langle
@@ -274,24 +272,34 @@ Experiment ($\sqrt{s}=13\TeV$).
 
 \begin{frame}
 \frametitle{Unfolding}
-\begin{itemize}
-  \item Unfolding(detector spectrum) $\approx$ particle spectrum
-  \item \textbf{Transfer matrix} $A_{ij}$ - containing the number of jets
-    which enterd detector in bin $i$ but were reconstructed in bin $j$
-  \item I test {\color{red}two approaches} to the unfolding, allowing a dealing with the
+\begin{center}
+Unfolding(detector spectrum) $\approx$ particle spectrum
+\end{center}
+\textbf{Transfer matrix} $A_{ij}$ - containing the number of jets
+  which entered detector in bin $i$ but were reconstructed in bin $j$
+\begin{columns}[onlytextwidth]
+  \begin{column}{0.7\textwidth}
+    I test {\color{red}two approaches} to the unfolding, allowing a dealing with the
     double binning (in $\pt$ and $y$)
-\end{itemize}
-\begin{enumerate}
-  \item \textbf{Simple unfolding}
-    \\
-    If reconstructed jet migrates to different rapidity bin, it is ignored.
-    There are {\color{red}8~independent} 46x46 transfer matrices, one for each rapidity
-    bin (46~=~number of $\pt$ bins)
-  \item \textbf{2D unfolding}
-    \\
-    Migration to different rapidity bins allowed.
-    {\color{red}Only one} 368x368 transfer matrix ($368=8 \times 46$)
-\end{enumerate}
+    \begin{enumerate}
+      \item \textbf{Simple unfolding}
+        \\
+        If reconstructed jet migrates to different rapidity bin, it is ignored.
+        {\color{red}8~independent} 46x46 transfer matrices, one for each rapidity
+        bin (46~=~number of $\pt$ bins)
+      \item \textbf{2D unfolding}
+        \\
+        Migration to different rapidity bins allowed.
+        {\color{red}Only one} 368x368 transfer matrix ($368=8 \times 46$)
+    \end{enumerate}
+  \end{column}
+  \begin{column}{0.25\textwidth}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{{UnfoldingExample}.png}
+    \end{figure}
+  \end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}
@@ -320,14 +328,14 @@ Experiment ($\sqrt{s}=13\TeV$).
   \begin{column}{0.5\textwidth}
     \begin{figure}[H]
       \centering
-    Reco and Unfolded vs. Truth Spectrum
+    Detector (Reco) and Unfolded \\ vs. \\ Particle (Truth) Spectrum
       \includegraphics[width=\textwidth]{{SignalUnfolded_VS_Truth0Compare}.eps}
     \end{figure}
   \end{column}
   \begin{column}{0.5\textwidth}
     \begin{figure}[H]
       \centering
-    Simple and 2D unfolded vs. Truth Spectrum
+    Simple and 2D Unfolded \\ vs. \\ Particle (Truth) Spectrum
       \includegraphics[width=\textwidth]{{UnfoldedSimpleComplex_VS_Truth0Compare}.eps}
     \end{figure}
   \end{column}
@@ -340,8 +348,7 @@ Experiment ($\sqrt{s}=13\TeV$).
 \begin{frame}
 \frametitle{NLO QCD Prediction}
 \begin{itemize}
-  \item NLO QCD predictions on parton level for $\sqrt{s}=8\TeV$ and
-    $\sqrt{s}=13\TeV$
+  \item NLO QCD predictions on parton level for $\sqrt{s}=8\TeV$ and $13\TeV$
   \onslide<1-> \item \textit{\color{red}Theoretical uncertainties} which are taken into account
   \begin{itemize}
     \item \textbf{Scale uncertainty}
@@ -371,7 +378,7 @@ Experiment ($\sqrt{s}=13\TeV$).
 \subsection{Prediction Properties}
 
 \begin{frame}
-\frametitle{NLO Systematic Errors}
+\frametitle{NLO Systematic Uncertainties}
 \begin{columns}[onlytextwidth]
   \begin{column}{0.5\textwidth}
     \begin{figure}[H]
@@ -388,14 +395,6 @@ Experiment ($\sqrt{s}=13\TeV$).
     \end{figure}
   \end{column}
 \end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{Comparison of NLO QCD Predictions}
-\begin{figure}[b]
-  \centering
-  \includegraphics[width=\textwidth]{{PredictionCompare0}.eps}
-\end{figure}
 \end{frame}
 
 \subsection{Comparison with LO QCD}
@@ -429,5 +428,34 @@ Experiment ($\sqrt{s}=13\TeV$).
   \end{itemize}
 \end{block}
 \end{frame}
+
+
+\section{Add-Ons}
+
+\begin{frame}[noframenumbering]
+\frametitle{Jet Clustering}
+\begin{figure}[b]
+  \centering
+  \includegraphics[width=0.85\textwidth]{{JetClustering}.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Slices in Transfer Matrix of 2D Unfolding}
+\Put(265,20){\color{blue}\includegraphics[height=3cm]{{unfold_matrix_all}.eps}}
+\begin{figure}[b]
+  \raggedright
+  \includegraphics[width=0.8\textwidth]{{UnfoldMatrixSlices11}.eps}
+\end{figure}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+  \frametitle{Comparison of $\sqrt{s}=8$ and $13\TeV$}
+\begin{figure}[b]
+  \centering
+  \includegraphics[width=\textwidth]{{PredictionCompare0}.eps}
+\end{figure}
+\end{frame}
+
 
 \end{document} 
